@@ -14,7 +14,9 @@ import android.widget.ImageView;
         import android.widget.ListAdapter;
         import android.widget.ListView;
         import android.widget.SimpleAdapter;
-        import org.json.JSONArray;
+import android.widget.Toast;
+
+import org.json.JSONArray;
         import org.json.JSONException;
         import org.json.JSONObject;
         import java.io.BufferedReader;
@@ -121,6 +123,8 @@ public class TicketingActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                       //  Intent intent = new Intent(getApplicationContext(),//액티비티 생성)
+                        Toast.makeText(getApplicationContext(),TicketList.indexOf(3),Toast.LENGTH_LONG).show();
+
                     }
                 });
         builder.setCancelable(false);
