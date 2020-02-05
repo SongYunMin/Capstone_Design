@@ -1,6 +1,10 @@
 package com.example.capstone_design;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
         import android.os.Bundle;
 import android.view.View;
@@ -31,6 +35,7 @@ public class TicketingActivity extends AppCompatActivity {
     private static final String TAG_PLACE = "place";
     private static final String TAG_PHOTO = "photo";
     public static Button Reservation;
+    public static int ticket_index;
 
     JSONArray ticket = null;
     // ListView 출력 사진
@@ -44,7 +49,8 @@ public class TicketingActivity extends AppCompatActivity {
 
     // onCreate Method 실제 실행하는 함수
     @Override
-    protected void onCreate(Bundle savedInstanceState)  {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticketing);
 
@@ -69,6 +75,7 @@ public class TicketingActivity extends AppCompatActivity {
                 String day = c.getString(TAG_DAY);
                 String place = c.getString(TAG_PLACE);
                 String photo = c.getString(TAG_PHOTO);
+
                 // AsyncTask Generic Type
                 HashMap<String, String>ticket = new HashMap<String, String>();
 
@@ -79,6 +86,8 @@ public class TicketingActivity extends AppCompatActivity {
                 ticket.put(TAG_PLACE,place);
                 ticket.put(TAG_PHOTO,photo);
 
+                // '내 티켓' 기능은 이 ArrayList를 활용하여 구현 가능할 것으로 보여 짐.
+                // index 는 0부터 시작
                 TicketList.add(ticket);
             }
 
@@ -87,10 +96,36 @@ public class TicketingActivity extends AppCompatActivity {
                     new String[]{TAG_NUM,TAG_NAME,TAG_TIME,TAG_DAY,TAG_PLACE,TAG_PHOTO},
                     new int[]{R.id.num,R.id.name,R.id.time,R.id.day,R.id.place}
             );
+            ticket_index = R.id.num;
             list.setAdapter(adapter);
         }catch (JSONException e){
             e.printStackTrace();
         }
+    }
+
+    // 예약 버튼 눌렀을 시
+    public void bt_reservation(View v)
+    {
+        Button Reservation = (Button) findViewById(R.id.bt_reser);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(TicketingActivity.this);
+        builder.setTitle("예약")
+                .setMessage("예약 하시겠습니까?")
+                .setNegativeButton("다음에", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                      //  Intent intent = new Intent(getApplicationContext(),//액티비티 생성)
+                    }
+                });
+        builder.setCancelable(false);
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
     // Data 얻어오는 Method
