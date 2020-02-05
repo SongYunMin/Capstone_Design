@@ -1,7 +1,6 @@
 package com.example.capstone_design;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+// LoginActivity 에서 가져온 id 값을 사용함
 import static com.example.capstone_design.LoginActivity.St_id;
 
 public class MainActivity extends AppCompatActivity {
@@ -42,10 +43,15 @@ public class MainActivity extends AppCompatActivity {
         new_Account_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(St_id == null){
                 Intent intent = new Intent(getApplicationContext(), NewAccount_Activity.class);
                 startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(),"이미 로그인 되어있습니다.",Toast.LENGTH_SHORT).show();
+                }
             }
         });
+
         // 버튼 클릭시 로그인 창으로 이동되는 코드 Intent를 이용함 (로그인시 진입 못하게 수정)
         Login_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,11 +65,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 버튼 클릭시 티켓 예미 창으로 이동되는 코드 Intent를 이용함
-        Ticketing_button.setOnClickListener(new View.OnClickListener(){
+        // 버튼 클릭시 티켓예약 창으로 이동되는 코드 intent를 이용함(로그인시 에만
+        Ticketing_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-               // Intent intent = new Intent(getApplicationContext(),)
+            public void onClick(View v) {
+                if (St_id != null) {
+                    Intent intent = new Intent(getApplicationContext(), TicketingActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        // 버튼 클릭시 티켓예약 창으로 이동되는 코드 intent를 이용함(로그인시 에만
+        MyTicket_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (St_id != null) {
+                    Intent intent = new Intent(getApplicationContext(), MyTicketActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(getApplicationContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

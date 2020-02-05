@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="2dp"
+    android:paddingTop="6dp"
+    >
+
+    <ImageView
+        android:id="@+id/ticket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <!-- Ticket Index -->
+    <TextView
+        android:id="@+id/num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"
+        />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        />
+
+    <TextView
+        android:id="@+id/day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        />
+
+    <TextView
+        android:id="@+id/place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        />
+
+    <!-- 예약 버튼 -->
+    <Button
+        android:id="@+id/bt_reservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_gravity="right"
+        android:background="#A156A4E9"
+        android:onClick="bt_reservation"
+        android:text="예약"
+        android:textColor="#000000"
+
+        />
+</LinearLayout>
