@@ -1,0 +1,24 @@
+package com.example.capstone_design;
+
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+public class TicketHolder {
+    public ImageView typeImageView;
+    public TextView nameView;
+    public TextView dayView;
+    public TextView timeView;
+    public TextView placeView;
+    public Button buttonView;
+
+    public TicketHolder(View root){
+        typeImageView = root.findViewById(R.id.ticket_photo);
+        nameView = root.findViewById(R.id.name);
+        dayView = root.findViewById(R.id.day);
+        timeView = root.findViewById(R.id.time);
+        placeView = root.findViewById(R.id.place);
+        buttonView = root.findViewById(R.id.bt_reser);
+    }
+}

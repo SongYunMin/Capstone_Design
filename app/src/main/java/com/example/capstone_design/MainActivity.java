@@ -65,12 +65,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // 버튼 클릭시 티켓예약 창으로 이동되는 코드 intent를 이용함(로그인시 에만
+        // 버튼 클릭시 티켓예약 창으로 이동되는 코드 intent를 이용함(로그인시 에만)
         Ticketing_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (St_id != null) {
-                    Intent intent = new Intent(getApplicationContext(), TicketingActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), Ticket_Reservation_Activity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
