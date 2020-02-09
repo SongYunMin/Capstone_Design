@@ -79,12 +79,12 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     (context.getResources(),R.drawable.skj,null));
         }
 
-
         buttonView.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v){
                 Toast toast=Toast.makeText(context,"예약이 완료되었습니다",Toast.LENGTH_LONG);
+                toast.show();
             }
         });
 

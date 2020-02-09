@@ -17,6 +17,7 @@
         <activity android:name=".NFCActivity"></activity>
         <activity android:name=".MyTicketActivity" />
         <activity android:name=".Ticket_Reservation_Activity" />
+        <activity android:name=".TicketingActivity" />
         <activity android:name=".NewAccount_Activity" />
         <activity
             android:name=".LoginActivity"
