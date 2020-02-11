@@ -28,8 +28,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static com.example.capstone_design.TicketAdapter.quantityView;
-import static com.example.capstone_design.TicketAdapter.vo;
+//import static com.example.capstone_design.TicketAdapter.quantityView;
+//import static com.example.capstone_design.TicketAdapter.vo;
 
 public class Ticket_Reservation_Activity extends AppCompatActivity {
     String myJSON;
@@ -138,7 +138,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
             // AsyncTask Background Method
             protected String doInBackground(String... params){
                 String uri = params[0];
-                BufferedReader bufferedReader=null;
+                BufferedReader bufferedReader = null;
                 try{
                     URL url = new URL(uri);
                     HttpURLConnection con = (HttpURLConnection)url.openConnection();

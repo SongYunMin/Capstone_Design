@@ -21,7 +21,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
+public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
     Context context;
     int resId;
     ArrayList<Ticket_VO> datas;
@@ -55,7 +55,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
         TextView dayView = holder.dayView;
         TextView timeView = holder.timeView;
         TextView placeView = holder.placeView;
-        TextView quantityView = holder.quantityView;
+        final TextView quantityView = holder.quantityView;
         final Button buttonView = holder.buttonView;
 
         vo = datas.get(position);
@@ -87,6 +87,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
 
         buttonView.setOnClickListener(new View.OnClickListener()
         {
+            AlertDialog.Builder builder = new AlertDialog.Builder();
             @Override
             public void onClick(View v){
                 // 실제 변환?
