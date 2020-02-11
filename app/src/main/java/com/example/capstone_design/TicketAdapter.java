@@ -17,6 +17,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.res.ResourcesCompat;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 
 public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
@@ -24,6 +26,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
     int resId;
     ArrayList<Ticket_VO> datas;
 
+    public static Ticket_VO vo;
     public TicketAdapter(Context context, int resId, ArrayList<Ticket_VO> datas){
         super(context,resId);
         this.context = context;
@@ -52,14 +55,17 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
         TextView dayView = holder.dayView;
         TextView timeView = holder.timeView;
         TextView placeView = holder.placeView;
+        TextView quantityView = holder.quantityView;
         final Button buttonView = holder.buttonView;
 
-        final Ticket_VO vo = datas.get(position);
+        vo = datas.get(position);
 
         nameView.setText(vo.cus_name);
-        dayView.setText(vo.cus_day);
-        timeView.setText(vo.cus_time);
-        placeView.setText(vo.cus_place);
+        dayView.setText("공연 일자 : " + vo.cus_day);
+        timeView.setText("시간 : " + vo.cus_time);
+        placeView.setText("장소 : " + vo.cus_place);
+        // setText로 int를 표현하기 위해서 String 형식으로 변환 후 출력
+        quantityView.setText("남은 티켓 : "+vo.cus_quantity);
 
         // 티켓 연번 1번 = BTS WORLD TOUR
         if(vo.cus_ticket.equals("1")){
@@ -83,6 +89,14 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
         {
             @Override
             public void onClick(View v){
+                // 실제 변환?
+                vo.cus_quantity -= 1;
+                // 하나씩 감소 count 해야 함
+//                HttpConnectThread http = new HttpConnectThread(
+//                        "http://210.124.110.96/"
+//                )
+                quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+
                 Toast toast=Toast.makeText(context,"예약이 완료되었습니다",Toast.LENGTH_LONG);
                 toast.show();
             }
@@ -90,6 +104,4 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
 
         return convertView;
     }
-
-
 }

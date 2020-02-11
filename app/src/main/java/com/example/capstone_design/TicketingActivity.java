@@ -78,6 +78,7 @@ public class TicketingActivity extends AppCompatActivity {
                 String day = c.getString(TAG_DAY);
                 String place = c.getString(TAG_PLACE);
                 String photo = c.getString(TAG_PHOTO);
+                String quantity = c.getString(TAG_QUANTITY);
 
                 // AsyncTask Generic Type
                 HashMap<String, String>ticket = new HashMap<String, String>();
@@ -88,6 +89,7 @@ public class TicketingActivity extends AppCompatActivity {
                 ticket.put(TAG_DAY,day);
                 ticket.put(TAG_PLACE,place);
                 ticket.put(TAG_PHOTO,photo);
+                ticket.put(TAG_QUANTITY,quantity);
 
                 // '내 티켓' 기능은 이 ArrayList를 활용하여 구현 가능할 것으로 보여 짐.
                 // index 는 0부터 시작
@@ -97,8 +99,8 @@ public class TicketingActivity extends AppCompatActivity {
             // SimpleAdapter 로는 Img 파일 동시 삽입 불가! CumtomAdapter 사용해야 함
             ListAdapter adapter = new SimpleAdapter(
                     TicketingActivity.this,TicketList,R.layout.list_item,
-                    new String[]{TAG_NUM,TAG_NAME,TAG_TIME,TAG_DAY,TAG_PLACE,TAG_PHOTO},
-                    new int[]{R.id.num,R.id.name,R.id.time,R.id.day,R.id.place}
+                    new String[]{TAG_NUM,TAG_NAME,TAG_TIME,TAG_DAY,TAG_PLACE,TAG_QUANTITY},
+                    new int[]{R.id.num,R.id.name,R.id.time,R.id.day,R.id.place,R.id.quantity}
             );
             ticket_index = R.id.num;
             list.setAdapter(adapter);

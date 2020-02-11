@@ -11,6 +11,7 @@ public class TicketHolder {
     public TextView dayView;
     public TextView timeView;
     public TextView placeView;
+    public TextView quantityView;
     public Button buttonView;
 
     public TicketHolder(View root){
@@ -19,6 +20,7 @@ public class TicketHolder {
         dayView = root.findViewById(R.id.day);
         timeView = root.findViewById(R.id.time);
         placeView = root.findViewById(R.id.place);
+        quantityView = root.findViewById(R.id.quantity);
         buttonView = root.findViewById(R.id.bt_reser);
     }
 }

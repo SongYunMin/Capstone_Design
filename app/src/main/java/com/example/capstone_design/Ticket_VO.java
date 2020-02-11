@@ -6,4 +6,5 @@ public class Ticket_VO {
     public String cus_time;
     public String cus_day;
     public String cus_place;
+    public int cus_quantity;
 }

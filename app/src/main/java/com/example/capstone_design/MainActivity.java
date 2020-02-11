@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (St_id != null) {
                     // 우선은 기존 TicketingActivity로 진행
-                    Intent intent = new Intent(getApplicationContext(), TicketingActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), Ticket_Reservation_Activity.class);
                     startActivity(intent);
                 } else {
                     Toast.makeText(getApplicationContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
