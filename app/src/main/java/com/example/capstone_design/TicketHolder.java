@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 public class TicketHolder {
     public ImageView typeImageView;
+    public TextView numView;
     public TextView nameView;
     public TextView dayView;
     public TextView timeView;
@@ -16,6 +17,7 @@ public class TicketHolder {
 
     public TicketHolder(View root){
         typeImageView = root.findViewById(R.id.ticket_photo);
+        numView = root.findViewById(R.id.num);
         nameView = root.findViewById(R.id.name);
         dayView = root.findViewById(R.id.day);
         timeView = root.findViewById(R.id.time);

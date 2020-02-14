@@ -16,15 +16,15 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.res.ResourcesCompat;
-
+import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
-    Context context;
-    int resId;
-    ArrayList<Ticket_VO> datas;
+    public static Context context;
+    public static int resId;
+    public static ArrayList<Ticket_VO> datas;
 
     public static Ticket_VO vo;
     public TicketAdapter(Context context, int resId, ArrayList<Ticket_VO> datas){
@@ -49,8 +49,8 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
             convertView.setTag(holder);
         }
         TicketHolder holder = (TicketHolder)convertView.getTag();
-
         ImageView typeImageView = holder.typeImageView;
+        TextView numView = holder.numView;
         TextView nameView = holder.nameView;
         TextView dayView = holder.dayView;
         TextView timeView = holder.timeView;
@@ -60,6 +60,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
 
         vo = datas.get(position);
 
+        numView.setText(vo.cus_ticket);
         nameView.setText(vo.cus_name);
         dayView.setText("공연 일자 : " + vo.cus_day);
         timeView.setText("시간 : " + vo.cus_time);
@@ -85,23 +86,92 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                     (context.getResources(),R.drawable.skj,null));
         }
 
-        buttonView.setOnClickListener(new View.OnClickListener()
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder();
-            @Override
-            public void onClick(View v){
-                // 실제 변환?
-                vo.cus_quantity -= 1;
-                // 하나씩 감소 count 해야 함
-//                HttpConnectThread http = new HttpConnectThread(
-//                        "http://210.124.110.96/"
-//                )
-                quantityView.setText("남은 티켓 : " + vo.cus_quantity);
 
-                Toast toast=Toast.makeText(context,"예약이 완료되었습니다",Toast.LENGTH_LONG);
-                toast.show();
-            }
-        });
+        if(vo.cus_ticket.equals("1")) {
+
+            buttonView.setOnClickListener(new View.OnClickListener() {
+                // AlertDialog.Builder builder = new AlertDialog.Builder();
+                @Override
+                public void onClick(View v) {
+                    // 실제 변환?
+                    int numTemp = 1;
+                    vo.cus_quantity -= 1;
+                    HttpConnectThread http = new HttpConnectThread(
+                            "http://210.124.110.96/TicketMinus.php",
+                            "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
+                    http.start();
+                    String temp = http.GetResult();
+
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
+                    ReservationWhether = "1";       // 예약여부
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+                }
+            });
+        }
+        else if(vo.cus_ticket.equals("2")) {
+            buttonView.setOnClickListener(new View.OnClickListener() {
+                // AlertDialog.Builder builder = new AlertDialog.Builder();
+                @Override
+                public void onClick(View v) {
+                    int numTemp = 2;
+                    // 실제 변환?
+                    vo.cus_quantity -= 1;
+                    HttpConnectThread http = new HttpConnectThread(
+                            "http://210.124.110.96/TicketMinus.php",
+                            "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
+                    http.start();
+                    String temp = http.GetResult();
+
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
+                    ReservationWhether = "1";       // 예약 여부
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+                }
+            });
+        }
+        else if(vo.cus_ticket.equals("3")) {
+            buttonView.setOnClickListener(new View.OnClickListener() {
+                // AlertDialog.Builder builder = new AlertDialog.Builder();
+                @Override
+                public void onClick(View v) {
+                    int numTemp = 3;
+                    // 실제 변환?
+                    vo.cus_quantity -= 1;
+                    HttpConnectThread http = new HttpConnectThread(
+                            "http://210.124.110.96/TicketMinus.php",
+                            "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
+                    http.start();
+                    String temp = http.GetResult();
+
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
+                    ReservationWhether = "1";
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+                }
+            });
+        }
+        else if(vo.cus_ticket.equals("4")) {
+            buttonView.setOnClickListener(new View.OnClickListener() {
+                // AlertDialog.Builder builder = new AlertDialog.Builder();
+                @Override
+                public void onClick(View v) {
+                    int numTemp = 4;
+                    // 실제 변환?
+                    vo.cus_quantity -= 1;
+                    HttpConnectThread http = new HttpConnectThread(
+                            "http://210.124.110.96/TicketMinus.php",
+                            "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
+                    http.start();
+                    String temp = http.GetResult();
+
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
+                    ReservationWhether = "1";
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+                }
+            });
+        }
 
         return convertView;
     }

@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class NewAccount_Activity extends AppCompatActivity {
     EditText ed_name, ed_id, ed_pw, ed_pwck, ed_phone;
     String st_name, st_id, st_pw, st_pwck, st_phone;
+    public static String ReservationWhether;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,8 @@ public class NewAccount_Activity extends AppCompatActivity {
             //String 형으로 입력받은 코드들을 서버로 전송
             HttpConnectThread http = new HttpConnectThread(
                     "http://210.124.110.96/new_member.php",
-                    "userid=" + st_id + "&username=" + st_name + "&userpassword=" + st_pw + "&userphone=" + st_phone);
+                    "userid=" + st_id + "&username=" + st_name + "&userpassword=" + st_pw +
+                            "&userphone=" + st_phone);
             http.start();
             String temp = http.GetResult();
             // "회원가입" 버튼을 눌렀을때 이벤트 처리
@@ -66,6 +68,7 @@ public class NewAccount_Activity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     // Intent intent = new Intent(getApplicationContext(), FingerPrint_Activity.class);
                                     // startActivity(intent);
+                                    ReservationWhether = "0";
                                 }
                             });
                     builder.setCancelable(false);

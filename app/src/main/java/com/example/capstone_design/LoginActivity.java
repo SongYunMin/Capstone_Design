@@ -22,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     public static String LoginCheck;
     public static Context Check;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

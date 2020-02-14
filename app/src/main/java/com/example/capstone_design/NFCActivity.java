@@ -25,6 +25,7 @@ public class NFCActivity extends AppCompatActivity {
 
     EditText mWriteText;
     NfcAdapter mNfcAdapter;
+
     PendingIntent mPendingIntent;
 
     @Override

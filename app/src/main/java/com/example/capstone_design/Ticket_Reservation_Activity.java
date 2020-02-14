@@ -67,12 +67,12 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
     // List 의 들어갈 값을 가져오는 Method
     protected void showList(){
         ArrayList<Ticket_VO> datas = new ArrayList<>();
-
         try{
             JSONObject jsonObj = new JSONObject(myJSON);
             ticket = jsonObj.getJSONArray(TAG_RESULT);
 
             for(int i=0;i<ticket.length();i++){
+
                 JSONObject c = ticket.getJSONObject(i);
                 String num = c.getString(TAG_NUM);
                 String name = c.getString(TAG_NAME);
@@ -103,32 +103,10 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
     }
 
 
-     //예약 버튼 눌렀을 시
+     // 사용 안함
     public void bt_reservation(View v)
     {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(Ticket_Reservation_Activity.this);
-//        builder.setTitle("예약")
-//                .setMessage("예약 하시겠습니까?")
-//                .setNegativeButton("다음에", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        finish();
-//                    }
-//                })
-//                // 예약 완료 시 Ticket Value 출력 되어야 함
-//                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//
-//                        Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
-//                                Toast.LENGTH_LONG).show();
-//                        vo.cus_quantity -= 1;
-//                        quantityView.setText("남은 티켓 : " + vo.cus_quantity);
-//                    }
-//                });
-//        builder.setCancelable(false);
-//        AlertDialog dialog = builder.create();
-//        dialog.show();
+
     }
 
     // Data 얻어오는 Method

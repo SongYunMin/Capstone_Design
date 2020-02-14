@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 // LoginActivity 에서 가져온 id 값을 사용함
 import static com.example.capstone_design.LoginActivity.St_id;
+import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(), "이미 로그인 되어있습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "이미 로그인 되어있습니다.",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -83,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         MyTicket_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (St_id != null) {
+                if (St_id != null && ReservationWhether.equals("1")) {
                     Intent intent = new Intent(getApplicationContext(), MyTicketActivity.class);
                     startActivity(intent);
                 } else {

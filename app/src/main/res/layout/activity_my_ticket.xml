@@ -29,9 +29,49 @@
         android:textSize="20dp"
         android:textColor="#ffffff"/>
 
+    <!-- 공연 이미지 -->
     <ImageView
+        android:id="@+id/my_ticket_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        />
+
+    <!-- 공연 이름 -->
+    <TextView
+        android:id="@+id/my_ticket_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textColor="#FFFFFF"
+        />
+
+    <!-- 공연 날짜 -->
+    <TextView
+        android:id="@+id/my_ticket_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textColor="#FFFFFF"
+        />
+    <!-- 공연 시간 -->
+    <TextView
+        android:id="@+id/my_ticket_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textColor="#FFFFFF"
+        />
+    <!-- 공연 장소 -->
+    <TextView
+        android:id="@+id/my_ticket_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textColor="#FFFFFF"
         />
 
 
