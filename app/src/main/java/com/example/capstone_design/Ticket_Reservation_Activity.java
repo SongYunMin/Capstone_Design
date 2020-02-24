@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -44,9 +45,9 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
     private static final String TAG_PHOTO = "photo";
     TicketAdapter adapter;
     JSONArray ticket = null;
-    // ListView 출력 사진
-    // "내티켓" 메뉴 출력 사진
-    // 티켓 값이 들어있음
+
+
+
     public static ArrayList<HashMap<String,String>>TicketList;
     ListView list;
 

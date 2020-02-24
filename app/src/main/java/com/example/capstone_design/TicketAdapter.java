@@ -2,6 +2,7 @@ package com.example.capstone_design;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.media.Image;
 import android.net.Uri;
 import android.text.Layout;
 import android.view.LayoutInflater;
@@ -12,11 +13,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.res.ResourcesCompat;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
+
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -26,7 +27,15 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
     public static int resId;
     public static ArrayList<Ticket_VO> datas;
 
-    public static Ticket_VO vo;
+    public static ImageView MyTicket_Img;
+    public static TextView MyTicket_name;
+    public static TextView MyTicket_day;
+    public static TextView MyTicket_time;
+    public static TextView MyTicket_place;
+
+    // 예약된 데이터 값 - 특정 티켓 선택하면 새로운 텍스트 생성해서 저장하는 방식 고려
+
+   public static Ticket_VO vo;
     public TicketAdapter(Context context, int resId, ArrayList<Ticket_VO> datas){
         super(context,resId);
         this.context = context;
@@ -106,6 +115,19 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                     toast.show();
                     ReservationWhether = "1";       // 예약여부
                     quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+                    MyTicket_Img.findViewById(R.id.my_ticket_img);
+                    MyTicket_name.findViewById(R.id.my_ticket_name);
+                    MyTicket_day.findViewById(R.id.my_ticket_day);
+                    MyTicket_time.findViewById(R.id.my_ticket_time);
+                    MyTicket_place.findViewById(R.id.my_ticket_place);
+
+                    MyTicket_Img.setImageDrawable(ResourcesCompat.getDrawable
+                            (context.getResources(),R.drawable.bts,null));
+                    MyTicket_name.setText(vo.cus_name);
+                    MyTicket_day.setText(vo.cus_day);
+                    MyTicket_time.setText(vo.cus_time);
+                    MyTicket_place.setText(vo.cus_place);
+
                 }
             });
         }

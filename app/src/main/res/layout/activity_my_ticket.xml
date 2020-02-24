@@ -27,7 +27,8 @@
         android:fontFamily="@font/seoulnamsanb"
         android:text="Mobile Ticketing Service"
         android:textSize="20dp"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff"
+        />
 
     <!-- 공연 이미지 -->
     <ImageView
@@ -55,6 +56,7 @@
         android:fontFamily="@font/seoulnamsanb"
         android:textColor="#FFFFFF"
         />
+
     <!-- 공연 시간 -->
     <TextView
         android:id="@+id/my_ticket_time"
@@ -64,6 +66,7 @@
         android:fontFamily="@font/seoulnamsanb"
         android:textColor="#FFFFFF"
         />
+
     <!-- 공연 장소 -->
     <TextView
         android:id="@+id/my_ticket_place"
