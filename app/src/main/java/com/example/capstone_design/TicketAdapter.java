@@ -103,6 +103,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                 @Override
                 public void onClick(View v) {
                     // 실제 변환?
+                    // Test
                     int numTemp = 1;
                     vo.cus_quantity -= 1;
                     HttpConnectThread http = new HttpConnectThread(
