@@ -2,6 +2,7 @@ package com.example.capstone_design;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -17,11 +18,14 @@ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -31,6 +35,24 @@ import java.util.HashMap;
 
 //import static com.example.capstone_design.TicketAdapter.quantityView;
 //import static com.example.capstone_design.TicketAdapter.vo;
+import static com.example.capstone_design.TicketAdapter.context;
+
+//class MyTicket_Adapter extends AppCompatActivity
+//{
+//    ImageView Myticket_img = (ImageView) findViewById(R.id.my_ticket_img);
+////    TextView Myticket_name = (TextView) findViewById(R.id.my_ticket_name);
+////    TextView Myticket_day = (TextView) findViewById(R.id.my_ticket_day);
+////    TextView Myticket_time = (TextView) findViewById(R.id.my_ticket_time);
+////    TextView MyTicket_place = (TextView) findViewById(R.id.my_ticket_place);
+//
+//    MyTicket_Adapter()
+//    {
+//        Myticket_img.setImageDrawable(ResourcesCompat.getDrawable
+//                (context.getResources(),R.drawable.bts,null));
+//
+//    }
+//}
+
 
 public class Ticket_Reservation_Activity extends AppCompatActivity {
     String myJSON;
@@ -46,7 +68,8 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
     TicketAdapter adapter;
     JSONArray ticket = null;
 
-
+    public static ImageView MyTicket_img;
+    public static TextView MyTicket_name;
 
     public static ArrayList<HashMap<String,String>>TicketList;
     ListView list;
@@ -57,7 +80,8 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticketing);
-
+        MyTicket_img = (ImageView) findViewById(R.id.my_ticket_img);
+        MyTicket_name = (TextView) findViewById(R.id.my_ticket_name);
         list = (ListView) findViewById(R.id.ticket_list);
         TicketList = new ArrayList<HashMap<String, String>>();
 
@@ -102,7 +126,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
 
      // 사용 안함
     public void bt_reservation(View v)
