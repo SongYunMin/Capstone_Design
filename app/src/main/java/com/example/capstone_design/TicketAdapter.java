@@ -28,17 +28,17 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
     public static int resId;
     public static ArrayList<Ticket_VO> datas;
 
+    public static Ticket_VO vo;
 
-
-    // 예약된 데이터 값 - 특정 티켓 선택하면 새로운 텍스트 생성해서 저장하는 방식 고려
-
-   public static Ticket_VO vo;
+    // 생성자
     public TicketAdapter(Context context, int resId, ArrayList<Ticket_VO> datas){
         super(context,resId);
         this.context = context;
         this.resId=resId;
         this.datas=datas;
     }
+
+
 
     @Override
     public int getCount(){
@@ -113,13 +113,6 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                     toast.show();
                     ReservationWhether = "1";       // 예약여부
                     quantityView.setText("남은 티켓 : " + vo.cus_quantity);
-
-
-//                    MyTicket_img.setImageDrawable(ResourcesCompat.getDrawable
-//                        (context.getResources(),R.drawable.bts,null));
-//                    MyTicket_day.setText(vo.cus_day);
-//                    MyTicket_time.setText(vo.cus_time);
-//                    MyTicket_place.setText(vo.cus_place);
 
                 }
             });

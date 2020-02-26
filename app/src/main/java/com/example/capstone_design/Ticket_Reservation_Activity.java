@@ -33,26 +33,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-//import static com.example.capstone_design.TicketAdapter.quantityView;
-//import static com.example.capstone_design.TicketAdapter.vo;
-import static com.example.capstone_design.TicketAdapter.context;
-
-//class MyTicket_Adapter extends AppCompatActivity
-//{
-//    ImageView Myticket_img = (ImageView) findViewById(R.id.my_ticket_img);
-////    TextView Myticket_name = (TextView) findViewById(R.id.my_ticket_name);
-////    TextView Myticket_day = (TextView) findViewById(R.id.my_ticket_day);
-////    TextView Myticket_time = (TextView) findViewById(R.id.my_ticket_time);
-////    TextView MyTicket_place = (TextView) findViewById(R.id.my_ticket_place);
-//
-//    MyTicket_Adapter()
-//    {
-//        Myticket_img.setImageDrawable(ResourcesCompat.getDrawable
-//                (context.getResources(),R.drawable.bts,null));
-//
-//    }
-//}
-
 
 public class Ticket_Reservation_Activity extends AppCompatActivity {
     String myJSON;
@@ -68,8 +48,8 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
     TicketAdapter adapter;
     JSONArray ticket = null;
 
-    public static ImageView MyTicket_img;
-    public static TextView MyTicket_name;
+//    public static ImageView MyTicket_img;
+//    public static TextView MyTicket_name;
 
     public static ArrayList<HashMap<String,String>>TicketList;
     ListView list;
@@ -80,8 +60,8 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticketing);
-        MyTicket_img = (ImageView) findViewById(R.id.my_ticket_img);
-        MyTicket_name = (TextView) findViewById(R.id.my_ticket_name);
+//        MyTicket_img = (ImageView) findViewById(R.id.my_ticket_img);
+//        MyTicket_name = (TextView) findViewById(R.id.my_ticket_name);
         list = (ListView) findViewById(R.id.ticket_list);
         TicketList = new ArrayList<HashMap<String, String>>();
 
@@ -119,17 +99,15 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
                 datas.add(vo);
             }
 
+
+            // list_item
         TicketAdapter adapter = new TicketAdapter(this,R.layout.list_item,datas);
         list.setAdapter(adapter);
 
         }catch (JSONException e){
             e.printStackTrace();
         }
-    }
 
-     // 사용 안함
-    public void bt_reservation(View v)
-    {
 
     }
 
