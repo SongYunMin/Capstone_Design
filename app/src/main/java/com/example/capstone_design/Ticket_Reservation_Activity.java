@@ -77,6 +77,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
             ticket = jsonObj.getJSONArray(TAG_RESULT);
 
             for(int i=0;i<ticket.length();i++){
+                // code
 
                 JSONObject c = ticket.getJSONObject(i);
                 String num = c.getString(TAG_NUM);
@@ -96,7 +97,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
                 vo.cus_place = place;
                 vo.cus_quantity = quantity_int;
 
-                
+
                 datas.add(vo);
             }
 
