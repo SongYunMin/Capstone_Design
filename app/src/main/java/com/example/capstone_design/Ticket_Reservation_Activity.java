@@ -79,6 +79,8 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
             for(int i=0;i<ticket.length();i++){
                 // code
 
+                // test 2
+
                 JSONObject c = ticket.getJSONObject(i);
                 String num = c.getString(TAG_NUM);
                 String name = c.getString(TAG_NAME);
