@@ -96,6 +96,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
                 vo.cus_place = place;
                 vo.cus_quantity = quantity_int;
 
+                
                 datas.add(vo);
             }
 
