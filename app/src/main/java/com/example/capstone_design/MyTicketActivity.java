@@ -29,8 +29,10 @@ public class MyTicketActivity extends AppCompatActivity {
         final TextView TimeText = (TextView)findViewById(R.id.my_ticket_time);
         final TextView PlaceText = (TextView)findViewById(R.id.my_ticket_place);
 
-
-        
+        if(ReservationWhether.equals("1"))
+        {
+           // NameText.setText( );
+        }
 
 
     }
