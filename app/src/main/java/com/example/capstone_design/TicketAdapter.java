@@ -66,7 +66,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
         final TextView quantityView = holder.quantityView;
         final Button buttonView = holder.buttonView;
 
-        Ticket_VO vo = datas.get(position);
+        vo = datas.get(position);
         numView.setText(vo.cus_ticket);
         nameView.setText(vo.cus_name);
         dayView.setText("공연 일자 : " + vo.cus_day);
