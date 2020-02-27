@@ -34,7 +34,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Ticket_Reservation_Activity extends AppCompatActivity {
+public class Ticket_Reservation_Activity extends AppCompatActivity
+        implements AdapterView.OnClickListener {
     String myJSON;
 
     private static final String TAG_RESULT = "result";
@@ -52,27 +53,25 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
 //    public static ImageView MyTicket_img;
 //    public static TextView MyTicket_name;
 
-    public static ArrayList<HashMap<String,String>>TicketList;
+    //public static ArrayList<HashMap<String,String>>TicketList;
+    public static ArrayList<Ticket_VO> datas = new ArrayList<>();
     ListView list;
+    String[] datass;
 
     // onCreate Method 실제 실행하는 함수
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticketing);
-//        MyTicket_img = (ImageView) findViewById(R.id.my_ticket_img);
-//        MyTicket_name = (TextView) findViewById(R.id.my_ticket_name);
-        list = (ListView) findViewById(R.id.ticket_list);
-        //TicketList = new ArrayList<HashMap<String, String>>();
 
+        list = (ListView) findViewById(R.id.ticket_list);
         // getdata Method 접근, 아래 정의 되어 있음
         getData("http://210.124.110.96/Ticket_Value.php");
     }
 
+
     // List 의 들어갈 값을 가져오는 Method
     protected void showList(){
-        ArrayList<Ticket_VO> datas = new ArrayList<>();
         try{
             JSONObject jsonObj = new JSONObject(myJSON);
             ticket = jsonObj.getJSONArray(TAG_RESULT);
@@ -104,7 +103,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
             // list_item
         TicketAdapter adapter = new TicketAdapter(this,R.layout.list_item,datas);
         list.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
         }catch (JSONException e){
             e.printStackTrace();
         }

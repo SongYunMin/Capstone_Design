@@ -19,6 +19,7 @@ import androidx.core.content.res.ResourcesCompat;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
 
 
+import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -49,7 +50,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
     @NonNull
     @Override
     // 내부적으로 자동 호출 됨
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(resId,null);
@@ -64,7 +65,8 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
         TextView timeView = holder.timeView;
         TextView placeView = holder.placeView;
         final TextView quantityView = holder.quantityView;
-        final Button buttonView = holder.buttonView;
+        notifyDataSetChanged();
+        Button buttonView = holder.buttonView;
 
         vo = datas.get(position);
         numView.setText(vo.cus_ticket);
@@ -99,20 +101,20 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                 // AlertDialog.Builder builder = new AlertDialog.Builder();
                 @Override
                 public void onClick(View v) {
+                    String myJS;
                     int numTemp = 1;
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
                     ReservationWhether = "1";       // 예약여부
                     vo.cus_quantity -= 1;
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
 
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
                     http.start();
                     String temp = http.GetResult();
-                    //Ticket_name = numView.getText();
-
+                    //Ticket_Reservation_Activity.getData("http://210.124.110.96/Ticket_Resend.php");
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
                 }
             });
         }
@@ -124,15 +126,14 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                     int numTemp = 2;
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
-                    ReservationWhether = "1";       // 예약 여부
+                    ReservationWhether = "2";       // 예약 여부
                     vo.cus_quantity -= 1;
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
-
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
                     http.start();
                     String temp = http.GetResult();
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
                 }
             });
         }
@@ -144,15 +145,15 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                     int numTemp = 3;
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
-                    ReservationWhether = "1";
+                    ReservationWhether = "3";
                     vo.cus_quantity -= 1;
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
 
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
                     http.start();
                     String temp = http.GetResult();
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
                 }
             });
         }
@@ -164,19 +165,18 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                     int numTemp = 4;
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
-                    ReservationWhether = "1";
+                    ReservationWhether = "4";
                     vo.cus_quantity -= 1;
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
 
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
                     http.start();
                     String temp = http.GetResult();
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
                 }
             });
         }
-
         return convertView;
     }
 }

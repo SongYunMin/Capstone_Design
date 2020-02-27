@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 public class TicketHolder {
     public ImageView typeImageView;
-    public TextView numView;
+    public static TextView numView;
     public TextView nameView;
     public TextView dayView;
     public TextView timeView;

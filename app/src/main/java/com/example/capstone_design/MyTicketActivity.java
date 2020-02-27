@@ -16,6 +16,7 @@ import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
 public class MyTicketActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +28,9 @@ public class MyTicketActivity extends AppCompatActivity {
         final TextView DayText = (TextView)findViewById(R.id.my_ticket_day);
         final TextView TimeText = (TextView)findViewById(R.id.my_ticket_time);
         final TextView PlaceText = (TextView)findViewById(R.id.my_ticket_place);
+
+
         
-        NameText.setText(TicketAdapter.Ticket_name);
 
 
     }
