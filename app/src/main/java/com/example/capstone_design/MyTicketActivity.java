@@ -27,6 +27,8 @@ public class MyTicketActivity extends AppCompatActivity {
         final TextView DayText = (TextView)findViewById(R.id.my_ticket_day);
         final TextView TimeText = (TextView)findViewById(R.id.my_ticket_time);
         final TextView PlaceText = (TextView)findViewById(R.id.my_ticket_place);
+        
+        NameText.setText(TicketAdapter.Ticket_name);
 
 
     }

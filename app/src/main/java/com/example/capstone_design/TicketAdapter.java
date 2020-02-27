@@ -27,8 +27,10 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
     public static Context context;
     public static int resId;
     public static ArrayList<Ticket_VO> datas;
-
     public static Ticket_VO vo;
+
+    public static Image Ticket_img;
+    public static String Ticket_name;
 
     // 생성자
     public TicketAdapter(Context context, int resId, ArrayList<Ticket_VO> datas){
@@ -38,15 +40,15 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
         this.datas=datas;
     }
 
-
-
     @Override
+    // 내부적으로 자동 호출 됨
     public int getCount(){
         return datas.size();
     }
 
     @NonNull
     @Override
+    // 내부적으로 자동 호출 됨
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null) {
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -64,8 +66,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
         final TextView quantityView = holder.quantityView;
         final Button buttonView = holder.buttonView;
 
-        vo = datas.get(position);
-
+        Ticket_VO vo = datas.get(position);
         numView.setText(vo.cus_ticket);
         nameView.setText(vo.cus_name);
         dayView.setText("공연 일자 : " + vo.cus_day);
@@ -94,25 +95,23 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
 
 
         if(vo.cus_ticket.equals("1")) {
-
             buttonView.setOnClickListener(new View.OnClickListener() {
                 // AlertDialog.Builder builder = new AlertDialog.Builder();
                 @Override
                 public void onClick(View v) {
-                    // 실제 변환?
-                    // Test
                     int numTemp = 1;
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
+                    ReservationWhether = "1";       // 예약여부
                     vo.cus_quantity -= 1;
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
                     http.start();
                     String temp = http.GetResult();
-
-                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                    toast.show();
-                    ReservationWhether = "1";       // 예약여부
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+                    //Ticket_name = numView.getText();
 
                 }
             });
@@ -123,18 +122,17 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                 @Override
                 public void onClick(View v) {
                     int numTemp = 2;
-                    // 실제 변환?
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
+                    ReservationWhether = "1";       // 예약 여부
                     vo.cus_quantity -= 1;
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
                     http.start();
                     String temp = http.GetResult();
-
-                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                    toast.show();
-                    ReservationWhether = "1";       // 예약 여부
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
                 }
             });
         }
@@ -144,18 +142,17 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                 @Override
                 public void onClick(View v) {
                     int numTemp = 3;
-                    // 실제 변환?
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
+                    ReservationWhether = "1";
                     vo.cus_quantity -= 1;
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
                     http.start();
                     String temp = http.GetResult();
-
-                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                    toast.show();
-                    ReservationWhether = "1";
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
                 }
             });
         }
@@ -165,18 +162,17 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                 @Override
                 public void onClick(View v) {
                     int numTemp = 4;
-                    // 실제 변환?
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
+                    ReservationWhether = "1";
                     vo.cus_quantity -= 1;
+                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
                     http.start();
                     String temp = http.GetResult();
-
-                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                    toast.show();
-                    ReservationWhether = "1";
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
                 }
             });
         }

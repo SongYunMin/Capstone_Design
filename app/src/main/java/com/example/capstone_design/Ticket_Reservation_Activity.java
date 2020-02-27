@@ -47,6 +47,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
     private static final String TAG_PHOTO = "photo";
     TicketAdapter adapter;
     JSONArray ticket = null;
+    public static int quantity_int;
 
 //    public static ImageView MyTicket_img;
 //    public static TextView MyTicket_name;
@@ -63,7 +64,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
 //        MyTicket_img = (ImageView) findViewById(R.id.my_ticket_img);
 //        MyTicket_name = (TextView) findViewById(R.id.my_ticket_name);
         list = (ListView) findViewById(R.id.ticket_list);
-        TicketList = new ArrayList<HashMap<String, String>>();
+        //TicketList = new ArrayList<HashMap<String, String>>();
 
         // getdata Method 접근, 아래 정의 되어 있음
         getData("http://210.124.110.96/Ticket_Value.php");
@@ -77,9 +78,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
             ticket = jsonObj.getJSONArray(TAG_RESULT);
 
             for(int i=0;i<ticket.length();i++){
-                // code
-
-                // test 2
 
                 JSONObject c = ticket.getJSONObject(i);
                 String num = c.getString(TAG_NUM);
@@ -89,7 +87,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
                 String place = c.getString(TAG_PLACE);
                 String quantity = c.getString(TAG_QUANTITY);
                 String photo = c.getString(TAG_PHOTO);
-                int quantity_int = Integer.parseInt(quantity);
+                quantity_int = Integer.parseInt(quantity);
 
                 Ticket_VO vo = new Ticket_VO();
                 vo.cus_ticket = num;
@@ -99,7 +97,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
                 vo.cus_place = place;
                 vo.cus_quantity = quantity_int;
 
-
                 datas.add(vo);
             }
 
@@ -107,12 +104,10 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
             // list_item
         TicketAdapter adapter = new TicketAdapter(this,R.layout.list_item,datas);
         list.setAdapter(adapter);
-
+        adapter.notifyDataSetChanged();
         }catch (JSONException e){
             e.printStackTrace();
         }
-
-
     }
 
     // Data 얻어오는 Method
@@ -123,6 +118,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity {
             protected String doInBackground(String... params){
                 String uri = params[0];
                 BufferedReader bufferedReader = null;
+
                 try{
                     URL url = new URL(uri);
                     HttpURLConnection con = (HttpURLConnection)url.openConnection();
