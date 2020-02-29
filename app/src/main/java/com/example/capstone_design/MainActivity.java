@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         MyTicket_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (St_id != null && ReservationWhether.equals("1")) {
+                if (St_id != null) {
                     Intent intent = new Intent(getApplicationContext(), MyTicketActivity.class);
                     startActivity(intent);
                 } else {

@@ -20,7 +20,7 @@ public class NewAccount_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_newaccount);
-
+        ReservationWhether = "0";
         // XML 코드에서 입력한 값들을 불러옴
         ed_name = (EditText) findViewById(R.id.NAME);
         ed_id = (EditText) findViewById(R.id.ID);
@@ -68,7 +68,7 @@ public class NewAccount_Activity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     // Intent intent = new Intent(getApplicationContext(), FingerPrint_Activity.class);
                                     // startActivity(intent);
-                                    ReservationWhether = "0";
+
                                 }
                             });
                     builder.setCancelable(false);

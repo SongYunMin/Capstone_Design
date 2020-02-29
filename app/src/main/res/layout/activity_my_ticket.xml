@@ -30,11 +30,25 @@
         android:textColor="#ffffff"
         />
 
+    <!-- 예약된 티켓이 없을 경우 Text -->
+    <TextView
+        android:id="@+id/noticket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/seoulnamsanb"
+        android:text="예약된 티켓이 없습니다"
+        android:textSize="40dp"
+        android:textColor="#FFFFFF"
+        android:visibility="gone"
+        />
     <!-- 공연 이미지 -->
     <ImageView
         android:id="@+id/my_ticket_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         />
 
     <!-- 공연 이름 -->
@@ -43,8 +57,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/seoulnamsanb"
+        android:textSize="30dp"
         android:textColor="#FFFFFF"
+
         />
 
     <!-- 공연 날짜 -->
@@ -54,6 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/seoulnamsanb"
+        android:textSize="20dp"
         android:textColor="#FFFFFF"
         />
 
@@ -64,6 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/seoulnamsanb"
+        android:textSize="20dp"
         android:textColor="#FFFFFF"
         />
 
@@ -74,8 +93,19 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/seoulnamsanb"
+        android:textSize="20dp"
         android:textColor="#FFFFFF"
         />
 
+    <!-- 활성화 버튼 -->
+    <Button
+        android:id="@+id/my_ticket_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/seoulnamsanb"
+        android:text="활성화"
+        />
 
 </LinearLayout>
