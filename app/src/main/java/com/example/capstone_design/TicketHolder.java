@@ -13,7 +13,7 @@ public class TicketHolder {
     public TextView timeView;
     public TextView placeView;
     public TextView quantityView;
-    public Button buttonView;
+    public static Button buttonView;
 
     public TicketHolder(View root){
         typeImageView = root.findViewById(R.id.ticket_photo);

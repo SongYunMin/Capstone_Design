@@ -76,7 +76,7 @@ public class MyTicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 if(ReservationWhether != "0"){
-                    Intent intent = new Intent(getApplicationContext(), NFCActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), FingerPrintActivity.class);
                     startActivity(intent);
                 }
             }

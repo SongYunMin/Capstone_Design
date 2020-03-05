@@ -33,6 +33,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
+import static com.example.capstone_design.TicketAdapter.vo;
+import static com.example.capstone_design.TicketHolder.buttonView;
+
 
 public class Ticket_Reservation_Activity extends AppCompatActivity
         implements AdapterView.OnClickListener {
@@ -69,7 +73,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
         getData("http://210.124.110.96/Ticket_Value.php");
     }
 
-
     // List 의 들어갈 값을 가져오는 Method
     protected void showList(){
         try{
@@ -103,6 +106,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             // list_item
         TicketAdapter adapter = new TicketAdapter(this,R.layout.list_item,datas);
         list.setAdapter(adapter);
+
         }catch (JSONException e){
             e.printStackTrace();
         }

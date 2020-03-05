@@ -2,6 +2,7 @@ package com.example.capstone_design;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.media.Image;
 import android.net.Uri;
 import android.text.Layout;
@@ -13,10 +14,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.res.ResourcesCompat;
+
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
+import static com.example.capstone_design.TicketHolder.buttonView;
 
 
 import org.json.JSONObject;
@@ -24,7 +28,7 @@ import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
+public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
     public static Context context;
     public static int resId;
     public static ArrayList<Ticket_VO> datas;
@@ -34,16 +38,16 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
     public static String Ticket_name;
 
     // 생성자
-    public TicketAdapter(Context context, int resId, ArrayList<Ticket_VO> datas){
-        super(context,resId);
+    public TicketAdapter(Context context, int resId, ArrayList<Ticket_VO> datas) {
+        super(context, resId);
         this.context = context;
-        this.resId=resId;
-        this.datas=datas;
+        this.resId = resId;
+        this.datas = datas;
     }
 
     @Override
     // 내부적으로 자동 호출 됨
-    public int getCount(){
+    public int getCount() {
         return datas.size();
     }
 
@@ -51,13 +55,13 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
     @Override
     // 내부적으로 자동 호출 됨
     public View getView(final int position, View convertView, ViewGroup parent) {
-        if(convertView == null) {
-            LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(resId,null);
+        if (convertView == null) {
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(resId, null);
             TicketHolder holder = new TicketHolder(convertView);
             convertView.setTag(holder);
         }
-        TicketHolder holder = (TicketHolder)convertView.getTag();
+        TicketHolder holder = (TicketHolder) convertView.getTag();
         ImageView typeImageView = holder.typeImageView;
         TextView numView = holder.numView;
         TextView nameView = holder.nameView;
@@ -75,28 +79,24 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
         timeView.setText("시간 : " + vo.cus_time);
         placeView.setText("장소 : " + vo.cus_place);
         // setText로 int를 표현하기 위해서 String 형식으로 변환 후 출력
-        quantityView.setText("남은 티켓 : "+vo.cus_quantity);
+        quantityView.setText("남은 티켓 : " + vo.cus_quantity);
 
         // 티켓 연번 1번 = BTS WORLD TOUR
-        if(vo.cus_ticket.equals("1")){
+        if (vo.cus_ticket.equals("1")) {
             typeImageView.setImageDrawable(ResourcesCompat.getDrawable
-                    (context.getResources(),R.drawable.bts,null));
-        }
-        else if(vo.cus_ticket.equals("2")){
+                    (context.getResources(), R.drawable.bts, null));
+        } else if (vo.cus_ticket.equals("2")) {
             typeImageView.setImageDrawable(ResourcesCompat.getDrawable
-                    (context.getResources(),R.drawable.kkh,null));
-        }
-        else if(vo.cus_ticket.equals("3")){
+                    (context.getResources(), R.drawable.kkh, null));
+        } else if (vo.cus_ticket.equals("3")) {
             typeImageView.setImageDrawable(ResourcesCompat.getDrawable
-                    (context.getResources(),R.drawable.mmmia,null));
-        }
-        else if(vo.cus_ticket.equals("4")){
+                    (context.getResources(), R.drawable.mmmia, null));
+        } else if (vo.cus_ticket.equals("4")) {
             typeImageView.setImageDrawable(ResourcesCompat.getDrawable
-                    (context.getResources(),R.drawable.skj,null));
+                    (context.getResources(), R.drawable.skj, null));
         }
 
-
-        if(vo.cus_ticket.equals("1")) {
+        if (vo.cus_ticket.equals("1")) {
             buttonView.setOnClickListener(new View.OnClickListener() {
                 // AlertDialog.Builder builder = new AlertDialog.Builder();
                 @Override
@@ -114,11 +114,9 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                     http.start();
                     String temp = http.GetResult();
                     //Ticket_Reservation_Activity.getData("http://210.124.110.96/Ticket_Resend.php");
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
                 }
             });
-        }
-        else if(vo.cus_ticket.equals("2")) {
+        } else if (vo.cus_ticket.equals("2")) {
             buttonView.setOnClickListener(new View.OnClickListener() {
                 // AlertDialog.Builder builder = new AlertDialog.Builder();
                 @Override
@@ -133,11 +131,9 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
                     http.start();
                     String temp = http.GetResult();
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
                 }
             });
-        }
-        else if(vo.cus_ticket.equals("3")) {
+        } else if (vo.cus_ticket.equals("3")) {
             buttonView.setOnClickListener(new View.OnClickListener() {
                 // AlertDialog.Builder builder = new AlertDialog.Builder();
                 @Override
@@ -153,11 +149,9 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
                     http.start();
                     String temp = http.GetResult();
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
                 }
             });
-        }
-        else if(vo.cus_ticket.equals("4")) {
+        } else if (vo.cus_ticket.equals("4")) {
             buttonView.setOnClickListener(new View.OnClickListener() {
                 // AlertDialog.Builder builder = new AlertDialog.Builder();
                 @Override
@@ -173,10 +167,11 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO>{
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
                     http.start();
                     String temp = http.GetResult();
-                    quantityView.setText("남은 티켓 : " + vo.cus_quantity);
                 }
             });
         }
         return convertView;
     }
+
+
 }
