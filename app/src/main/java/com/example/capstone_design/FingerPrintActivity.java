@@ -23,12 +23,10 @@ public class FingerPrintActivity extends AppCompatActivity {
             @Override
             public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                 super.onAuthenticationSucceeded(result);
-                Toast.makeText(getApplicationContext(),"지문인증이 완료되었습니다",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),NFCActivity.class);
                 startActivity(intent);
             }
         });
-
         fingerBioFactory1.authenticate();
     }
 }
