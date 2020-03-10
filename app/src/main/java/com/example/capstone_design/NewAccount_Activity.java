@@ -2,7 +2,6 @@ package com.example.capstone_design;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,8 +45,8 @@ public class NewAccount_Activity extends AppCompatActivity {
                             "&userphone=" + st_phone);
             http.start();
             String temp = http.GetResult();
-
             Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다", Toast.LENGTH_LONG).show();
+
             // 알림 창
             AlertDialog.Builder builder = new AlertDialog.Builder(NewAccount_Activity.this);
             builder.setTitle("지문인증요청")
@@ -74,7 +73,6 @@ public class NewAccount_Activity extends AppCompatActivity {
 //                @Override
 //                public void onClick(View v) {
 //                    // Toast 메세지
-//
 //                }
 //            });
         } else {

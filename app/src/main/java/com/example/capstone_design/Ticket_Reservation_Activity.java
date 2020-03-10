@@ -101,8 +101,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
 
                 datas.add(vo);
             }
-
-
             // list_item
         TicketAdapter adapter = new TicketAdapter(this,R.layout.list_item,datas);
         list.setAdapter(adapter);
@@ -120,7 +118,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             protected String doInBackground(String... params){
                 String uri = params[0];
                 BufferedReader bufferedReader = null;
-
                 try{
                     URL url = new URL(uri);
                     HttpURLConnection con = (HttpURLConnection)url.openConnection();

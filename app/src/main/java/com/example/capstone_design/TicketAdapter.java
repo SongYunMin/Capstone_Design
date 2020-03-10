@@ -68,7 +68,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
         TextView dayView = holder.dayView;
         TextView timeView = holder.timeView;
         TextView placeView = holder.placeView;
-        final TextView quantityView = holder.quantityView;
+        //final TextView quantityView = holder.quantityView;
         notifyDataSetChanged();
         Button buttonView = holder.buttonView;
 
@@ -79,7 +79,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
         timeView.setText("시간 : " + vo.cus_time);
         placeView.setText("장소 : " + vo.cus_place);
         // setText로 int를 표현하기 위해서 String 형식으로 변환 후 출력
-        quantityView.setText("남은 티켓 : " + vo.cus_quantity);
+        //quantityView.setText("남은 티켓 : " + vo.cus_quantity);
 
         // 티켓 연번 1번 = BTS WORLD TOUR
         if (vo.cus_ticket.equals("1")) {
