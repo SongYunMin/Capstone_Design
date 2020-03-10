@@ -106,7 +106,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
                     ReservationWhether = "1";       // 예약여부
-                    vo.cus_quantity -= 1;
+                   //vo.cus_quantity -= 1;
 
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
@@ -125,7 +125,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
                     ReservationWhether = "2";       // 예약 여부
-                    vo.cus_quantity -= 1;
+                   // vo.cus_quantity -= 1;
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
                             "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
@@ -142,7 +142,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
                     ReservationWhether = "3";
-                    vo.cus_quantity -= 1;
+                    //vo.cus_quantity -= 1;
 
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
@@ -160,7 +160,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
                     ReservationWhether = "4";
-                    vo.cus_quantity -= 1;
+                    //vo.cus_quantity -= 1;
 
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/TicketMinus.php",
