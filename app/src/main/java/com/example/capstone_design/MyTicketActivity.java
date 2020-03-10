@@ -81,7 +81,6 @@ public class MyTicketActivity extends AppCompatActivity {
                 }
             }
 
-
         });
 
     }

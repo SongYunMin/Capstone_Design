@@ -46,36 +46,37 @@ public class NewAccount_Activity extends AppCompatActivity {
                             "&userphone=" + st_phone);
             http.start();
             String temp = http.GetResult();
-            // "회원가입" 버튼을 눌렀을때 이벤트 처리
-            Join.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Toast 메세지
-                    Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다", Toast.LENGTH_LONG).show();
-                    // 알림 창
-                    AlertDialog.Builder builder = new AlertDialog.Builder(NewAccount_Activity.this);
-                    builder.setTitle("지문인증요청")
-                            .setMessage("안전한 티켓 거래를 위해 지문인증이 필요합니다. 지금 인증하시겠습니까?")
-                            .setNegativeButton("다음에", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    finish();
-                                }
-                            })
-                            // "인증" 버튼을 누르면 FingerPrint_Activity 로 이동
-                            .setPositiveButton("인증", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    // Intent intent = new Intent(getApplicationContext(), FingerPrint_Activity.class);
-                                    // startActivity(intent);
 
-                                }
-                            });
-                    builder.setCancelable(false);
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
-                }
-            });
+            Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다", Toast.LENGTH_LONG).show();
+            // 알림 창
+            AlertDialog.Builder builder = new AlertDialog.Builder(NewAccount_Activity.this);
+            builder.setTitle("지문인증요청")
+                    .setMessage("안전한 티켓 거래를 위해 지문인증이 필요합니다. 지금 인증하시겠습니까?")
+                    .setNegativeButton("다음에", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    })
+                    // "인증" 버튼을 누르면 FingerPrint_Activity 로 이동
+                    .setPositiveButton("인증", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent intent = new Intent(getApplicationContext(), FingerPrintActivity.class);
+                            startActivity(intent);
+                        }
+                    });
+            builder.setCancelable(false);
+            AlertDialog dialog = builder.create();
+            dialog.show();
+            // "회원가입" 버튼을 눌렀을때 이벤트 처리
+//            Join.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    // Toast 메세지
+//
+//                }
+//            });
         } else {
             Toast.makeText(getApplicationContext(), "비밀번호가 일치하지 않습니다",
                     Toast.LENGTH_LONG).show();
