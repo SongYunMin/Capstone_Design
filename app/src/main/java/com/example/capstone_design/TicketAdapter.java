@@ -18,7 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.res.ResourcesCompat;
-
+import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
 import static com.example.capstone_design.TicketHolder.buttonView;
 
@@ -109,8 +109,8 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                    //vo.cus_quantity -= 1;
 
                     HttpConnectThread http = new HttpConnectThread(
-                            "http://210.124.110.96/TicketMinus.php",
-                            "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
+                            "http://210.124.110.96/Input_Reservation.php",
+                            "userid=" + St_id + "&ticketname=" + R.string.BTS);
                     http.start();
                     String temp = http.GetResult();
                     //Ticket_Reservation_Activity.getData("http://210.124.110.96/Ticket_Resend.php");
@@ -127,8 +127,8 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     ReservationWhether = "2";       // 예약 여부
                    // vo.cus_quantity -= 1;
                     HttpConnectThread http = new HttpConnectThread(
-                            "http://210.124.110.96/TicketMinus.php",
-                            "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
+                            "http://210.124.110.96/Input_Reservation.php",
+                            "userid=" + St_id + "&ticketname=" + R.string.KKH);
                     http.start();
                     String temp = http.GetResult();
                 }
@@ -145,8 +145,8 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     //vo.cus_quantity -= 1;
 
                     HttpConnectThread http = new HttpConnectThread(
-                            "http://210.124.110.96/TicketMinus.php",
-                            "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
+                            "http://210.124.110.96/Input_Reservation.php",
+                            "userid=" + St_id + "&ticketname=" + R.string.MMMIA);
                     http.start();
                     String temp = http.GetResult();
                 }
@@ -163,8 +163,8 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     //vo.cus_quantity -= 1;
 
                     HttpConnectThread http = new HttpConnectThread(
-                            "http://210.124.110.96/TicketMinus.php",
-                            "quantity=" + vo.cus_quantity + "&ticketnum=" + numTemp);
+                            "http://210.124.110.96/Input_Reservation.php",
+                            "userid=" + St_id + "&ticketname=" + R.string.SKJ);
                     http.start();
                     String temp = http.GetResult();
                 }

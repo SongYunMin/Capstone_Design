@@ -89,7 +89,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                 String place = c.getString(TAG_PLACE);
                 String quantity = c.getString(TAG_QUANTITY);
                 String photo = c.getString(TAG_PHOTO);
-                quantity_int = Integer.parseInt(quantity);
 
                 Ticket_VO vo = new Ticket_VO();
                 vo.cus_ticket = num;
@@ -97,7 +96,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                 vo.cus_time = time;
                 vo.cus_day = day;
                 vo.cus_place = place;
-                vo.cus_quantity = quantity_int;
 
                 datas.add(vo);
             }

@@ -22,7 +22,7 @@ public class TicketHolder {
         dayView = root.findViewById(R.id.day);
         timeView = root.findViewById(R.id.time);
         placeView = root.findViewById(R.id.place);
-        quantityView = root.findViewById(R.id.quantity);
+
         buttonView = root.findViewById(R.id.bt_reser);
     }
 }
