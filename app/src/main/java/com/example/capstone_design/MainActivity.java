@@ -12,6 +12,7 @@ import android.widget.Toast;
 // LoginActivity 에서 가져온 id 값을 사용함
 import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
+import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
 

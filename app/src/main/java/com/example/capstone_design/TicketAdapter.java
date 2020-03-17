@@ -1,8 +1,10 @@
 package com.example.capstone_design;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.Image;
 import android.net.Uri;
 import android.text.Layout;
@@ -114,6 +116,18 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     http.start();
                     String temp = http.GetResult();
                     //Ticket_Reservation_Activity.getData("http://210.124.110.96/Ticket_Resend.php");
+
+                    // DB Insert 문!!!
+                    InsertSQLite.FeedReaderDbHelper dbHelper = new InsertSQLite.FeedReaderDbHelper(getContext());
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+                    ContentValues values = new ContentValues();
+                    values.put(InsertSQLite.FeedEntry.COLUMN_NAME_ID,St_id);
+                    values.put(InsertSQLite.FeedEntry.COLUMN_NAME_TICKET,R.string.BTS);
+
+                    // insert Method는 오류가 발생하면 -1 을 return
+                    long newRowId = db.insert(InsertSQLite.FeedEntry.TABLE_NAME, null,values);
+
                 }
             });
         } else if (vo.cus_ticket.equals("2")) {

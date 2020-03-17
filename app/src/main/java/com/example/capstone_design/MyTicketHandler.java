@@ -8,9 +8,5 @@ import static com.example.capstone_design.NewAccount_Activity.ReservationWhether
 
 public class MyTicketHandler  {
     TicketAdapter adapter;
-
-
-
     ImageView TicketImage;
-
 }
