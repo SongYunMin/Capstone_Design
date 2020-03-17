@@ -2,12 +2,8 @@ package com.example.capstone_design;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.Image;
-import android.net.Uri;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,15 +14,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.res.ResourcesCompat;
 import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
-import static com.example.capstone_design.TicketHolder.buttonView;
 
-
-import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -115,19 +106,13 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                             "userid=" + St_id + "&ticketname=" + R.string.BTS);
                     http.start();
                     String temp = http.GetResult();
-                    //Ticket_Reservation_Activity.getData("http://210.124.110.96/Ticket_Resend.php");
-
-                    // DB Insert 문!!! (InsertSQLite 와 관련된 context 인자로 넣어야 함)
-                    InsertSQLite.FeedReaderDbHelper dbHelper =
-                            new InsertSQLite.FeedReaderDbHelper(getContext());
-                    SQLiteDatabase db = dbHelper.getWritableDatabase();
-
-                    ContentValues values = new ContentValues();
-                    values.put(InsertSQLite.FeedEntry.COLUMN_NAME_ID,St_id);
-                    values.put(InsertSQLite.FeedEntry.COLUMN_NAME_TICKET,R.string.BTS);
-
-                    // insert Method는 오류가 발생하면 -1 을 return
-                    long newRowId = db.insert(InsertSQLite.FeedEntry.TABLE_NAME, null,values);
+                    Ticket_Reservation_Activity.clickHandler(v);
+//                    TicketDatabaseManager DBManager = TicketDatabaseManager.getInstance(Ticket_Reservation_Activity.context_Reser);
+//                    ContentValues addLocalTicket = new ContentValues();
+//
+//                    addLocalTicket.put("ID",St_id);
+//                    addLocalTicket.put("ticket","BTS WORLD TOUR");
+//                    DBManager.insert(addLocalTicket);
 
                 }
             });

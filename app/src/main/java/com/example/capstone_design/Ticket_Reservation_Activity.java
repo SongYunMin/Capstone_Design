@@ -4,6 +4,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -33,6 +35,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
 import static com.example.capstone_design.TicketAdapter.vo;
 import static com.example.capstone_design.TicketHolder.buttonView;
@@ -52,13 +55,13 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
     private static final String TAG_PHOTO = "photo";
     TicketAdapter adapter;
     JSONArray ticket = null;
-    public static int quantity_int;
-
+    public static Context context_Reser;
 //    public static ImageView MyTicket_img;
 //    public static TextView MyTicket_name;
 
     //public static ArrayList<HashMap<String,String>>TicketList;
     public static ArrayList<Ticket_VO> datas = new ArrayList<>();
+    public static TicketDatabaseManager DBManager;
     ListView list;
     String[] datass;
 
@@ -67,6 +70,9 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticketing);
+        context_Reser = this;
+
+        DBManager = TicketDatabaseManager.getInstance(this);
 
         list = (ListView) findViewById(R.id.ticket_list);
         // getdata Method 접근, 아래 정의 되어 있음
@@ -107,6 +113,18 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             e.printStackTrace();
         }
     }
+    public static void clickHandler(View view)
+    {
+
+        ContentValues addTicketValue = new ContentValues();
+
+        addTicketValue.put("ID",St_id);
+        addTicketValue.put("ticket",R.string.BTS);
+
+        Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
+
+    }
+
 
     // Data 얻어오는 Method
     public void getData(String url){
