@@ -1,18 +1,21 @@
 package com.example.capstone_design;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
 public final class InsertSQLite {
+    public static Context Insert_context;
     private InsertSQLite(){}
 
     public static class FeedEntry implements BaseColumns{
         public static final String TABLE_NAME = "Reservation_Local";
-        public static final String COLUMN_NAME_ID = "RservationInfo";
-        public static final String COLUMN_NAME_TICKET = "subtitle";
+        public static final String COLUMN_NAME_ID = "id";
+        public static final String COLUMN_NAME_TICKET = "ticket";
     }
+
 
     private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + FeedEntry.TABLE_NAME + " ( " +

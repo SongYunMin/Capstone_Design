@@ -117,8 +117,9 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     String temp = http.GetResult();
                     //Ticket_Reservation_Activity.getData("http://210.124.110.96/Ticket_Resend.php");
 
-                    // DB Insert 문!!!
-                    InsertSQLite.FeedReaderDbHelper dbHelper = new InsertSQLite.FeedReaderDbHelper(getContext());
+                    // DB Insert 문!!! (InsertSQLite 와 관련된 context 인자로 넣어야 함)
+                    InsertSQLite.FeedReaderDbHelper dbHelper =
+                            new InsertSQLite.FeedReaderDbHelper(getContext());
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
 
                     ContentValues values = new ContentValues();
