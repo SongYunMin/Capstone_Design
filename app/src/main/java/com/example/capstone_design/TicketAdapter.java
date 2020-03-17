@@ -26,7 +26,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
     public static int resId;
     public static ArrayList<Ticket_VO> datas;
     public static Ticket_VO vo;
-
+    public static int numTemp = 0;
     public static Image Ticket_img;
     public static String Ticket_name;
 
@@ -89,17 +89,16 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     (context.getResources(), R.drawable.skj, null));
         }
 
+
+        // 티켓들이
         if (vo.cus_ticket.equals("1")) {
             buttonView.setOnClickListener(new View.OnClickListener() {
                 // AlertDialog.Builder builder = new AlertDialog.Builder();
                 @Override
                 public void onClick(View v) {
-                    String myJS;
-                    int numTemp = 1;
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
                     ReservationWhether = "1";       // 예약여부
-                   //vo.cus_quantity -= 1;
 
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/Input_Reservation.php",
@@ -121,7 +120,6 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                 // AlertDialog.Builder builder = new AlertDialog.Builder();
                 @Override
                 public void onClick(View v) {
-                    int numTemp = 2;
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
                     ReservationWhether = "2";       // 예약 여부
@@ -131,6 +129,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                             "userid=" + St_id + "&ticketname=" + R.string.KKH);
                     http.start();
                     String temp = http.GetResult();
+                    Ticket_Reservation_Activity.clickHandler(v);
                 }
             });
         } else if (vo.cus_ticket.equals("3")) {
@@ -138,7 +137,6 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                 // AlertDialog.Builder builder = new AlertDialog.Builder();
                 @Override
                 public void onClick(View v) {
-                    int numTemp = 3;
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
                     ReservationWhether = "3";
@@ -149,6 +147,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                             "userid=" + St_id + "&ticketname=" + R.string.MMMIA);
                     http.start();
                     String temp = http.GetResult();
+                    Ticket_Reservation_Activity.clickHandler(v);
                 }
             });
         } else if (vo.cus_ticket.equals("4")) {
@@ -156,7 +155,6 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                 // AlertDialog.Builder builder = new AlertDialog.Builder();
                 @Override
                 public void onClick(View v) {
-                    int numTemp = 4;
                     Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                     toast.show();
                     ReservationWhether = "4";
@@ -167,6 +165,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                             "userid=" + St_id + "&ticketname=" + R.string.SKJ);
                     http.start();
                     String temp = http.GetResult();
+                    Ticket_Reservation_Activity.clickHandler(v);
                 }
             });
         }

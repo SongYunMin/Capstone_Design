@@ -2,6 +2,7 @@ package com.example.capstone_design;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 public class TicketDatabaseManager {
@@ -42,5 +43,21 @@ public class TicketDatabaseManager {
     public long insert(ContentValues addLocalTicket)
     {
         return myDatabase.insert(TABLE_NAME,null,addLocalTicket);
+    }
+
+    public Cursor query(String[] colums,
+                        String selection,
+                        String[] selectionArgs,
+                        String groupBy,
+                        String having,
+                        String orderby)
+    {
+        return myDatabase.query(TABLE_NAME,
+                colums,
+                selection,
+                selectionArgs,
+                groupBy,
+                having,
+                orderby);
     }
 }
