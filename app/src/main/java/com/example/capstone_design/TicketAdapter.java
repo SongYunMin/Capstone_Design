@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
 import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
-import static com.example.capstone_design.TicketHolder.buttonView;
 
 
 import java.util.ArrayList;
@@ -56,13 +55,13 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
 
         TicketHolder holder = (TicketHolder) convertView.getTag();
         ImageView typeImageView = holder.typeImageView;
-        TextView numView = TicketHolder.numView;
+        TextView numView = holder.numView;
         TextView nameView = holder.nameView;
         TextView dayView = holder.dayView;
         TextView timeView = holder.timeView;
         TextView placeView = holder.placeView;
         //final TextView quantityView = holder.quantityView;
-        Button buttonView = TicketHolder.buttonView;
+        Button buttonView = holder.buttonView;
 
         vo = datas.get(position);
         numView.setText(vo.cus_ticket);

@@ -7,13 +7,13 @@ import android.widget.TextView;
 
 public class TicketHolder {
     public ImageView typeImageView;
-    public static TextView numView;
+    public TextView numView;
     public TextView nameView;
     public TextView dayView;
     public TextView timeView;
     public TextView placeView;
     public TextView quantityView;
-    public static Button buttonView;
+    public Button buttonView;
 
     public TicketHolder(View root){
         typeImageView = root.findViewById(R.id.ticket_photo);

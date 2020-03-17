@@ -39,7 +39,6 @@ import java.util.HashMap;
 import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
 import static com.example.capstone_design.TicketAdapter.vo;
-import static com.example.capstone_design.TicketHolder.buttonView;
 
 
 public class Ticket_Reservation_Activity extends AppCompatActivity
