@@ -26,6 +26,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
     public static int resId;
     public static ArrayList<Ticket_VO> datas;
     public static Ticket_VO vo;
+    public int print_temp;
 
     // 생성자
     public TicketAdapter(Context context, int resId, ArrayList<Ticket_VO> datas) {
