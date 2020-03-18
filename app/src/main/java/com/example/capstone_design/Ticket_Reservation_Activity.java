@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -81,6 +82,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
         // getdata Method 접근, 아래 정의 되어 있음
         getData("http://210.124.110.96/Ticket_Value.php");
     }
+
 
     // List 의 들어갈 값을 가져오는 Method
     protected void showList(){

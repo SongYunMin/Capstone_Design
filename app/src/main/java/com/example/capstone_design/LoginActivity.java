@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         // 통신 스레드 실행
         HttpConnectThread http = new HttpConnectThread("http://210.124.110.96/Android_Check.php",
                 "memberID="+St_id+"&memberPw="+St_pw);
+
         http.start();
         String result = http.GetResult();
 

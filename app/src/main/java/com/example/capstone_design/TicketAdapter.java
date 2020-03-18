@@ -27,7 +27,6 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
     public static ArrayList<Ticket_VO> datas;
     public static Ticket_VO vo;
 
-
     // 생성자
     public TicketAdapter(Context context, int resId, ArrayList<Ticket_VO> datas) {
         super(context, resId);
@@ -72,27 +71,27 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
 
         // 티켓 연번에 따라 데이터 변경
         if (vo.cus_ticket.equals("1")) {
+            ReservationWhether = "1";
             typeImageView.setImageDrawable(ResourcesCompat.getDrawable
                     (context.getResources(), R.drawable.bts, null));
         } else if (vo.cus_ticket.equals("2")) {
+            ReservationWhether = "2";
             typeImageView.setImageDrawable(ResourcesCompat.getDrawable
                     (context.getResources(), R.drawable.kkh, null));
         } else if (vo.cus_ticket.equals("3")) {
+            ReservationWhether = "3";
             typeImageView.setImageDrawable(ResourcesCompat.getDrawable
                     (context.getResources(), R.drawable.mmmia, null));
         } else if (vo.cus_ticket.equals("4")) {
+            ReservationWhether = "4";
             typeImageView.setImageDrawable(ResourcesCompat.getDrawable
                     (context.getResources(), R.drawable.skj, null));
         }
-
-
-
         // 티켓들이 모두 1로 진행되는 오류 있음
             buttonView.setOnClickListener(new View.OnClickListener() {
-                // AlertDialog.Builder builder = new AlertDialog.Builder();
                 @Override
                 public void onClick(View v) {
-                    if (vo.cus_ticket.equals("1")) {
+                    if (ReservationWhether.equals("1")) {
                         Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                         toast.show();
                         ReservationWhether = "1";       // 예약여부
@@ -103,14 +102,8 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                         http.start();
                         String temp = http.GetResult();
                         Ticket_Reservation_Activity.clickHandler(v);
-//                    TicketDatabaseManager DBManager = TicketDatabaseManager.getInstance(Ticket_Reservation_Activity.context_Reser);
-//                    ContentValues addLocalTicket = new ContentValues();
-//
-//                    addLocalTicket.put("ID",St_id);
-//                    addLocalTicket.put("ticket","BTS WORLD TOUR");
-//                    DBManager.insert(addLocalTicket);
                     }
-                    else if (vo.cus_ticket.equals("2")) {
+                    else if (ReservationWhether.equals("2")) {
                         Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                         toast.show();
                         ReservationWhether = "2";       // 예약 여부
@@ -122,7 +115,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                         String temp = http.GetResult();
                         Ticket_Reservation_Activity.clickHandler(v);
                     }
-                    else if (vo.cus_ticket.equals("3")) {
+                    else if (ReservationWhether.equals("3")) {
                         Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                         toast.show();
                         ReservationWhether = "3";
@@ -134,7 +127,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                         String temp = http.GetResult();
                         Ticket_Reservation_Activity.clickHandler(v);
                     }
-                    else if(vo.cus_ticket.equals("4")){
+                    else if(ReservationWhether.equals("4")){
                         Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                         toast.show();
                         ReservationWhether = "4";

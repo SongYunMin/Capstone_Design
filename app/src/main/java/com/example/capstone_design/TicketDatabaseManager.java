@@ -15,6 +15,8 @@ public class TicketDatabaseManager {
     private static TicketDatabaseManager myDBManager = null;
     private SQLiteDatabase myDatabase = null;
 
+
+
     // 싱글톤 패턴으로 구현
     public static TicketDatabaseManager getInstance(Context context)
     {
@@ -60,4 +62,6 @@ public class TicketDatabaseManager {
                 having,
                 orderby);
     }
+
+
 }

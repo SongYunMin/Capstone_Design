@@ -42,7 +42,8 @@ public class NFCActivity extends Activity {
     Tag myTag;
     Context context;
 
-    TextView tvNFCContent;
+    public static TextView tvNFCContent;     // NFC 안에 들어가 있는 값
+    public static String ServerText;        // 서버로 전송될 값
     TextView message;
     EditText Edit_text;
     Button btnWrite;
@@ -139,6 +140,11 @@ public class NFCActivity extends Activity {
         tvNFCContent.setText("NFC Content: " + text);
     }
 
+//    public void ServerTransfer(){
+//        HttpConnectThread http = new HttpConnectThread("http://210.124.110.96/Android_Check.php",
+//                "memberID="+St_id+"&memberPw="+St_pw);
+//
+//    }
 
     /******************************************************************************
      **********************************Write to NFC Tag****************************
