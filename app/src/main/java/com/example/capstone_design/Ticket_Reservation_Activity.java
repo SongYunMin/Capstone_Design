@@ -52,8 +52,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
     private static final String TAG_TIME = "time";
     private static final String TAG_DAY = "day";
     private static final String TAG_PLACE = "place";
-    private static final String TAG_QUANTITY = "quantity";
-    private static final String TAG_PHOTO = "photo";
 
     public static String Local_ID;
     public static String Local_Ticket;
