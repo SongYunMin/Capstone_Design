@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
@@ -12,7 +13,7 @@
         android:layout_marginTop="30dp"
         android:fontFamily="@font/seoulnamsanb"
         android:textColor="#FFFFFF"
-        android:textSize="30dp"
+        android:textSize="50dp"
         android:text="티켓 활성화">
     </TextView>
 
@@ -39,12 +40,34 @@
             android:background="#91CFED"
             android:text="관리자 모드" />
 </LinearLayout>
+
     <TextView
         android:id="@+id/nfc_contents"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="#FFFFFF"
         android:fontFamily="@font/seoulnamsanb"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/inputmessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textSize="30dp"
+        android:textColor="#FFFFFF"
+        android:text="스마트폰 뒷면을 태그해 주세요"
         />
+
+    <ImageView
+        android:id="@+id/NFC_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/nfcimg" />
+
 
 </LinearLayout>

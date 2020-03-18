@@ -18,6 +18,7 @@ import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 import static com.example.capstone_design.R.id.button;
+import static com.example.capstone_design.R.id.visible;
 
 public class NFCActivity extends Activity {
 
@@ -42,6 +44,7 @@ public class NFCActivity extends Activity {
 
     TextView tvNFCContent;
     TextView message;
+    EditText Edit_text;
     Button btnWrite;
 
     @Override
@@ -52,12 +55,14 @@ public class NFCActivity extends Activity {
 
         tvNFCContent = (TextView) findViewById(R.id.nfc_contents);
         message = (TextView) findViewById(R.id.edit_message);
-        btnWrite = (Button) findViewById(button);
+        btnWrite = (Button) findViewById(R.id.button);
+        Edit_text = (EditText) findViewById(R.id.edit_message);
 
         // Write 버튼 이벤트
         btnWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Edit_text.setVisibility(View.VISIBLE);
                 try {
                     // NFC 태그가 되어있지 않은 상태
                     if (myTag == null) {
