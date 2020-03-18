@@ -26,6 +26,7 @@ public class MyTicketActivity extends AppCompatActivity {
         final TextView NameText = (TextView)findViewById(R.id.my_ticket_name);
         final TextView DayText = (TextView)findViewById(R.id.my_ticket_day);
         final TextView TimeText = (TextView)findViewById(R.id.my_ticket_time);
+
         final TextView PlaceText = (TextView)findViewById(R.id.my_ticket_place);
         final Button TicketButton = (Button)findViewById(R.id.my_ticket_button);
         final TextView NoTicketText = (TextView)findViewById(R.id.noticket);

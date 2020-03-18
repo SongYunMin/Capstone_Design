@@ -4,6 +4,7 @@ package="com.example.capstone_design">
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.NFC" />
+    <uses-feature android:name="android.hardware.nfc" android:required="true"/>
 
 <application
     android:allowBackup="true"
@@ -24,7 +25,7 @@ package="com.example.capstone_design">
     <activity android:name=".MainActivity">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
-
+            <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
     </activity>
