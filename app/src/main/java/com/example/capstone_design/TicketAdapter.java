@@ -63,6 +63,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
         //final TextView quantityView = holder.quantityView;
         Button buttonView = holder.buttonView;
 
+
         vo = datas.get(position);
         numView.setText(vo.cus_ticket);
         nameView.setText(vo.cus_name);
@@ -92,6 +93,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     if (vo.cus_ticket.equals("1")) {
                         Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                         toast.show();
+
                         ReservationWhether = "1";       // 예약여부
 
                         HttpConnectThread http = new HttpConnectThread(
