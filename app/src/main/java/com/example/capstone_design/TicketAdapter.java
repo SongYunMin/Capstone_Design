@@ -22,6 +22,7 @@ import static com.example.capstone_design.NewAccount_Activity.ReservationWhether
 import java.util.ArrayList;
 
 public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
+    // 변수 선언부
     public static Context context;
     public static int resId;
     public static ArrayList<Ticket_VO> datas;

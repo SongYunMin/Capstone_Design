@@ -37,6 +37,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.crypto.EncryptedPrivateKeyInfo;
+
 import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
 import static com.example.capstone_design.TicketAdapter.vo;
@@ -46,6 +48,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
         implements AdapterView.OnClickListener {
     String myJSON;
 
+    // DB에 접근할 TAG 생성
     private static final String TAG_RESULT = "result";
     private static final String TAG_NUM = "num";
     private static final String TAG_NAME = "name";
@@ -53,15 +56,13 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
     private static final String TAG_DAY = "day";
     private static final String TAG_PLACE = "place";
 
+    // Local (SQLite)에 넣을 ID값과 TIcket값 변수
     public static String Local_ID;
     public static String Local_Ticket;
+
     TicketAdapter adapter;
     JSONArray ticket = null;
     public static Context context_Reser;
-//    public static ImageView MyTicket_img;
-//    public static TextView MyTicket_name;
-
-    //public static ArrayList<HashMap<String,String>>TicketList;
     public static ArrayList<Ticket_VO> datas = new ArrayList<>();
     public static TicketDatabaseManager DBManager;
     ListView list;
@@ -74,6 +75,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
         setContentView(R.layout.activity_ticketing);
         context_Reser = this;
 
+        // 데이터 베이스 Instance 호출
         DBManager = TicketDatabaseManager.getInstance(this);
 
         list = (ListView) findViewById(R.id.ticket_list);
@@ -81,117 +83,13 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
         getData("http://210.124.110.96/Ticket_Value.php");
     }
 
-
-    // List 의 들어갈 값을 가져오는 Method
-    protected void showList(){
-        try{
-            JSONObject jsonObj = new JSONObject(myJSON);
-            ticket = jsonObj.getJSONArray(TAG_RESULT);
-
-            for(int i=0;i<ticket.length();i++){
-
-                JSONObject c = ticket.getJSONObject(i);
-                String num = c.getString(TAG_NUM);
-                String name = c.getString(TAG_NAME);
-                String time = c.getString(TAG_TIME);
-                String day = c.getString(TAG_DAY);
-                String place = c.getString(TAG_PLACE);
-
-                Ticket_VO vo = new Ticket_VO();
-                vo.cus_ticket = num;
-                vo.cus_name = name;
-                vo.cus_time = time;
-                vo.cus_day = day;
-                vo.cus_place = place;
-
-                datas.add(vo);
-
-            }
-            // list_item
-        TicketAdapter adapter = new TicketAdapter(this,R.layout.list_item,datas);
-        list.setAdapter(adapter);
-
-        }catch (JSONException e){
-            e.printStackTrace();
-        }
-    }
-    public static void clickHandler(View view)
-    {
-        if(ReservationWhether.equals("1")) {
-            ContentValues addTicketValue = new ContentValues();
-
-            addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", R.string.BTS);
-
-            Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
-            Local_ID = St_id;
-            Local_Ticket = "BTS WORLD TOUR";
-        }
-        else if(ReservationWhether.equals("2")){
-            ContentValues addTicketValue = new ContentValues();
-
-            addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", R.string.KKH);
-
-            Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
-            Local_ID = St_id;
-            Local_Ticket = "KimKyungHo Concert";
-        }
-        else if(ReservationWhether.equals("3")){
-            ContentValues addTicketValue = new ContentValues();
-
-            addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", R.string.MMMIA);
-
-            Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
-            Local_ID = St_id;
-            Local_Ticket = "MAMMAMIA!";
-        }
-        else if(ReservationWhether.equals("4")){
-            ContentValues addTicketValue = new ContentValues();
-
-            addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", R.string.SKJ);
-
-            Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
-            Local_ID = St_id;
-            Local_Ticket = "Seo Kang Jun Fan Concert";
-        }
-    }
-
-//    public void getTIcketData()
-//    {
-//        ArrayList TIcketList = new ArrayList<>();
-//
-//        String[] columns = new String[] {"_id","ID","ticket"};
-//        Cursor cursor = Ticket_Reservation_Activity.DBManager.query(columns, null, null,null,null,null);
-//        if(cursor != null)
-//        {
-//            while (cursor.moveToNext())
-//            {
-//                TicketItem currentData = new TicketItem();
-//
-//                currentData.setId(cursor.getInt(0));
-//                currentData.setTitle(cursor.getString(1));
-//                currentData.setCategory(cursor.getString(2));
-//                currentData.setGrade(cursor.getString(3));
-//
-//                TicketList.add(currentData);
-//            }
-//        }
-//    }
-
-
     // Data 얻어오는 Method
     public void getData(String url){
         class GetDataJSON extends AsyncTask<String,Void,String>{
             @Override
             // AsyncTask Background Method
             protected String doInBackground(String... params){
+                // uri
                 String uri = params[0];
                 BufferedReader bufferedReader = null;
                 try{
@@ -214,12 +112,100 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             // Server 전송 Method
             protected void onPostExecute(String result){
                 myJSON = result;
+                // showList() 실행
                 showList();
             }
         }
         GetDataJSON g = new GetDataJSON();
         g.execute(url);
     }
+
+    // List 의 들어갈 값을 가져오는 Method
+    protected void showList(){
+        try{
+            JSONObject jsonObj = new JSONObject(myJSON);
+            ticket = jsonObj.getJSONArray(TAG_RESULT);
+
+            for(int i=0;i<ticket.length();i++){
+
+                // TAG 의 String을 String 변수에 대입한다.
+                JSONObject c = ticket.getJSONObject(i);
+                String num = c.getString(TAG_NUM);
+                String name = c.getString(TAG_NAME);
+                String time = c.getString(TAG_TIME);
+                String day = c.getString(TAG_DAY);
+                String place = c.getString(TAG_PLACE);
+
+                // ???? 뭔지 정확히 파악해라
+                Ticket_VO vo = new Ticket_VO();
+                vo.cus_ticket = num;
+                vo.cus_name = name;
+                vo.cus_time = time;
+                vo.cus_day = day;
+                vo.cus_place = place;
+
+                datas.add(vo);
+
+            }
+            // list_item
+        TicketAdapter adapter = new TicketAdapter(this,R.layout.list_item,datas);
+        list.setAdapter(adapter);
+
+        }catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
+
+    // LocalDB(SQLite)에 들어갈 값
+    public static void clickHandler(View view)
+    {
+        if(ReservationWhether.equals("1")) {
+            ContentValues addTicketValue = new ContentValues();
+
+            addTicketValue.put("ID", St_id);
+            addTicketValue.put("ticket", "BTS WORLD TOUR");
+
+            Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
+
+            Local_ID = St_id;
+            Local_Ticket = "BTS WORLD TOUR";
+        }
+        else if(ReservationWhether.equals("2")){
+            ContentValues addTicketValue = new ContentValues();
+
+            addTicketValue.put("ID", St_id);
+            addTicketValue.put("ticket", "KimKyungHo Concert");
+
+            Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
+
+            Local_ID = St_id;
+            Local_Ticket = "KimKyungHo Concert";
+        }
+        else if(ReservationWhether.equals("3")){
+            ContentValues addTicketValue = new ContentValues();
+
+            addTicketValue.put("ID", St_id);
+            addTicketValue.put("ticket", "MAMMAMIA!");
+
+            Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
+
+            Local_ID = St_id;
+            Local_Ticket = "MAMMAMIA!";
+        }
+        else if(ReservationWhether.equals("4")){
+            ContentValues addTicketValue = new ContentValues();
+
+            addTicketValue.put("ID", St_id);
+            addTicketValue.put("ticket", "Ser Kang Jun Fan Concert");
+
+            Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
+
+            Local_ID = St_id;
+            Local_Ticket = "Seo Kang Jun Fan Concert";
+        }
+    }
+
+
     public void onClick(View v)
     {
         View list = (View)v.getParent();

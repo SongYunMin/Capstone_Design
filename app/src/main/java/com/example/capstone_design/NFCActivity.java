@@ -59,7 +59,7 @@ public class NFCActivity extends Activity {
         btnWrite = (Button) findViewById(R.id.button);
         Edit_text = (EditText) findViewById(R.id.edit_message);
 
-        // Write 버튼 이벤트
+        // Write 버튼 이벤트+
         btnWrite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -129,22 +129,20 @@ public class NFCActivity extends Activity {
         String textEncoding = ((payload[0] & 128) == 0) ? "UTF-8" : "UTF-16"; // Get the Text Encoding
         int languageCodeLength = payload[0] & 0063; // Get the Language Code, e.g. "en"
         // String languageCode = new String(payload, 1, languageCodeLength, "US-ASCII");
-
         try {
             // Get the Text
             text = new String(payload, languageCodeLength + 1, payload.length - languageCodeLength - 1, textEncoding);
         } catch (UnsupportedEncodingException e) {
             Log.e("UnsupportedEncoding", e.toString());
         }
-
         tvNFCContent.setText("NFC Content: " + text);
     }
 
 //    public void ServerTransfer(){
-//        HttpConnectThread http = new HttpConnectThread("http://210.124.110.96/Android_Check.php",
-//                "memberID="+St_id+"&memberPw="+St_pw);
-//
-//    }
+////        HttpConnectThread http = new HttpConnectThread("http://210.124.110.96/Android_Check.php",
+////                "memberID="+St_id+"&memberPw="+St_pw);
+////
+////    }
 
     /******************************************************************************
      **********************************Write to NFC Tag****************************
@@ -183,6 +181,7 @@ public class NFCActivity extends Activity {
     }
 
 
+    // Tag 되자마자 시작되는 Intent
     @Override
     protected void onNewIntent(Intent intent) {
         setIntent(intent);

@@ -20,7 +20,6 @@ public class HttpConnectThread extends Thread {
     private String m_Url;
     private String mContent;
 
-
     public HttpConnectThread(String url, String Content) {
         m_Url = url;
         mContent = Content;
