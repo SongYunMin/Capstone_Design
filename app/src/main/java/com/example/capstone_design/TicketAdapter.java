@@ -144,6 +144,4 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
             });
         return convertView;
     }
-
-
 }
