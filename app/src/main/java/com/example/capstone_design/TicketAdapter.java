@@ -18,7 +18,6 @@ import androidx.core.content.res.ResourcesCompat;
 import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
 
-
 import java.util.ArrayList;
 
 public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
