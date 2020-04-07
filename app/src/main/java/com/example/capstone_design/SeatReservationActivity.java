@@ -18,6 +18,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
 import static com.example.capstone_design.LoginActivity.St_id; // 현재 Login 된 id 값
 import static com.example.capstone_design.Ticket_Reservation_Activity.Reservation;  // 예약된 티켓 값
@@ -26,6 +27,7 @@ public class SeatReservationActivity extends AppCompatActivity {
     String myJSON;
     JSONArray Reser_arr;
     public Button[] SeatBT = null;
+    ArrayList Seat_arr = new ArrayList();
     int[] Bt_id = {R.id.a1, R.id.a2, R.id.a3, R.id.a4, R.id.a5,
             R.id.a6, R.id.a7, R.id.a8, R.id.a9};
 
@@ -33,7 +35,7 @@ public class SeatReservationActivity extends AppCompatActivity {
     private static final String TAG_ID = "id";
     private static final String TAG_TICKET = "ticket";
     private static final String TAG_SEAT = "seat";
-    private static final String TAG_RESULT = "resert";
+    private static final String TAG_RESULT = "result";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,17 +43,17 @@ public class SeatReservationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_seat_reservation);
 
         SeatBT = new Button[9];
+        // 서버 접근
+        getData("http://210.124.110.96/Seat_Value.php");
 
-        for(int i=0;i<Bt_id.length;i++)
-        {
-
-        }
 
         // SeatBt Id값 얻어오기
         for (int i = 0; i < Bt_id.length; i++) {
             this.SeatBT[i] = (Button) findViewById(Bt_id[i]);
             // 예약되있는 좌석일 시 버튼 백그라운드 변경
-            SeatBT[i].setBackgroundColor(Color.rgb(25, 26, 28));
+            if (Seat_arr.get(i).equals("a"+ i+1)) {
+                SeatBT[i].setBackgroundColor(Color.rgb(25, 26, 28));
+            }
         }
 
         // OnclickListener 설정
@@ -101,7 +103,7 @@ public class SeatReservationActivity extends AppCompatActivity {
             // Server 전송 Method
             protected void onPostExecute(String result){
                 myJSON = result;
-                // showList() 실행
+                // Ticket_data() 실행
                 Ticket_data();
             }
         }
@@ -124,10 +126,16 @@ public class SeatReservationActivity extends AppCompatActivity {
                 String ticket = c.getString(TAG_TICKET);
                 String seat = c.getString(TAG_SEAT);
 
+                Seat_arr.add(seat);
             }
         }catch (JSONException e){
             e.printStackTrace();
         }
     }
+
+    public class SeatVO {
+        public String Seat;
+    }
+
 
 }
