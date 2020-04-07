@@ -98,7 +98,8 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                     HttpURLConnection con = (HttpURLConnection)url.openConnection();
                     StringBuilder sb = new StringBuilder();
 
-                    bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                    bufferedReader = new BufferedReader(new InputStreamReader
+                            (con.getInputStream()));
 
                     String json;
                     while((json = bufferedReader.readLine())!= null){
@@ -119,16 +120,15 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
         }
         GetDataJSON g = new GetDataJSON();
         g.execute(url);
-    }
-
+}
     // List 의 들어갈 값을 가져오는 Method
     protected void showList(){
         try{
             JSONObject jsonObj = new JSONObject(myJSON);
             ticket = jsonObj.getJSONArray(TAG_RESULT);
 
-            for(int i=0;i<ticket.length();i++){
-
+            for(int i=0;i<ticket.length();i++)
+            {
                 // TAG 의 String을 String 변수에 대입한다.
                 JSONObject c = ticket.getJSONObject(i);
                 String num = c.getString(TAG_NUM);
@@ -146,7 +146,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                 vo.cus_place = place;
 
                 datas.add(vo);
-
             }
             // list_item
         TicketAdapter adapter = new TicketAdapter(this,R.layout.list_item,datas);
@@ -205,12 +204,8 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             Local_Ticket = "Seo Kang Jun Fan Concert";
         }
     }
-
-
     public void onClick(View v)
     {
         View list = (View)v.getParent();
     }
-
-
 }
