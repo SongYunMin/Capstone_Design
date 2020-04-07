@@ -46,14 +46,13 @@ public class SeatReservationActivity extends AppCompatActivity {
         // 서버 접근
         getData("http://210.124.110.96/Seat_Value.php");
 
-
         // SeatBt Id값 얻어오기
         for (int i = 0; i < Bt_id.length; i++) {
             this.SeatBT[i] = (Button) findViewById(Bt_id[i]);
             // 예약되있는 좌석일 시 버튼 백그라운드 변경
-            if (Seat_arr.get(i).equals("a"+ i+1)) {
-                SeatBT[i].setBackgroundColor(Color.rgb(25, 26, 28));
-            }
+//            if (Seat_arr.get(i).equals("a"+ i+1)) {
+//                SeatBT[i].setBackgroundColor(Color.rgb(25, 26, 28));
+//            }
         }
 
         // OnclickListener 설정
