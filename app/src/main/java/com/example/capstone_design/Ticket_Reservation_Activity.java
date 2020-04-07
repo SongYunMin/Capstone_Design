@@ -47,6 +47,7 @@ import static com.example.capstone_design.TicketAdapter.vo;
 public class Ticket_Reservation_Activity extends AppCompatActivity
         implements AdapterView.OnClickListener {
     String myJSON;
+    Context context;
 
     // DB에 접근할 TAG 생성
     private static final String TAG_RESULT = "result";
@@ -210,4 +211,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
     {
         View list = (View)v.getParent();
     }
+
+
 }

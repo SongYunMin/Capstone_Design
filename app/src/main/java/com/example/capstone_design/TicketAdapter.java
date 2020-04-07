@@ -2,6 +2,7 @@ package com.example.capstone_design;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.media.Image;
 import android.view.LayoutInflater;
@@ -93,6 +94,9 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
                     if (vo.cus_ticket.equals("1")) {
                         Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
                         toast.show();
+
+                        Intent intent = new Intent(context, SeatReservationActivity.class);
+                        context.startActivity(intent);
 
                         ReservationWhether = "1";       // 예약여부
 
