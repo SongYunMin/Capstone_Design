@@ -17,15 +17,16 @@
         android:textColor="#ffffff"
         android:textSize="50dp" />
 
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp"
-        android:fontFamily="@font/seoulnamsanb"
-        android:text="Seat selection"
-        android:textColor="#ffffff"
-        android:textSize="25dp" />
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="5dp"
+    android:fontFamily="@font/seoulnamsanb"
+    android:text="Seat selection"
+    android:textColor="#ffffff"
+    android:textSize="25dp" />
 
     <!-- 버튼 Layout -->
     <LinearLayout

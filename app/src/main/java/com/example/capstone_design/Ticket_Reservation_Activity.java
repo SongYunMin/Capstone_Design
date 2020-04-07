@@ -48,6 +48,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
         implements AdapterView.OnClickListener {
     String myJSON;
     Context context;
+    public static int Reservation[];
 
     // DB에 접근할 TAG 생성
     private static final String TAG_RESULT = "result";
@@ -100,7 +101,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
 
                     bufferedReader = new BufferedReader(new InputStreamReader
                             (con.getInputStream()));
-
                     String json;
                     while((json = bufferedReader.readLine())!= null){
                         sb.append(json+"\n");
