@@ -47,6 +47,7 @@ public class SeatReservationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_reservation);
+        
 
         SeatBT = new Button[9];
         Ticket_str.add("BTS WORLD TOUR");
