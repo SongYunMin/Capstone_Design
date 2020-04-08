@@ -3,6 +3,7 @@ package com.example.capstone_design;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
@@ -58,24 +59,26 @@ public class SeatReservationActivity extends AppCompatActivity {
             Seat_str.add("a" + i);
         }
 
-        // 티켓 및 좌석의 정보를 가져옴
-        getData("http://210.124.110.96/JSONencode.php");
-
-
+        try {
+            Seat_data();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         // OnclickListener 설정
         for (int i = 0; i < Bt_id.length; i++) {
             this.SeatBT[i].setOnClickListener(BT_Listener);
+
         }
+
     }
 
     // 좌석 버튼들의 OnclickListener
-    private View.OnClickListener BT_Listener = new View.OnClickListener() {
+    public View.OnClickListener BT_Listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             for (int i = 0; i < Bt_id.length; i++) {
                 if (v.getId() == SeatBT[i].getId()) {
                     if (Ticket_Index == 1) {
-                        System.out.println(i);
                         // 티켓 이름
                         HttpConnectThread http = new HttpConnectThread("http://210.124.110.96/Input_Reservation.php",
                                 "ticketindex=" + Ticket_Index + "&userid=" + St_id + "&seat=" + Seat_str.get(i));
@@ -114,77 +117,77 @@ public class SeatReservationActivity extends AppCompatActivity {
         }
     };
 
-    // Data 얻어오는 Method
-    public void getData(String url) {
-        class GetDataJSON extends AsyncTask<String, Void, String> {
-            @Override
-            // AsyncTask Background Method
-            protected String doInBackground(String... params) {
-                // uri
-                String uri = params[0];
-                BufferedReader bufferedReader = null;
-                try {
-                    URL url = new URL(uri);
-                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                    StringBuilder sb = new StringBuilder();
-
-                    bufferedReader = new BufferedReader(new InputStreamReader
-                            (con.getInputStream()));
-                    String json;
-                    while ((json = bufferedReader.readLine()) != null) {
-                        sb.append(json + "\n");
-                    }
-                    return sb.toString().trim();
-                } catch (Exception e) {
-                    return null;
-                }
-            }
-
-            @Override
-            // Server 전송 Method
-            protected void onPostExecute(String result) {
-                myJSON = result;
-                // Seat_data() 실행
-                Seat_data();
-                // Bt_id 는 int형 !!
-                for (int i = 0; i < Bt_id.length; i++) {
-                    for (int j = 0; j < Bt_id.length; j++) {
-                        if (Seat_arr.get(i).equals(Seat_str.get(j))) {
-                            SeatBT[i].setBackgroundColor(Color.rgb(204, 12, 13));
-                        }
-                    }
-                }
-            }
-        }
-        GetDataJSON g = new GetDataJSON();
-        g.execute(url);
-    }
-
     // Ticket_Reservation Table안에 있는 Data 불러와서 변수 대입
-    protected void Seat_data() {
+    public void Seat_data() {
         try {
             // 어떤 티켓인지 식별자 전달
-            HttpConnectThread http = new HttpConnectThread(
-                    "http://210.124.110.96/Seat_Value.php", "ticketindex=" + Ticket_Index);
-            http.start();
-            temp = http.GetResult();
-            // JSONObject jsonObj = new JSONObject(myJSON);
-            JSONObject jsonObj = new JSONObject(temp);
-            Reser_arr = jsonObj.getJSONArray(TAG_RESULT);
+                HttpConnectThread http = new HttpConnectThread(
+                        "http://210.124.110.96/Seat_Value.php", "ticketindex=" + Ticket_Index);
+                http.start();
+                temp = http.GetResult();
+                // JSONObject jsonObj = new JSONObject(myJSON);
+                JSONObject jsonObj = new JSONObject(temp);
+                Reser_arr = jsonObj.getJSONArray(TAG_RESULT);
 
-            for (int i = 0; i < Reser_arr.length(); i++) {
-                // TAG 의 String을 String 변수에 대입한다.
-                JSONObject c = Reser_arr.getJSONObject(i);
-                String id = c.getString(TAG_ID);
-                //String ticket = c.getString(TAG_TICKET);
-                String seat = c.getString(TAG_SEAT);
-
+                for (int i = 0; i < Reser_arr.length(); i++) {
+                    // TAG 의 String을 String 변수에 대입한다.
+                    JSONObject c = Reser_arr.getJSONObject(i);
+                    String id = c.getString(TAG_ID);
+                    //String ticket = c.getString(TAG_TICKET);
+                    String seat = c.getString(TAG_SEAT);
                 // JSON 인코딩 성공
                 Ticket_arr.add(id);
                 Seat_arr.add(seat);
+            }
+            // Bt_id 는 int형 !!
+            for (int i = 0; i < Seat_arr.size(); i++) {
+                for (int j = 0; j < Seat_str.size(); j++) {
+                    if (Seat_arr.get(i).equals(Seat_str.get(j))) {
+                        SeatBT[i].setBackgroundColor(Color.rgb(204, 12, 13));
+                    }
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 }
+
+//    // Data 얻어오는 Method
+//    public void getData(String url) {
+//        class GetDataJSON extends AsyncTask<String, Void, String> {
+//            @Override
+//            // AsyncTask Background Method
+//            protected String doInBackground(String... params) {
+//                // uri
+//                String uri = params[0];
+//                BufferedReader bufferedReader = null;
+//                try {
+//                    URL url = new URL(uri);
+//                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+//                    StringBuilder sb = new StringBuilder();
+//
+//                    bufferedReader = new BufferedReader(new InputStreamReader
+//                            (con.getInputStream()));
+//                    String json;
+//                    while ((json = bufferedReader.readLine()) != null) {
+//                        sb.append(json + "\n");
+//                    }
+//                    return sb.toString().trim();
+//                } catch (Exception e) {
+//                    return null;
+//                }
+//            }
+//
+//            @Override
+//            // Server 전송 Method
+//            protected void onPostExecute(String result) {
+//                myJSON = result;
+//                // Seat_data() 실행
+//                Seat_data();
+//            }
+//        }
+//
+//        GetDataJSON g = new GetDataJSON();
+//        g.execute(url);
+//    }
