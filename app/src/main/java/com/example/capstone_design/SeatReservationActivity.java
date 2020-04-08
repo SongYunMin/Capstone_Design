@@ -1,6 +1,7 @@
 package com.example.capstone_design;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -57,17 +58,8 @@ public class SeatReservationActivity extends AppCompatActivity {
             Seat_str.add("a" + i);
         }
 
-
         // 티켓 및 좌석의 정보를 가져옴
         getData("http://210.124.110.96/JSONencode.php");
-
-        // 버튼 출력 전에, 서버에서 좌석 예약 데이터를 가져와서 예약이 되어있으면
-        // 버튼 색상 바꾸고 선택 못하게 해야 함.
-        for (int i = 0; i < Bt_id.length; i++) {
-            for (int j = 0; j < Seat_arr.size(); j++) {
-
-            }
-        }
 
 
         // OnclickListener 설정
@@ -154,6 +146,14 @@ public class SeatReservationActivity extends AppCompatActivity {
                 myJSON = result;
                 // Seat_data() 실행
                 Seat_data();
+                // Bt_id 는 int형 !!
+                for (int i = 0; i < Bt_id.length; i++) {
+                    for (int j = 0; j < Bt_id.length; j++) {
+                        if (Seat_arr.get(i).equals(Seat_str.get(j))) {
+                            SeatBT[i].setBackgroundColor(Color.rgb(204, 12, 13));
+                        }
+                    }
+                }
             }
         }
         GetDataJSON g = new GetDataJSON();
@@ -162,18 +162,17 @@ public class SeatReservationActivity extends AppCompatActivity {
 
     // Ticket_Reservation Table안에 있는 Data 불러와서 변수 대입
     protected void Seat_data() {
-        int i;
         try {
-            //         어떤 티켓인지 식별자 전달
+            // 어떤 티켓인지 식별자 전달
             HttpConnectThread http = new HttpConnectThread(
                     "http://210.124.110.96/Seat_Value.php", "ticketindex=" + Ticket_Index);
             http.start();
             temp = http.GetResult();
-           // JSONObject jsonObj = new JSONObject(myJSON);
+            // JSONObject jsonObj = new JSONObject(myJSON);
             JSONObject jsonObj = new JSONObject(temp);
             Reser_arr = jsonObj.getJSONArray(TAG_RESULT);
 
-            for (i = 0; i < Reser_arr.length(); i++) {
+            for (int i = 0; i < Reser_arr.length(); i++) {
                 // TAG 의 String을 String 변수에 대입한다.
                 JSONObject c = Reser_arr.getJSONObject(i);
                 String id = c.getString(TAG_ID);
@@ -183,7 +182,6 @@ public class SeatReservationActivity extends AppCompatActivity {
                 // JSON 인코딩 성공
                 Ticket_arr.add(id);
                 Seat_arr.add(seat);
-
             }
         } catch (JSONException e) {
             e.printStackTrace();
