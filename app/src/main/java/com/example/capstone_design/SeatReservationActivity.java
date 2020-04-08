@@ -46,14 +46,10 @@ public class SeatReservationActivity extends AppCompatActivity {
         // 서버 접근
         getData("http://210.124.110.96/Seat_Value.php");
 
-        // SeatBt Id값 얻어오기
-        for (int i = 0; i < Bt_id.length; i++) {
+        for(int i=0;i<Bt_id.length;i++) {
             this.SeatBT[i] = (Button) findViewById(Bt_id[i]);
-            // 예약되있는 좌석일 시 버튼 백그라운드 변경
-//            if (Seat_arr.get(i).equals("a"+ i+1)) {
-//                SeatBT[i].setBackgroundColor(Color.rgb(25, 26, 28));
-//            }
         }
+
 
         // OnclickListener 설정
         for (int i = 0; i < Bt_id.length; i++) {
@@ -112,11 +108,12 @@ public class SeatReservationActivity extends AppCompatActivity {
 
     // Ticket_Reservation Table안에 있는 Data 불러와서 변수 대입
     protected void Ticket_data(){
+        int i;
         try{
             JSONObject jsonObj = new JSONObject(myJSON);
             Reser_arr = jsonObj.getJSONArray(TAG_RESULT);
 
-            for(int i=0;i<Reser_arr.length();i++)
+            for(i=0;i<Reser_arr.length();i++)
             {
                 // TAG 의 String을 String 변수에 대입한다.
                 JSONObject c = Reser_arr.getJSONObject(i);
@@ -125,7 +122,17 @@ public class SeatReservationActivity extends AppCompatActivity {
                 String ticket = c.getString(TAG_TICKET);
                 String seat = c.getString(TAG_SEAT);
 
+                // JSON 인코딩 성공
                 Seat_arr.add(seat);
+
+                // SeatBt Id값 얻어오기
+                for (i = 0; i < Bt_id.length; i++) {
+                    // 예약되있는 좌석일 시 버튼 백그라운드 변경
+                    if (Seat_arr.get(i).equals("a"+ i+1)) {
+                        SeatBT[i].setBackgroundColor(Color.rgb(25, 26, 28));
+                    }
+                }
+
             }
         }catch (JSONException e){
             e.printStackTrace();
