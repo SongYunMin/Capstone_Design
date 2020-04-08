@@ -17,18 +17,18 @@ public class FingerPrintActivity extends AppCompatActivity {
 
         FingerBioFactory fingerBioFactory1 = new FingerBioFactory
                 (this, new BiometricPrompt.AuthenticationCallback() {
-            @Override
-            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
-                super.onAuthenticationError(errorCode, errString);
-            }
+                    @Override
+                    public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                        super.onAuthenticationError(errorCode, errString);
+                    }
 
-            @Override
-            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
-                super.onAuthenticationSucceeded(result);
-                Intent intent = new Intent(getApplicationContext(),NFCActivity.class);
-                startActivity(intent);
-            }
-        });
+                    @Override
+                    public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                        super.onAuthenticationSucceeded(result);
+                        Intent intent = new Intent(getApplicationContext(), NFCActivity.class);
+                        startActivity(intent);
+                    }
+                });
         fingerBioFactory1.authenticate();
     }
 }

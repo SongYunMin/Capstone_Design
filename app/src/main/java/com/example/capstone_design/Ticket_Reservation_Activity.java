@@ -61,7 +61,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
     // Local (SQLite)에 넣을 ID값과 TIcket값 변수
     public static String Local_ID;
     public static String Local_Ticket;
-
     TicketAdapter adapter;
     JSONArray ticket = null;
     public static Context context_Reser;
@@ -86,33 +85,34 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
     }
 
     // Data 얻어오는 Method
-    public void getData(String url){
-        class GetDataJSON extends AsyncTask<String,Void,String>{
+    public void getData(String url) {
+        class GetDataJSON extends AsyncTask<String, Void, String> {
             @Override
             // AsyncTask Background Method
-            protected String doInBackground(String... params){
+            protected String doInBackground(String... params) {
                 // uri
                 String uri = params[0];
                 BufferedReader bufferedReader = null;
-                try{
+                try {
                     URL url = new URL(uri);
-                    HttpURLConnection con = (HttpURLConnection)url.openConnection();
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     StringBuilder sb = new StringBuilder();
 
                     bufferedReader = new BufferedReader(new InputStreamReader
                             (con.getInputStream()));
                     String json;
-                    while((json = bufferedReader.readLine())!= null){
-                        sb.append(json+"\n");
+                    while ((json = bufferedReader.readLine()) != null) {
+                        sb.append(json + "\n");
                     }
                     return sb.toString().trim();
-                } catch(Exception e){
+                } catch (Exception e) {
                     return null;
                 }
             }
+
             @Override
             // Server 전송 Method
-            protected void onPostExecute(String result){
+            protected void onPostExecute(String result) {
                 myJSON = result;
                 // showList() 실행
                 showList();
@@ -120,15 +120,15 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
         }
         GetDataJSON g = new GetDataJSON();
         g.execute(url);
-}
+    }
+
     // List 의 들어갈 값을 가져오는 Method
-    protected void showList(){
-        try{
+    protected void showList() {
+        try {
             JSONObject jsonObj = new JSONObject(myJSON);
             ticket = jsonObj.getJSONArray(TAG_RESULT);
 
-            for(int i=0;i<ticket.length();i++)
-            {
+            for (int i = 0; i < ticket.length(); i++) {
                 // TAG 의 String을 String 변수에 대입한다.
                 JSONObject c = ticket.getJSONObject(i);
                 String num = c.getString(TAG_NUM);
@@ -148,18 +148,17 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                 datas.add(vo);
             }
             // list_item
-        TicketAdapter adapter = new TicketAdapter(this,R.layout.list_item,datas);
-        list.setAdapter(adapter);
+            TicketAdapter adapter = new TicketAdapter(this, R.layout.list_item, datas);
+            list.setAdapter(adapter);
 
-        }catch (JSONException e){
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     // LocalDB(SQLite)에 들어갈 값
-    public static void clickHandler(View view)
-    {
-        if(ReservationWhether.equals("1")) {
+    public static void clickHandler(View view) {
+        if (ReservationWhether.equals("1")) {
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
@@ -169,8 +168,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
 
             Local_ID = St_id;
             Local_Ticket = "BTS WORLD TOUR";
-        }
-        else if(ReservationWhether.equals("2")){
+        } else if (ReservationWhether.equals("2")) {
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
@@ -180,8 +178,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
 
             Local_ID = St_id;
             Local_Ticket = "KimKyungHo Concert";
-        }
-        else if(ReservationWhether.equals("3")){
+        } else if (ReservationWhether.equals("3")) {
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
@@ -191,8 +188,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
 
             Local_ID = St_id;
             Local_Ticket = "MAMMAMIA!";
-        }
-        else if(ReservationWhether.equals("4")){
+        } else if (ReservationWhether.equals("4")) {
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
@@ -204,8 +200,8 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             Local_Ticket = "Seo Kang Jun Fan Concert";
         }
     }
-    public void onClick(View v)
-    {
-        View list = (View)v.getParent();
+
+    public void onClick(View v) {
+        View list = (View) v.getParent();
     }
 }

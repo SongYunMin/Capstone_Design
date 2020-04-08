@@ -16,16 +16,17 @@ import java.net.URL;
         수정사항 :
 */
 
-public class HttpConnectThread extends Thread
-{
+public class HttpConnectThread extends Thread {
     private String m_Url;
     private String mContent;
-    public HttpConnectThread(String url, String Content)
-    {
+
+    public HttpConnectThread(String url, String Content) {
         m_Url = url;
         mContent = Content;
     }
+
     String temp = "";
+
     // request를 실행하다가 에러가 나면 에러 메세지를 temp안에 담는 함수
     public void run() {
         try {
@@ -34,9 +35,11 @@ public class HttpConnectThread extends Thread
             temp = e.getMessage();
         }
     }
+
     public String GetResult() {
         return temp;
     }
+
     private String request() {
         StringBuilder output = new StringBuilder();
         try {

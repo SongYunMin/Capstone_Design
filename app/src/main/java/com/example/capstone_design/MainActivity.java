@@ -1,6 +1,7 @@
 package com.example.capstone_design;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         Button MyTicket_button = (Button) findViewById(R.id.myTicket);
 
 
-
         // 로그인이 완료 되었을때 MainActivity 왼쪽 상단에 로그인된 아이디가 출력되는 식별자
         TextView LoginComplet = findViewById(R.id.LoginCompletion);
 
@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
         new_Account_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(St_id == null){
-                Intent intent = new Intent(getApplicationContext(), NewAccount_Activity.class);
-                startActivity(intent);
+                if (St_id == null) {
+                    Intent intent = new Intent(getApplicationContext(), NewAccount_Activity.class);
+                    startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(),"이미 로그인 되어있습니다.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "이미 로그인 되어있습니다.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

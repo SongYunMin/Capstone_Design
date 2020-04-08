@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.content.res.ResourcesCompat;
+
 import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
 
@@ -28,6 +29,7 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
     public static ArrayList<Ticket_VO> datas;
     public static Ticket_VO vo;
     public int print_temp;
+    public static int Ticket_Index;
 
     // 생성자
     public TicketAdapter(Context context, int resId, ArrayList<Ticket_VO> datas) {
@@ -88,63 +90,61 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
         }
         // vo.cus_ticket 값이 모두 돌지 않아서 리스트를 끝까지 출력해내지 않으면
         // 에러가 발생함
-            buttonView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (vo.cus_ticket.equals("1")) {
-                        Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                        toast.show();
+        buttonView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (vo.cus_ticket.equals("1")) {
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
 
-                        Intent intent = new Intent(context, SeatReservationActivity.class);
-                        context.startActivity(intent);
+                    Intent intent = new Intent(context, SeatReservationActivity.class);
+                    context.startActivity(intent);
+                    Ticket_Index = 1;
+                    ReservationWhether = "1";       // 예약여부
 
-                        ReservationWhether = "1";       // 예약여부
-
-                        HttpConnectThread http = new HttpConnectThread(
-                                "http://210.124.110.96/Input_Reservation.php",
-                                "userid=" + St_id + "&ticketname=" + R.string.BTS);
-                        http.start();
-                        String temp = http.GetResult();
-                        Ticket_Reservation_Activity.clickHandler(v);
-                    }
-                    else if (vo.cus_ticket.equals("2")) {
-                        Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                        toast.show();
-                        ReservationWhether = "2";       // 예약 여부
-
-                        HttpConnectThread http = new HttpConnectThread(
-                                "http://210.124.110.96/Input_Reservation.php",
-                                "userid=" + St_id + "&ticketname=" + R.string.KKH);
-                        http.start();
-                        String temp = http.GetResult();
-                        Ticket_Reservation_Activity.clickHandler(v);
-                    }
-                    else if (vo.cus_ticket.equals("3")) {
-                        Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                        toast.show();
-                        ReservationWhether = "3";
-
-                        HttpConnectThread http = new HttpConnectThread(
-                                "http://210.124.110.96/Input_Reservation.php",
-                                "userid=" + St_id + "&ticketname=" + R.string.MMMIA);
-                        http.start();
-                        String temp = http.GetResult();
-                        Ticket_Reservation_Activity.clickHandler(v);
-                    }
-                    else if(vo.cus_ticket.equals("4")){
-                        Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                        toast.show();
-                        ReservationWhether = "4";
-
-                        HttpConnectThread http = new HttpConnectThread(
-                                "http://210.124.110.96/Input_Reservation.php",
-                                "userid=" + St_id + "&ticketname=" + R.string.SKJ);
-                        http.start();
-                        String temp = http.GetResult();
-                        Ticket_Reservation_Activity.clickHandler(v);
-                    }
+//                    HttpConnectThread http = new HttpConnectThread(
+//                            "http://210.124.110.96/Input_Reservation.php",
+//                            "userid=" + St_id + "&ticketname=" + R.string.BTS);
+//                    http.start();
+//                    String temp = http.GetResult();
+                    Ticket_Reservation_Activity.clickHandler(v);
+                } else if (vo.cus_ticket.equals("2")) {
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
+                    ReservationWhether = "2";       // 예약 여부
+                    Ticket_Index = 2;
+//                    HttpConnectThread http = new HttpConnectThread(
+//                            "http://210.124.110.96/Input_Reservation.php",
+//                            "userid=" + St_id + "&ticketname=" + R.string.KKH);
+//                    http.start();
+//                    String temp = http.GetResult();
+                    Ticket_Reservation_Activity.clickHandler(v);
+                } else if (vo.cus_ticket.equals("3")) {
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
+                    ReservationWhether = "3";
+                    Ticket_Index = 3;
+//                    HttpConnectThread http = new HttpConnectThread(
+//                            "http://210.124.110.96/Input_Reservation.php",
+//                            "userid=" + St_id + "&ticketname=" + R.string.MMMIA);
+//
+//                    http.start();
+//                    String temp = http.GetResult();
+                    Ticket_Reservation_Activity.clickHandler(v);
+                } else if (vo.cus_ticket.equals("4")) {
+                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
+                    toast.show();
+                    ReservationWhether = "4";
+                    Ticket_Index = 4;
+//                    HttpConnectThread http = new HttpConnectThread(
+//                            "http://210.124.110.96/Input_Reservation.php",
+//                            "userid=" + St_id + "&ticketname=" + R.string.SKJ);
+//                    http.start();
+//                    String temp = http.GetResult();
+                    Ticket_Reservation_Activity.clickHandler(v);
                 }
-            });
+            }
+        });
         return convertView;
     }
 }
