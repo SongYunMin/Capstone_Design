@@ -26,7 +26,7 @@ import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.TicketAdapter.Ticket_Index;
 
 public class SeatReservationActivity extends AppCompatActivity {
-    String myJSON;
+    String Seat_JSON;
     String temp;
     JSONArray Reser_arr;
     public Button[] SeatBT = null;
@@ -47,7 +47,6 @@ public class SeatReservationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat_reservation);
-        
 
         SeatBT = new Button[9];
         Ticket_str.add("BTS WORLD TOUR");
@@ -59,19 +58,99 @@ public class SeatReservationActivity extends AppCompatActivity {
             this.SeatBT[i] = (Button) findViewById(Bt_id[i]);
             Seat_str.add("a" + i);
         }
+        System.out.println("여긴됨??");
 
-        try {
-            Seat_data();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Seat_data("http://210.124.110.96/Seat_Value.php");
+
+//        try {
+//            // 어떤 티켓인지 식별자 전달
+//            HttpConnectThread http = new HttpConnectThread(
+//                    "http://210.124.110.96/Seat_Value.php", "ticketindex=" + Ticket_Index);
+//            http.start();
+//            temp = http.GetResult();
+//            // JSONObject jsonObj = new JSONObject(myJSON);
+//            JSONObject jsonObj = new JSONObject(temp);
+//            Reser_arr = jsonObj.getJSONArray(TAG_RESULT);
+//
+//            for (int i = 0; i < Reser_arr.length(); i++) {
+//                // TAG 의 String을 String 변수에 대입한다.
+//                JSONObject c = Reser_arr.getJSONObject(i);
+//                String id = c.getString(TAG_ID);
+//                //String ticket = c.getString(TAG_TICKET);
+//                String seat = c.getString(TAG_SEAT);
+//                // JSON 인코딩 성공
+//                Ticket_arr.add(id);
+//                Seat_arr.add(seat);
+            // Bt_id 는 int형 !!
+            // Seat_arr 은 서버에서 가져온 예약 된 좌석 수
+            // Seat_str 은 최대 좌석 수
+
+//            System.out.println("흐에잉ㅇㅇ??");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+
         // OnclickListener 설정
         for (int i = 0; i < Bt_id.length; i++) {
             this.SeatBT[i].setOnClickListener(BT_Listener);
+        }
+    }
+
+    // Ticket_Reservation Table안에 있는 Data 불러와서 변수 대입
+    public void Seat_data(String url) {
+        class GetSeatDataJSON extends AsyncTask<String, Void, String>{
+            @Override
+            protected void onPreExecute(){
+                super.onPreExecute();
+            }
+
+            @Override
+            protected String doInBackground(String ... params){
+                String result = null;
+                try{
+                    HttpConnectThread http = new HttpConnectThread(
+                            "http://210.124.110.96/Seat_Value.php", "ticketindex=" + Ticket_Index);
+                    http.start();
+                    temp = http.GetResult();
+                    // JSONObject jsonObj = new JSONObject(myJSON);
+                    JSONObject jsonObj = new JSONObject(temp);
+                    Reser_arr = jsonObj.getJSONArray(TAG_RESULT);
+
+                    for (int i = 0; i < Reser_arr.length(); i++) {
+                        // TAG 의 String을 String 변수에 대입한다.
+                        JSONObject c = Reser_arr.getJSONObject(i);
+                        String id = c.getString(TAG_ID);
+                        //String ticket = c.getString(TAG_TICKET);
+
+                        String seat = c.getString(TAG_SEAT);
+                        // JSON 인코딩 성공
+                        Ticket_arr.add(id);
+                        Seat_arr.add(seat);
+                    }
+                    System.out.println("나온다고!!");
+                    return temp;
+                } catch (Exception e){
+                    return null;
+                }
+            }
+            @Override
+            protected void onPostExecute(String result){
+                Seat_JSON = result;
+                for (int i = 0; i < Seat_arr.size(); i++) {
+                    for (int j = 0; j < Seat_str.size(); j++) {
+                        if (Seat_arr.get(i).equals(Seat_str.get(j))) {
+                            SeatBT[j].setBackgroundColor(Color.rgb(204, 12, 13));
+                        }
+                    }
+                }
+                System.out.println("나와 시발라마");
+            }
 
         }
-
+        GetSeatDataJSON Seat = new GetSeatDataJSON();
+        Seat.execute(url);
     }
+
 
     // 좌석 버튼들의 OnclickListener
     public View.OnClickListener BT_Listener = new View.OnClickListener() {
@@ -118,77 +197,4 @@ public class SeatReservationActivity extends AppCompatActivity {
         }
     };
 
-    // Ticket_Reservation Table안에 있는 Data 불러와서 변수 대입
-    public void Seat_data() {
-        try {
-            // 어떤 티켓인지 식별자 전달
-                HttpConnectThread http = new HttpConnectThread(
-                        "http://210.124.110.96/Seat_Value.php", "ticketindex=" + Ticket_Index);
-                http.start();
-                temp = http.GetResult();
-                // JSONObject jsonObj = new JSONObject(myJSON);
-                JSONObject jsonObj = new JSONObject(temp);
-                Reser_arr = jsonObj.getJSONArray(TAG_RESULT);
-
-                for (int i = 0; i < Reser_arr.length(); i++) {
-                    // TAG 의 String을 String 변수에 대입한다.
-                    JSONObject c = Reser_arr.getJSONObject(i);
-                    String id = c.getString(TAG_ID);
-                    //String ticket = c.getString(TAG_TICKET);
-                    String seat = c.getString(TAG_SEAT);
-                // JSON 인코딩 성공
-                Ticket_arr.add(id);
-                Seat_arr.add(seat);
-            }
-            // Bt_id 는 int형 !!
-            for (int i = 0; i < Seat_arr.size(); i++) {
-                for (int j = 0; j < Seat_str.size(); j++) {
-                    if (Seat_arr.get(i).equals(Seat_str.get(j))) {
-                        SeatBT[i].setBackgroundColor(Color.rgb(204, 12, 13));
-                    }
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
 }
-
-//    // Data 얻어오는 Method
-//    public void getData(String url) {
-//        class GetDataJSON extends AsyncTask<String, Void, String> {
-//            @Override
-//            // AsyncTask Background Method
-//            protected String doInBackground(String... params) {
-//                // uri
-//                String uri = params[0];
-//                BufferedReader bufferedReader = null;
-//                try {
-//                    URL url = new URL(uri);
-//                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
-//                    StringBuilder sb = new StringBuilder();
-//
-//                    bufferedReader = new BufferedReader(new InputStreamReader
-//                            (con.getInputStream()));
-//                    String json;
-//                    while ((json = bufferedReader.readLine()) != null) {
-//                        sb.append(json + "\n");
-//                    }
-//                    return sb.toString().trim();
-//                } catch (Exception e) {
-//                    return null;
-//                }
-//            }
-//
-//            @Override
-//            // Server 전송 Method
-//            protected void onPostExecute(String result) {
-//                myJSON = result;
-//                // Seat_data() 실행
-//                Seat_data();
-//            }
-//        }
-//
-//        GetDataJSON g = new GetDataJSON();
-//        g.execute(url);
-//    }
