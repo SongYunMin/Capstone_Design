@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 import static android.icu.lang.UCharacter.GraphemeClusterBreak.T;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
+import static com.example.capstone_design.NewAccount_Activity.status;
 
 public class MyTicketActivity extends AppCompatActivity {
 
@@ -76,6 +77,7 @@ public class MyTicketActivity extends AppCompatActivity {
         TicketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                status = 0;
                 if (ReservationWhether != "0") {
                     Intent intent = new Intent(getApplicationContext(), FingerPrintActivity.class);
                     startActivity(intent);

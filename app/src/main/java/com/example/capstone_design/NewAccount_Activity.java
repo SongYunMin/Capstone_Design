@@ -15,7 +15,7 @@ public class NewAccount_Activity extends AppCompatActivity {
     EditText ed_name, ed_id, ed_pw, ed_pwck, ed_phone;
     String st_name, st_id, st_pw, st_pwck, st_phone;
     public static String ReservationWhether;
-
+    public static int status;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,6 @@ public class NewAccount_Activity extends AppCompatActivity {
                             "&userphone=" + st_phone);
             http.start();
             String temp = http.GetResult();
-            Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다", Toast.LENGTH_LONG).show();
 
             // 알림 창
             AlertDialog.Builder builder = new AlertDialog.Builder(NewAccount_Activity.this);
@@ -61,6 +60,7 @@ public class NewAccount_Activity extends AppCompatActivity {
                     .setPositiveButton("인증", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            status = 1;     // 회원가입을 통한 지문인증인지 구분해야 함(NFC 때문)
                             Intent intent = new Intent(getApplicationContext(), FingerPrintActivity.class);
                             startActivity(intent);
                         }

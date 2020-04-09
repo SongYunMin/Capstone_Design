@@ -2,25 +2,17 @@ package com.example.capstone_design;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 import static com.example.capstone_design.LoginActivity.St_id;
@@ -133,7 +125,10 @@ public class SeatReservationActivity extends AppCompatActivity {
         for (int i = 0; i < Seat_arr_tem.size(); i++) {
             for (int j = 0; j < Seat_str.size(); j++) {
                 if (Seat_arr_tem.get(i).equals(Seat_str.get(j))) {
-                    SeatBT[j].setBackgroundColor(Color.rgb(204, 12, 13));
+                    SeatBT[j].setBackgroundColor(Color.rgb(165, 0, 0));
+                    SeatBT[j].setEnabled(false);
+                    SeatBT[j].setTextColor(Color.rgb(255,255,255));
+                    SeatBT[j].setText("예약불가");
                     r.postInvalidate();
                     System.out.println("나는 살아있다!!!");
                 }
