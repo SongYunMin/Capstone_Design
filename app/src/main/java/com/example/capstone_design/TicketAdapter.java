@@ -94,9 +94,6 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
             @Override
             public void onClick(View v) {
                 if (vo.cus_ticket.equals("1")) {
-                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                    toast.show();
-
                     Intent intent = new Intent(context, SeatReservationActivity.class);
                     context.startActivity(intent);
                     Ticket_Index = 1;
@@ -109,8 +106,6 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
 //                    String temp = http.GetResult();
                     Ticket_Reservation_Activity.clickHandler(v);
                 } else if (vo.cus_ticket.equals("2")) {
-                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                    toast.show();
                     ReservationWhether = "2";       // 예약 여부
                     Ticket_Index = 2;
 //                    HttpConnectThread http = new HttpConnectThread(
@@ -120,8 +115,6 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
 //                    String temp = http.GetResult();
                     Ticket_Reservation_Activity.clickHandler(v);
                 } else if (vo.cus_ticket.equals("3")) {
-                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                    toast.show();
                     ReservationWhether = "3";
                     Ticket_Index = 3;
 //                    HttpConnectThread http = new HttpConnectThread(
@@ -132,8 +125,6 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
 //                    String temp = http.GetResult();
                     Ticket_Reservation_Activity.clickHandler(v);
                 } else if (vo.cus_ticket.equals("4")) {
-                    Toast toast = Toast.makeText(context, "예약이 완료되었습니다", Toast.LENGTH_LONG);
-                    toast.show();
                     ReservationWhether = "4";
                     Ticket_Index = 4;
 //                    HttpConnectThread http = new HttpConnectThread(

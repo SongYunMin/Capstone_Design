@@ -43,10 +43,11 @@ public class LoginActivity extends AppCompatActivity {
         St_pw = ed_pw.getText().toString();
         St_id = ed_id.getText().toString();
 
-        // 통신 스레드 실행
+        // 통신 스레드 실행 (PHP 문자열 오류있음)
         HttpConnectThread http = new HttpConnectThread("http://210.124.110.96/Android_Check.php",
                 "memberID=" + St_id + "&memberPw=" + St_pw);
 
+        // PHP 문자열 오류 있음
         http.start();
         String result = http.GetResult();
 
@@ -55,15 +56,9 @@ public class LoginActivity extends AppCompatActivity {
         } else {
             LoginCheck = result;
             Check = this;
-
-            Login.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View w) {
-                    Toast.makeText(getApplicationContext(), "로그인 되었습니다", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                }
-            });
+            Toast.makeText(getApplicationContext(), "로그인 되었습니다", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
         }
     }
 }
