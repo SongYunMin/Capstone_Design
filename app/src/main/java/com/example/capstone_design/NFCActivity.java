@@ -47,6 +47,7 @@ public class NFCActivity extends Activity {
     TextView message;
     EditText Edit_text;
     Button btnWrite;
+    
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
