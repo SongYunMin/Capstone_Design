@@ -47,7 +47,7 @@ public class NFCActivity extends Activity {
     TextView message;
     EditText Edit_text;
     Button btnWrite;
-    
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -103,6 +103,7 @@ public class NFCActivity extends Activity {
 
     /******************************************************************************
      **********************************Read From NFC Tag***************************
+     *
      ******************************************************************************/
     private void readFromIntent(Intent intent) {
         String action = intent.getAction();
