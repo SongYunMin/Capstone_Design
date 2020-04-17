@@ -1,6 +1,10 @@
 package com.example.capstone_design;
 
-import androidx.appcompat.app.AppCompatActivity;
+/*
+ *
+ *       티켓 활성화 후 NFC Tag 위한 Activity
+ *
+ */
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -22,13 +26,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.capstone_design.R;
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-
-import static com.example.capstone_design.R.id.button;
-import static com.example.capstone_design.R.id.visible;
 
 public class NFCActivity extends Activity {
 

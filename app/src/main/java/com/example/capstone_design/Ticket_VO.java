@@ -1,5 +1,11 @@
 package com.example.capstone_design;
 
+/*
+ *
+ *       예약 가능 티켓 ListView 구성요소
+ *
+ */
+
 public class Ticket_VO {
     public String cus_ticket;
     public String cus_name;

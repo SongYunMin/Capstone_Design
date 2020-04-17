@@ -14,7 +14,7 @@ public class TicketHolder {
     public TextView placeView;
     public static Button buttonView;
 
-    public TicketHolder(View root){
+    public TicketHolder(View root) {
         typeImageView = root.findViewById(R.id.ticket_photo);
         numView = root.findViewById(R.id.num);
         nameView = root.findViewById(R.id.name);

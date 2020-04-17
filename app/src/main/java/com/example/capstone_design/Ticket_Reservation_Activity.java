@@ -1,5 +1,11 @@
 package com.example.capstone_design;
 
+/*
+ *
+ *       티켓 예약 기능 출력할 Activity - 티켓들 출력해줌
+ *
+ */
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;

@@ -12,17 +12,15 @@ public class SeatAdapter extends ArrayAdapter<SeatVO> {
     int resId;
     ArrayList<SeatVO> datas;
 
-    public SeatAdapter(Context context, int resId, ArrayList<SeatVO> datas)
-    {
-      super(context, resId);
-      this.context = context;
-      this.resId = resId;
-      this.datas = datas;
+    public SeatAdapter(Context context, int resId, ArrayList<SeatVO> datas) {
+        super(context, resId);
+        this.context = context;
+        this.resId = resId;
+        this.datas = datas;
     }
 
     @Override
-    public int getCount()
-    {
+    public int getCount() {
         return datas.size();
     }
 

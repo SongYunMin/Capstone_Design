@@ -1,5 +1,11 @@
 package com.example.capstone_design;
 
+/*
+ *
+ *       지문인증 화면이 출력되는 FingerPrintActivity.java
+ *
+ */
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
@@ -31,9 +37,9 @@ public class FingerPrintActivity extends AppCompatActivity {
                         @Override
                         public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                             super.onAuthenticationSucceeded(result);
-                            handler.post(new Runnable(){
+                            handler.post(new Runnable() {
                                 @Override
-                                public void run(){
+                                public void run() {
                                     Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다", Toast.LENGTH_LONG).show();
                                 }
                             });
@@ -51,6 +57,7 @@ public class FingerPrintActivity extends AppCompatActivity {
                         public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
                             super.onAuthenticationError(errorCode, errString);
                         }
+
                         @Override
                         public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                             super.onAuthenticationSucceeded(result);

@@ -2,6 +2,12 @@ package com.example.capstone_design;
 
 //import android.hardware.biometrics.BiometricPrompt;
 
+/*
+ *
+ *       생체인증(지문, 홍채 ...) 을 위한 BioFactory.java
+ *
+ */
+
 import androidx.annotation.NonNull;
 import androidx.biometric.BiometricPrompt;
 import androidx.appcompat.app.AppCompatActivity;

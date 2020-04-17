@@ -1,5 +1,11 @@
 package com.example.capstone_design;
 
+/*
+ *
+ *       회원가입 Activity
+ *
+ */
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,6 +22,7 @@ public class NewAccount_Activity extends AppCompatActivity {
     String st_name, st_id, st_pw, st_pwck, st_phone;
     public static String ReservationWhether;
     public static int status;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

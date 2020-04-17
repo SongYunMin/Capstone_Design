@@ -1,5 +1,11 @@
 package com.example.capstone_design;
 
+/*
+ *
+ *       SQLite Database 값 위한 DB Manager
+ *
+ */
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;

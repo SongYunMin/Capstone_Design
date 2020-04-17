@@ -1,5 +1,11 @@
 package com.example.capstone_design;
 
+/*
+ *
+ *       '내 티켓' 화면이 출력되는 MyTicketActivity
+ *
+ */
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 

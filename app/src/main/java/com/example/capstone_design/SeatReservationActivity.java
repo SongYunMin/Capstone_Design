@@ -1,5 +1,11 @@
 package com.example.capstone_design;
 
+/*
+ *
+ *       좌석 현황을 출력해줄 Activity
+ *
+ */
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +19,7 @@ import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 import static com.example.capstone_design.LoginActivity.St_id;
@@ -65,22 +72,23 @@ public class SeatReservationActivity extends AppCompatActivity {
     public void Seat_data(String url) {
         Seat_arr_tem = new ArrayList();
 
-        class GetSeatDataJSON extends AsyncTask<String, Void, String>{
+        class GetSeatDataJSON extends AsyncTask<String, Void, String> {
             @Override
-            protected void onPreExecute(){
+            protected void onPreExecute() {
                 super.onPreExecute();
             }
+
             @Override
-            protected String doInBackground(String ... params){
+            protected String doInBackground(String... params) {
                 String result = null;
-                try{
+                try {
                     HttpConnectThread http = new HttpConnectThread(
                             "http://210.124.110.96/Seat_Value.php",
                             "ticketindex=" + Ticket_Index);
                     http.start();
                     // JSONObject jsonObj = new JSONObject(myJSON);
                     // 딜레이 위해
-                    for(int i = 0;i<5000;i++){
+                    for (int i = 0; i < 5000; i++) {
                         System.out.println("qwe");
                     }
 
@@ -98,17 +106,18 @@ public class SeatReservationActivity extends AppCompatActivity {
                         Seat_arr.add(seat);
                     }
                     Seat_arr_tem = Seat_arr;
-                    for(int i=0;i<Seat_arr_tem.size();i++){
+                    for (int i = 0; i < Seat_arr_tem.size(); i++) {
                         System.out.println(Seat_arr_tem.get(i));
                     }
 
                     return temp;
-                } catch (Exception e){
+                } catch (Exception e) {
                     return null;
                 }
             }
+
             @Override
-            protected void onPostExecute(String result){
+            protected void onPostExecute(String result) {
                 Seat_JSON = result;
                 System.out.println("나와 시발라마");
                 ChangeBackground();
@@ -119,7 +128,7 @@ public class SeatReservationActivity extends AppCompatActivity {
         Seat.execute(url);
     }
 
-    public void ChangeBackground(){
+    public void ChangeBackground() {
         // Seat_arr이 '0' 인 오류 있음
         // 디버깅 시에는 정상 작동
         for (int i = 0; i < Seat_arr_tem.size(); i++) {
@@ -127,7 +136,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                 if (Seat_arr_tem.get(i).equals(Seat_str.get(j))) {
                     SeatBT[j].setBackgroundColor(Color.rgb(165, 0, 0));
                     SeatBT[j].setEnabled(false);
-                    SeatBT[j].setTextColor(Color.rgb(255,255,255));
+                    SeatBT[j].setTextColor(Color.rgb(255, 255, 255));
                     SeatBT[j].setText("예약불가");
                     r.postInvalidate();
                     System.out.println("나는 살아있다!!!");

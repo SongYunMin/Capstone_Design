@@ -1,5 +1,11 @@
 package com.example.capstone_design;
 
+/*
+ *
+ *       티켓 ListView 출력 위한 Adapter
+ *
+ */
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
