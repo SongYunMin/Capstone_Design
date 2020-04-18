@@ -1,6 +1,7 @@
 package com.example.capstone_design;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +13,9 @@ import android.widget.Toast;
 // LoginActivity 에서 가져온 id 값을 사용함
 import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
+import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Button Logout_button = (Button) findViewById(R.id.Logout);
         Button Ticketing_button = (Button) findViewById(R.id.Ticketing);
         Button MyTicket_button = (Button) findViewById(R.id.myTicket);
+
 
         // 로그인이 완료 되었을때 MainActivity 왼쪽 상단에 로그인된 아이디가 출력되는 식별자
         TextView LoginComplet = findViewById(R.id.LoginCompletion);
@@ -44,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
         new_Account_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(St_id == null){
-                Intent intent = new Intent(getApplicationContext(), NewAccount_Activity.class);
-                startActivity(intent);
+                if (St_id == null) {
+                    Intent intent = new Intent(getApplicationContext(), NewAccount_Activity.class);
+                    startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(),"이미 로그인 되어있습니다.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "이미 로그인 되어있습니다.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

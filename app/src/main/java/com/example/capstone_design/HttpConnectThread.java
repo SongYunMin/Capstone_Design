@@ -7,36 +7,33 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /*
-        작성자 : 송윤민
-        최초작성일 : ??
-        실행환경 : Android Studio 3.4
-        작성목적 : PHP와 통신하는 스레드
-        필요사항 : Thread의 정확한 이해
-        오류사항 :
-        수정사항 :
+        WEB 서버와 통신하기 위한 Http 스레드
 */
 
 public class HttpConnectThread extends Thread {
     private String m_Url;
     private String mContent;
 
-
     public HttpConnectThread(String url, String Content) {
         m_Url = url;
         mContent = Content;
     }
+
     String temp = "";
+
     // request를 실행하다가 에러가 나면 에러 메세지를 temp안에 담는 함수
     public void run() {
         try {
-            temp = request(); // 이새끼 아래에  있음
+            temp = request();
         } catch (Exception e) {
             temp = e.getMessage();
         }
     }
+
     public String GetResult() {
         return temp;
     }
+
     private String request() {
         StringBuilder output = new StringBuilder();
         try {

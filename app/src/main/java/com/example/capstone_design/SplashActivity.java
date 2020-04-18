@@ -1,5 +1,11 @@
 package com.example.capstone_design;
 
+/*
+ *
+ *       App 진입시 Splash 출력을 위한 Activity
+ *
+ */
+
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.Nullable;

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Seat_Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#1C1C1C"
+    android:orientation="vertical">
+
+    <!-- 티켓예매 Text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/seoulnamsanb"
+        android:text="좌석선택"
+        android:textColor="#ffffff"
+        android:textSize="50dp" />
+
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="5dp"
+    android:fontFamily="@font/seoulnamsanb"
+    android:text="Seat selection"
+    android:textColor="#ffffff"
+    android:textSize="25dp" />
+
+    <!-- 버튼 Layout -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/a0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#747474"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="A-0"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/a1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#747474"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="A-1"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/a2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#747474"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="A-2"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/a3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#747474"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="A-3"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/a4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#747474"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="A-4"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/a5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#747474"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="A-5"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/a6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#747474"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="A-6"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/a7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#747474"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="A-7"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/a8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#747474"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="A-8"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+
+</LinearLayout>

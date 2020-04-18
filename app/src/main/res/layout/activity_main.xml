@@ -25,9 +25,9 @@
         android:layout_gravity="center"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/seoulnamsanb"
-        android:text="Moblie Ticketing Service"
+        android:text="Fair Ticket"
         android:textColor="#ffffff "
-        android:textSize="30dp"
+        android:textSize="60dp"
         android:textStyle="bold" />
 
     <LinearLayout

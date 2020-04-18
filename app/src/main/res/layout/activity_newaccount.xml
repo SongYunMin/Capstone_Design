@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
+    android:background="#1C1C1C"
 >
 
     <!-- "회원가입" Text -->
@@ -15,8 +16,8 @@
         android:fontFamily="@font/seoulnamsanb"
         android:gravity="center"
         android:text="회원가입"
-        android:textColor="#40455e"
-        android:textSize="30dp" />
+        android:textColor="#FFFFFF"
+        android:textSize="50dp" />
 
     <!-- "Mobile Ticketing Service" Text -->
     <TextView
@@ -26,7 +27,8 @@
         android:gravity="center"
         android:fontFamily="@font/seoulnamsanb"
         android:textSize="20dp"
-        android:text="Mobile Ticketing Service"
+        android:text="Fair Ticket"
+        android:textColor="#FFFFFF"
         />
 
     <!-- "이름 : " Text -->
@@ -43,7 +45,9 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/seoulnamsanb"
             android:text="이름 : "
-            android:textSize="25dp" />
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            />
 
         <EditText
             android:id="@+id/NAME"
@@ -53,7 +57,10 @@
             android:layout_alignLeft="@id/NameText"
             android:layout_marginLeft="167dp"
             android:layout_marginTop="-36dp"
-            android:hint="이름을 입력하세요" />
+            android:hint="이름을 입력하세요"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            />
     </RelativeLayout>
 
     <!-- "아이디 : " Text -->
@@ -70,6 +77,7 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/seoulnamsanb"
             android:text="아이디 : "
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
         <EditText
@@ -80,7 +88,10 @@
             android:layout_alignLeft="@id/IdText"
             android:layout_marginLeft="167dp"
             android:layout_marginTop="-36dp"
-            android:hint="아이디를 입력하세요" />
+            android:hint="아이디를 입력하세요"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            />
     </RelativeLayout>
 
 
@@ -98,6 +109,7 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/seoulnamsanb"
             android:text="비밀번호 : "
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
         <EditText
@@ -108,7 +120,10 @@
             android:layout_alignLeft="@id/PasswordText"
             android:layout_marginLeft="167dp"
             android:layout_marginTop="-45dp"
-            android:hint="비밀번호를 입력하세요" />
+            android:hint="비밀번호를 입력하세요"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            />
     </RelativeLayout>
 
     <!-- "비밀번호 확인: " Text -->
@@ -125,6 +140,7 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/seoulnamsanb"
             android:text="비밀번호 확인 : "
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
         <EditText
@@ -135,7 +151,10 @@
             android:layout_alignLeft="@id/Password_2Text"
             android:layout_marginLeft="167dp"
             android:layout_marginTop="-45dp"
-            android:hint="다시한번 입력하세요" />
+            android:hint="다시한번 입력하세요"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            />
     </RelativeLayout>
 
     <!-- "휴대폰 번호: " Text -->
@@ -152,6 +171,7 @@
             android:layout_marginTop="30dp"
             android:fontFamily="@font/seoulnamsanb"
             android:text="휴대폰 번호 : "
+            android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
         <EditText
@@ -162,7 +182,10 @@
             android:layout_alignLeft="@id/PhoneText"
             android:layout_marginLeft="167dp"
             android:layout_marginTop="-45dp"
-            android:hint="휴대폰 번호를 입력하세요" />
+            android:hint="휴대폰 번호를 입력하세요"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            />
     </RelativeLayout>
 
     <!-- 데이터 전송 버튼 -->

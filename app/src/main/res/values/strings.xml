@@ -14,4 +14,8 @@
     <string name="msg_btn_finger_print">지문을 인증해 주세요</string>
     <string name="str_cancle">취소</string>
     <string name="str_text">Exit</string>
+    <string name="BTS">BTS WORLD TOUR</string>
+    <string name="KKH">KimKyungHo Concert</string>
+    <string name="MMMIA">MAMMAMIA!</string>
+    <string name="SKJ">Seo Kang Jun Fan Concert</string>
 </resources>
