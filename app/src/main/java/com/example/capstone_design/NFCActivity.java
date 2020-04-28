@@ -30,7 +30,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 public class NFCActivity extends Activity {
-
     public static final String ERROR_DETECTED = "No NFC tag detected!";
     public static final String WRITE_SUCCESS = "Text written to the NFC tag successfully!";
     public static final String WRITE_ERROR = "Error during writing, is the NFC tag close enough to your device?";
@@ -46,8 +45,6 @@ public class NFCActivity extends Activity {
     TextView message;
     EditText Edit_text;
     Button btnWrite;
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -120,6 +117,12 @@ public class NFCActivity extends Activity {
             buildTagViews(msgs);
         }
     }
+
+    private void onClick()
+    {
+
+    }
+
 
     private void buildTagViews(NdefMessage[] msgs) {
         if (msgs == null || msgs.length == 0) return;

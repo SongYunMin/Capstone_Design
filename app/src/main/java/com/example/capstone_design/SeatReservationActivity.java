@@ -45,6 +45,7 @@ public class SeatReservationActivity extends AppCompatActivity {
     private static final String TAG_TICKET = "ticket";
     private static final String TAG_SEAT = "seat";
     private static final String TAG_RESULT = "result";
+    private static final String NFC_TAG = "TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,14 +116,12 @@ public class SeatReservationActivity extends AppCompatActivity {
                     return null;
                 }
             }
-
             @Override
             protected void onPostExecute(String result) {
                 Seat_JSON = result;
                 System.out.println("나와 시발라마");
                 ChangeBackground();
             }
-
         }
         GetSeatDataJSON Seat = new GetSeatDataJSON();
         Seat.execute(url);

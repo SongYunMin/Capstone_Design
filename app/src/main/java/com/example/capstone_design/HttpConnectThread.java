@@ -18,7 +18,6 @@ public class HttpConnectThread extends Thread {
         m_Url = url;
         mContent = Content;
     }
-
     String temp = "";
 
     // request를 실행하다가 에러가 나면 에러 메세지를 temp안에 담는 함수
@@ -29,11 +28,9 @@ public class HttpConnectThread extends Thread {
             temp = e.getMessage();
         }
     }
-
     public String GetResult() {
         return temp;
     }
-
     private String request() {
         StringBuilder output = new StringBuilder();
         try {
