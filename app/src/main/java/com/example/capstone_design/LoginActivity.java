@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // PHP 문자열 오류 있음
         http.start();
+
         String result = http.GetResult();
 
         if (result.equals("False\n")) {

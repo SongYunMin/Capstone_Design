@@ -118,12 +118,6 @@ public class NFCActivity extends Activity {
         }
     }
 
-    private void onClick()
-    {
-
-    }
-
-
     private void buildTagViews(NdefMessage[] msgs) {
         if (msgs == null || msgs.length == 0) return;
 
