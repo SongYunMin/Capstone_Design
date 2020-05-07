@@ -64,7 +64,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
     private static final String TAG_DAY = "day";
     private static final String TAG_PLACE = "place";
 
-    
+
     // Local (SQLite)에 넣을 ID값과 TIcket값 변수
     public static String Local_ID;
     public static String Local_Ticket;
