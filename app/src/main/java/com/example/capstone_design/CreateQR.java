@@ -19,6 +19,11 @@ public class CreateQR extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_q_r);
 
+        // 데이터 베이스 Instance 호출
+        Ticket_Reservation_Activity.DBManager = TicketDatabaseManager.getInstance(this);
+
+       // Ticket_Reservation_Activity.DBManager.query().getString("ticket",null,null,null,null,null);
+
         Qrcode=(ImageView)findViewById(R.id.qrcode);
         text = "SongYunminNiceGuy";
 

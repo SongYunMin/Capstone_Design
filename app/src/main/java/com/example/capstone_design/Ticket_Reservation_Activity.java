@@ -187,32 +187,51 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", "KimKyungHo Concert");
+            Local_Ticket = "KimKyungHo Concert";
+            addTicketValue.put("ticket", Local_Ticket);
+
+            // 해시화 부분 (아직 적용 안함)
+            hash = St_id+Local_Ticket;
+            sha256 sh;
+            sh = new sha256();
+            hash = sh.Hash(hash);            // 해시값 정상적으로 들어 감
+            System.out.println(hash);       // 해시값 Test Code
 
             Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
             Local_ID = St_id;
-            Local_Ticket = "KimKyungHo Concert";
+
         } else if (ReservationWhether.equals("3")) {
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", "MAMMAMIA!");
+            Local_Ticket = "MAMMAMIA!";
+            addTicketValue.put("ticket", Local_Ticket);
+
+            // 해시화 부분 (아직 적용 안함)
+            hash = St_id+Local_Ticket;
+            sha256 sh;
+            sh = new sha256();
+            hash = sh.Hash(hash);            // 해시값 정상적으로 들어 감
+            System.out.println(hash);       // 해시값 Test Code
 
             Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
             Local_ID = St_id;
-            Local_Ticket = "MAMMAMIA!";
         } else if (ReservationWhether.equals("4")) {
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", "Ser Kang Jun Fan Concert");
+            Local_Ticket = "2020 Seo Kang Jun Fan Concert";
+            addTicketValue.put("ticket", Local_Ticket);
+
+            // 해시화 부분 (아직 적용 안함)
+            hash = St_id+Local_Ticket;
+            sha256 sh;
+            sh = new sha256();
+            hash = sh.Hash(hash);            // 해시값 정상적으로 들어 감
+            System.out.println(hash);       // 해시값 Test Code
 
             Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
             Local_ID = St_id;
-            Local_Ticket = "Seo Kang Jun Fan Concert";
         }
     }
 

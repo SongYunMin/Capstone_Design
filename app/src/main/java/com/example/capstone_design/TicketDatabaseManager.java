@@ -12,6 +12,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 public class TicketDatabaseManager {
+    public static int DBstatus = 0;
+
     static final String DB_NAME = "Mobile_Ticketing_Service";   // DB 이름
     static final String TABLE_NAME = "Reservation_Local";        // TABLE 이름
     static final int DB_VERSION = 1;                            // DB Version
@@ -35,6 +37,7 @@ public class TicketDatabaseManager {
 
         // DB Open
         myDatabase = context.openOrCreateDatabase(DB_NAME, context.MODE_PRIVATE, null);
+
 
         // Table 생성
         myDatabase.execSQL("CREATE TABLE IF NOT EXISTS " + TABLE_NAME +

@@ -112,30 +112,38 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
 //                    String temp = http.GetResult();
                     Ticket_Reservation_Activity.clickHandler(v);
                 } else if (vo.cus_ticket.equals("2")) {
-                    ReservationWhether = "2";       // 예약 여부
+                    Intent intent = new Intent(context, SeatReservationActivity.class);
+                    context.startActivity(intent);
                     Ticket_Index = 2;
+                    ReservationWhether = "2";       // 예약여부
+
 //                    HttpConnectThread http = new HttpConnectThread(
 //                            "http://210.124.110.96/Input_Reservation.php",
-//                            "userid=" + St_id + "&ticketname=" + R.string.KKH);
+//                            "userid=" + St_id + "&ticketname=" + R.string.BTS);
 //                    http.start();
 //                    String temp = http.GetResult();
                     Ticket_Reservation_Activity.clickHandler(v);
                 } else if (vo.cus_ticket.equals("3")) {
-                    ReservationWhether = "3";
+                    Intent intent = new Intent(context, SeatReservationActivity.class);
+                    context.startActivity(intent);
                     Ticket_Index = 3;
+                    ReservationWhether = "3";       // 예약여부
+
 //                    HttpConnectThread http = new HttpConnectThread(
 //                            "http://210.124.110.96/Input_Reservation.php",
-//                            "userid=" + St_id + "&ticketname=" + R.string.MMMIA);
-//
+//                            "userid=" + St_id + "&ticketname=" + R.string.BTS);
 //                    http.start();
 //                    String temp = http.GetResult();
                     Ticket_Reservation_Activity.clickHandler(v);
                 } else if (vo.cus_ticket.equals("4")) {
-                    ReservationWhether = "4";
+                    Intent intent = new Intent(context, SeatReservationActivity.class);
+                    context.startActivity(intent);
                     Ticket_Index = 4;
+                    ReservationWhether = "4";       // 예약여부
+
 //                    HttpConnectThread http = new HttpConnectThread(
 //                            "http://210.124.110.96/Input_Reservation.php",
-//                            "userid=" + St_id + "&ticketname=" + R.string.SKJ);
+//                            "userid=" + St_id + "&ticketname=" + R.string.BTS);
 //                    http.start();
 //                    String temp = http.GetResult();
                     Ticket_Reservation_Activity.clickHandler(v);
