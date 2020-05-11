@@ -165,16 +165,24 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
 
     // LocalDB(SQLite)에 들어갈 값
     public static void clickHandler(View view) {
+        String hash;
         if (ReservationWhether.equals("1")) {
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", "BTS WORLD TOUR");
+            Local_Ticket = "BTS WORLD TOUR";
+            addTicketValue.put("ticket", Local_Ticket);
+
+            // 해시화 부분 (아직 적용 안함)
+            hash = St_id+Local_Ticket;
+            sha256 sh;
+            sh = new sha256();
+            hash = sh.Hash(hash);            // 해시값 정상적으로 들어 감
+            System.out.println(hash);       // 해시값 Test Code
 
             Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
             Local_ID = St_id;
-            Local_Ticket = "BTS WORLD TOUR";
+
         } else if (ReservationWhether.equals("2")) {
             ContentValues addTicketValue = new ContentValues();
 
