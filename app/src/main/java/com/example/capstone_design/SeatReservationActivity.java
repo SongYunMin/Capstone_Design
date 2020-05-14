@@ -27,6 +27,7 @@ import static com.example.capstone_design.TicketAdapter.Ticket_Index;
 
 public class SeatReservationActivity extends AppCompatActivity {
     String Seat_JSON;
+    public static String Seat_Local;
     String temp;
     JSONArray Reser_arr;
     View v;
@@ -39,6 +40,10 @@ public class SeatReservationActivity extends AppCompatActivity {
             R.id.a6, R.id.a7, R.id.a8};
     ArrayList Seat_str = new ArrayList();
     ArrayList Ticket_str = new ArrayList();
+    String TICKET_BTS = "BTS WORLD TOUR";
+    String TICKET_KKH = "KimKyungHo Concert";
+    String TICKET_MMMIA = "MMMIA!";
+    String TICKET_SKJ = "Seo Kang Jun Fan Concert";
 
     private static final String TAG_NUM = "num";
     private static final String TAG_ID = "id";
@@ -72,7 +77,6 @@ public class SeatReservationActivity extends AppCompatActivity {
     // Ticket_Reservation Table안에 있는 Data 불러와서 변수 대입
     public void Seat_data(String url) {
         Seat_arr_tem = new ArrayList();
-
         class GetSeatDataJSON extends AsyncTask<String, Void, String> {
             @Override
             protected void onPreExecute() {
@@ -89,7 +93,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                     http.start();
                     // JSONObject jsonObj = new JSONObject(myJSON);
                     // 딜레이 위해
-                    for (int i = 0; i < 5000; i++) {
+                    for (int i = 0; i < 10000; i++) {
                         System.out.println("qwe");
                     }
 
@@ -150,12 +154,13 @@ public class SeatReservationActivity extends AppCompatActivity {
         public void onClick(View v) {
             for (int i = 0; i < Bt_id.length; i++) {
                 if (v.getId() == SeatBT[i].getId()) {
-                    if (Ticket_Index == 1) {
+                    if (Ticket_Index == 1) {                // 1번 티켓일때
                         // 티켓 이름
                         HttpConnectThread http = new HttpConnectThread("http://210.124.110.96/Input_Reservation.php",
-                                "ticketindex=" + Ticket_Index + "&userid=" + St_id + "&seat=" + Seat_str.get(i));
+                                "ticketindex=" + Ticket_Index + "&userid=" + St_id + "&seat=" + Seat_str.get(i) + "&ticketname=" + TICKET_BTS);
                         http.start();
                         String temp = http.GetResult();
+                        Seat_Local = Seat_str.get(i).toString();        // 추후에 사용될(QR코드 값을 넣을 때) Seat_Local
                         Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);

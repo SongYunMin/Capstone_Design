@@ -50,7 +50,8 @@ public class TicketDatabaseManager {
         return myDatabase.insert(TABLE_NAME, null, addLocalTicket);
     }
 
-    public Cursor query(String[] colums,
+    public Cursor query(
+                        String[] colums,
                         String selection,
                         String[] selectionArgs,
                         String groupBy,
