@@ -1,16 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1C1C1C"
     tools:context=".CreateQR"
     android:orientation="vertical">
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/seoulnamsanb"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:textColor="#FFFFFF"
+        android:text="티켓 활성화"
+        android:textSize="50dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="Fair Ticket"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        />
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
         android:id="@+id/qrcode"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        />
 
-</RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/seoulnamsanb"
+        android:textSize="30dp"
+        android:text="QR코드를 인식하여 주십시오"
+        />
+
+</LinearLayout>

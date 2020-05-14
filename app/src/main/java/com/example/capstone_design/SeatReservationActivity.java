@@ -114,7 +114,6 @@ public class SeatReservationActivity extends AppCompatActivity {
                     for (int i = 0; i < Seat_arr_tem.size(); i++) {
                         System.out.println(Seat_arr_tem.get(i));
                     }
-
                     return temp;
                 } catch (Exception e) {
                     return null;
