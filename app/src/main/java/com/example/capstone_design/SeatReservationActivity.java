@@ -2,7 +2,7 @@ package com.example.capstone_design;
 
 /*
  *
- *       좌석 현황을 출력해줄 Activity
+ * TODO    좌석 현황을 출력해주는 Activity
  *
  */
 
