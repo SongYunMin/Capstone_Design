@@ -1,5 +1,7 @@
 package com.example.capstone_design;
 
+import com.example.capstone_design.FingerBioFactory;
+
 //import android.hardware.biometrics.BiometricPrompt;
 
 /*

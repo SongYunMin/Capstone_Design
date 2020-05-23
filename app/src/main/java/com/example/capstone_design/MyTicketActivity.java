@@ -50,7 +50,6 @@ public class MyTicketActivity extends AppCompatActivity {
             TimeText.setText("18:00");
             PlaceText.setText("OLIMPIC STADIUM");
             TicketButton.setVisibility(View.VISIBLE);
-
         } else if (ReservationWhether.equals("2")) {
             TicketImage.setImageResource(R.drawable.kkh);
             NameText.setText("KimKyungHo Concert");

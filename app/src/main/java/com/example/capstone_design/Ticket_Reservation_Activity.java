@@ -202,7 +202,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             Local_ID = St_id;
         }
     }
-
     public void onClick(View v) {
         View list = (View) v.getParent();
     }
