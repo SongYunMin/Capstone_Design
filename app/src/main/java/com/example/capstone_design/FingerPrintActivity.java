@@ -48,8 +48,6 @@ public class FingerPrintActivity extends AppCompatActivity {
                         }
                     });
             fingerBioFactory1.authenticate();
-
-
         } else {
             FingerBioFactory fingerBioFactory1 = new FingerBioFactory
                     (this, new BiometricPrompt.AuthenticationCallback() {
@@ -61,7 +59,7 @@ public class FingerPrintActivity extends AppCompatActivity {
                         @Override
                         public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                             super.onAuthenticationSucceeded(result);
-                            Intent intent = new Intent(getApplicationContext(), NFCActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), CreateQR.class);
                             startActivity(intent);
                         }
                     });

@@ -2,59 +2,31 @@ package com.example.capstone_design;
 
 /*
  *
- *       티켓 예약 기능 출력할 Activity - 티켓들 출력해줌
+ *   TODO    티켓 예약 기능 출력할 Activity - 티켓들 출력해줌
  *
  */
-
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
-
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.media.Image;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
-
-import javax.crypto.EncryptedPrivateKeyInfo;
-
 import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
-import static com.example.capstone_design.TicketAdapter.vo;
-
 
 public class Ticket_Reservation_Activity extends AppCompatActivity
         implements AdapterView.OnClickListener {
     String myJSON;
-    Context context;
-    public static int Reservation[];
 
     // DB에 접근할 TAG 생성
     private static final String TAG_RESULT = "result";
@@ -67,13 +39,11 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
     // Local (SQLite)에 넣을 ID값과 TIcket값 변수
     public static String Local_ID;
     public static String Local_Ticket;
-    TicketAdapter adapter;
     JSONArray ticket = null;
     public static Context context_Reser;
     public static ArrayList<Ticket_VO> datas = new ArrayList<>();
     public static TicketDatabaseManager DBManager;
     ListView list;
-    String[] datass;
 
     // onCreate Method 실제 실행하는 함수
     @Override
@@ -115,7 +85,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                     return null;
                 }
             }
-
             @Override
             // Server 전송 Method
             protected void onPostExecute(String result) {
@@ -127,7 +96,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
         GetDataJSON g = new GetDataJSON();
         g.execute(url);
     }
-
     // List 의 들어갈 값을 가져오는 Method
     protected void showList() {
         try {
@@ -164,46 +132,74 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
 
     // LocalDB(SQLite)에 들어갈 값
     public static void clickHandler(View view) {
+        String hash;
         if (ReservationWhether.equals("1")) {
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", "BTS WORLD TOUR");
+            Local_Ticket = "BTS WORLD TOUR";
+            addTicketValue.put("ticket", Local_Ticket);
+
+            // TODO -> 해시화 진행함
+            hash = St_id+Local_Ticket;
+            sha256 sh;
+            sh = new sha256();
+            hash = sh.Hash(hash);            // 해시값 정상적으로 들어 감
+            System.out.println(hash);       // 해시값 Test Code
 
             Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
             Local_ID = St_id;
-            Local_Ticket = "BTS WORLD TOUR";
+
         } else if (ReservationWhether.equals("2")) {
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", "KimKyungHo Concert");
+            Local_Ticket = "KimKyungHo Concert";
+            addTicketValue.put("ticket", Local_Ticket);
+
+            // TODO -> 해시화 진행함
+            hash = St_id+Local_Ticket;
+            sha256 sh;
+            sh = new sha256();
+            hash = sh.Hash(hash);            // 해시값 정상적으로 들어 감
+            System.out.println(hash);       // 해시값 Test Code
 
             Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
             Local_ID = St_id;
-            Local_Ticket = "KimKyungHo Concert";
+
         } else if (ReservationWhether.equals("3")) {
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", "MAMMAMIA!");
+            Local_Ticket = "MAMMAMIA!";
+            addTicketValue.put("ticket", Local_Ticket);
+
+            // TODO -> 해시화 진행함
+            hash = St_id+Local_Ticket;
+            sha256 sh;
+            sh = new sha256();
+            hash = sh.Hash(hash);            // 해시값 정상적으로 들어 감
+            System.out.println(hash);       // 해시값 Test Code
 
             Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
             Local_ID = St_id;
-            Local_Ticket = "MAMMAMIA!";
         } else if (ReservationWhether.equals("4")) {
             ContentValues addTicketValue = new ContentValues();
 
             addTicketValue.put("ID", St_id);
-            addTicketValue.put("ticket", "Ser Kang Jun Fan Concert");
+            Local_Ticket = "2020 Seo Kang Jun Fan Concert";
+            addTicketValue.put("ticket", Local_Ticket);
+
+
+            // TODO -> 해시화 진행함
+            hash = St_id+Local_Ticket;
+            sha256 sh;
+            sh = new sha256();
+            hash = sh.Hash(hash);            // 해시값 정상적으로 들어 감
+            System.out.println(hash);       // 해시값 Test Code
 
             Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
-
             Local_ID = St_id;
-            Local_Ticket = "Seo Kang Jun Fan Concert";
         }
     }
 

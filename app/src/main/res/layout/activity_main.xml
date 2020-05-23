@@ -13,10 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:padding="15dp"
         android:fontFamily="@font/seoulnamsanb"
         android:textColor="#ffffff" />
-
-    <!-- 배경화면 -->
 
     <!-- Main 타이틀 -->
     <TextView
