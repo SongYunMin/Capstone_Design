@@ -129,5 +129,15 @@
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/reservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/seoulnamsanb"
+        android:text="예약"
+        />
+
 
 </LinearLayout>
