@@ -29,5 +29,4 @@
 //    public static final int EXTRA_ULTRALIGHT_TYPE_NTAG216 = 5;
 //    public static final int EXTRA_ULTRALIGHT_TYPE_NTAG213F = 6;
 //    public static final int EXTRA_ULTRALIGHT_TYPE_NTAG216F = 7;
-//
 //}

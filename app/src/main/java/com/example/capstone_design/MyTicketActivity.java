@@ -58,6 +58,7 @@ public class MyTicketActivity extends AppCompatActivity {
             TimeText.setText("19:30");
             PlaceText.setText("Chunchepn Art Center");
             TicketButton.setVisibility(View.VISIBLE);
+
         } else if (ReservationWhether.equals("3")) {
             TicketImage.setImageResource(R.drawable.mmmia);
             NameText.setText("MAMMAMIA!");
