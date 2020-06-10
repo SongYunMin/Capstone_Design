@@ -19,7 +19,7 @@
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/seoulnamsanb"
-            android:text="구매정보"
+            android:text="티켓 구매"
             android:textColor="#FFFFFF"
             android:textSize="50dp" />
 
@@ -49,8 +49,7 @@
             android:layout_marginTop="15dp"
             android:fontFamily="@font/seoulnamsanb"
             android:textColor="#FFFFFF"
-            android:textSize="25dp"
-            />
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/ticket_day"
@@ -59,9 +58,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/seoulnamsanb"
-            android:textSize="25dp"
             android:textColor="#FFFFFF"
-            />
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/ticket_time"
@@ -70,9 +68,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/seoulnamsanb"
-            android:textSize="25dp"
             android:textColor="#FFFFFF"
-            />
+            android:textSize="25dp" />
 
         <TextView
             android:id="@+id/ticket_place"
@@ -81,33 +78,40 @@
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:fontFamily="@font/seoulnamsanb"
-            android:textSize="25dp"
             android:textColor="#FFFFFF"
-            />
+            android:textSize="25dp" />
 
         <!-- 예약수량 Area -->
         <TextView
             android:id="@+id/Reserved_Quantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:textSize="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/seoulnamsanb"
             android:text="예약 매수(장)"
             android:textColor="#FFFFFF"
-            android:fontFamily="@font/seoulnamsanb"
-            />
+            android:textSize="30dp" />
 
         <EditText
             android:id="@+id/EditTicket"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="30dp"
+            android:background="#FFFFFF" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="50dp"
             android:layout_gravity="center"
-            android:background="#FFFFFF"
-        />
-
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="예약"
+            android:textColor="#2E2E2E"
+            android:textSize="20dp"
+            android:background="#D8D8D8"
+            />
     </LinearLayout>
-
 </ScrollView>
