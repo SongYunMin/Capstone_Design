@@ -12,13 +12,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- Head Text -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:fontFamily="@font/seoulnamsanb"
-            android:text="티켓정보"
+            android:text="구매정보"
             android:textColor="#FFFFFF"
             android:textSize="50dp" />
 
@@ -32,7 +33,9 @@
             android:textColor="#FFFFFF"
             android:textSize="25dp" />
 
+        <!-- 티켓 정보 TextView -->
         <ImageView
+            android:id="@+id/ticket_img"
             android:layout_width="240dp"
             android:layout_height="350dp"
             android:layout_gravity="center"
@@ -72,7 +75,7 @@
             />
 
         <TextView
-            android:id="@+id/ticket_area"
+            android:id="@+id/ticket_place"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -82,10 +85,28 @@
             android:textColor="#FFFFFF"
             />
 
+        <!-- 예약수량 Area -->
+        <TextView
+            android:id="@+id/Reserved_Quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:textSize="30dp"
+            android:text="예약 매수(장)"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/seoulnamsanb"
+            />
 
-
-
-
+        <EditText
+            android:id="@+id/EditTicket"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="30dp"
+            android:layout_gravity="center"
+            android:background="#FFFFFF"
+        />
 
     </LinearLayout>
 
