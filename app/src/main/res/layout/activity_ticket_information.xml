@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/Seat_Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="#1C1C1C"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="티켓정보"
+            android:textColor="#FFFFFF"
+            android:textSize="50dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="Ticket Information"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp" />
+
+        <ImageView
+            android:layout_width="240dp"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp" />
+
+        <TextView
+            android:id="@+id/ticket_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/seoulnamsanb"
+            android:textColor="#FFFFFF"
+            android:textSize="25dp"
+            />
+
+        <TextView
+            android:id="@+id/ticket_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/seoulnamsanb"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            />
+
+        <TextView
+            android:id="@+id/ticket_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/seoulnamsanb"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            />
+
+        <TextView
+            android:id="@+id/ticket_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/seoulnamsanb"
+            android:textSize="25dp"
+            android:textColor="#FFFFFF"
+            />
+
+
+
+
+
+
+    </LinearLayout>
+
+</ScrollView>

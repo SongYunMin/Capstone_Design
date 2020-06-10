@@ -19,7 +19,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".CreateQR"></activity>
+        <activity android:name=".TicketInformationActivity"></activity>
+        <activity android:name=".CreateQR" />
         <activity android:name=".SeatReservationActivity" />
         <activity android:name=".FingerPrintActivity" />
         <activity android:name=".NFCActivity" />
