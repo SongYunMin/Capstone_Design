@@ -156,11 +156,12 @@ public class SeatReservationActivity extends AppCompatActivity {
                     if (Ticket_Index == 1) {                // 1번 티켓일때
                         // 티켓 이름
 //                        Intent intent = new Intent(getApplicationContext(),
+
 //                                TicketInformationActivity.class);
 //                        startActivity(intent);
                         // TODO 어떻게 티켓인덱스 Ticketinformation으로 보냄?
                         HttpConnectThread http = new HttpConnectThread(
-                                "http://210.124.110.96/Input_Reservation.php",
+                                 "http://210.124.110.96/Input_Reservation.php",
                                 "ticketindex=" + Ticket_Index + "&userid=" + St_id +
                                         "&seat=" + Seat_str.get(i) + "&ticketname=" + TICKET_BTS);
                         http.start();
