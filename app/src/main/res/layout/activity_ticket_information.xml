@@ -10,7 +10,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp"
+        >
 
         <!-- Head Text -->
         <TextView
@@ -46,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/seoulnamsanb"
             android:textColor="#FFFFFF"
             android:textSize="25dp" />
@@ -56,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/seoulnamsanb"
             android:textColor="#FFFFFF"
             android:textSize="25dp" />
@@ -66,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/seoulnamsanb"
             android:textColor="#FFFFFF"
             android:textSize="25dp" />
@@ -76,7 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/seoulnamsanb"
             android:textColor="#FFFFFF"
             android:textSize="25dp" />
@@ -95,18 +97,67 @@
 
         <EditText
             android:id="@+id/EditTicket"
-            android:layout_width="150dp"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:hint="예약 매수를 입력하세요(장)"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="#FFFFFF" />
+
+        <!-- 예약수량 Area -->
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="15dp"
-            android:layout_marginBottom="30dp"
-            android:background="#FFFFFF" />
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="결제 정보"
+            android:textColor="#FFFFFF"
+            android:textSize="30dp" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            >
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seoulnamsanb"
+                android:text="신용카드"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:buttonTint="#FFFFFF"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seoulnamsanb"
+                android:text="계좌이체"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:buttonTint="#FFFFFF"
+                />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/seoulnamsanb"
+                android:text="순천향 쿠폰"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:buttonTint="#FFFFFF"
+                />
+        </RadioGroup>
 
         <Button
+            android:id="@+id/information_submit"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="@font/seoulnamsanb"
             android:text="예약"
             android:textColor="#2E2E2E"
