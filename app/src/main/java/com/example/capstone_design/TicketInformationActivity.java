@@ -15,7 +15,7 @@ import static com.example.capstone_design.NewAccount_Activity.ReservationWhether
 import static com.example.capstone_design.NewAccount_Activity.status;
 
 public class TicketInformationActivity extends AppCompatActivity {
-
+    String temp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,6 @@ public class TicketInformationActivity extends AppCompatActivity {
         final TextView TicketPlace = (TextView) findViewById(R.id.ticket_place);
         final EditText TicketEdit = (EditText) findViewById(R.id.EditTicket);
         final Button TicketButton = (Button) findViewById(R.id.information_submit);
-        final String temp;
 
         // 현재 예약의 상태(ReservationWhether) 에 따라서 이미지 및 텍스트 출력 변경
         if (ReservationWhether.equals("1")) {
@@ -57,11 +56,11 @@ public class TicketInformationActivity extends AppCompatActivity {
             TicketTime.setText("14:00");
             TicketPlace.setText("Suwon WorldCup Stadium");
         }
-        temp = TicketEdit.getText().toString();
 
         TicketButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                temp = TicketEdit.getText().toString();
                 // 예약 매수가 1장이라면?
                 if (temp.equals("1")) {
                     // 예약 완료
@@ -72,7 +71,11 @@ public class TicketInformationActivity extends AppCompatActivity {
                 }
                 // 예약 매수가 여러장이라면?
                 else {
-                    
+                    // 예약자 정보 입력 Activity로 이동
+                    Toast.makeText(TicketInformationActivity.this,
+                            "예약자 정보를 입력해주세요", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(getApplicationContext(), ReservedInformation.class);
+                    startActivity(intent);
                 }
             }
         });
