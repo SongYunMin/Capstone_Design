@@ -1,5 +1,4 @@
 package com.example.capstone_design;
-
 /*
  *
  *   TODO    티켓 예약 기능 출력할 Activity - 티켓들 출력해줌
@@ -73,7 +72,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                     URL url = new URL(uri);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     StringBuilder sb = new StringBuilder();
-
                     bufferedReader = new BufferedReader(new InputStreamReader
                             (con.getInputStream()));
                     String json;
@@ -98,28 +96,31 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
     }
     // List 의 들어갈 값을 가져오는 Method
     protected void showList() {
+        int status = 0;
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
             ticket = jsonObj.getJSONArray(TAG_RESULT);
+            if(status == 0) {
+                for (int i = 0; i < ticket.length(); i++) {
+                    // TAG 의 String을 String 변수에 대입한다.
+                    JSONObject c = ticket.getJSONObject(i);
+                    String num = c.getString(TAG_NUM);
+                    String name = c.getString(TAG_NAME);
+                    String time = c.getString(TAG_TIME);
+                    String day = c.getString(TAG_DAY);
+                    String place = c.getString(TAG_PLACE);
 
-            for (int i = 0; i < ticket.length(); i++) {
-                // TAG 의 String을 String 변수에 대입한다.
-                JSONObject c = ticket.getJSONObject(i);
-                String num = c.getString(TAG_NUM);
-                String name = c.getString(TAG_NAME);
-                String time = c.getString(TAG_TIME);
-                String day = c.getString(TAG_DAY);
-                String place = c.getString(TAG_PLACE);
+                    // ???? 뭔지 정확히 파악해라
+                    Ticket_VO vo = new Ticket_VO();
+                    vo.cus_ticket = num;
+                    vo.cus_name = name;
+                    vo.cus_time = time;
+                    vo.cus_day = day;
+                    vo.cus_place = place;
 
-                // ???? 뭔지 정확히 파악해라
-                Ticket_VO vo = new Ticket_VO();
-                vo.cus_ticket = num;
-                vo.cus_name = name;
-                vo.cus_time = time;
-                vo.cus_day = day;
-                vo.cus_place = place;
-
-                datas.add(vo);
+                    datas.add(vo);
+                    status++;
+                }
             }
             // list_item
             TicketAdapter adapter = new TicketAdapter(this, R.layout.list_item, datas);
@@ -140,13 +141,12 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             Local_Ticket = "BTS WORLD TOUR";
             addTicketValue.put("ticket", Local_Ticket);
 
-            // TODO -> 해시화 진행함
+            // 해시화 진행함
             hash = St_id+Local_Ticket;
             sha256 sh;
             sh = new sha256();
             hash = sh.Hash(hash);            // 해시값 정상적으로 들어 감
             System.out.println(hash);       // 해시값 Test Code
-
             Ticket_Reservation_Activity.DBManager.insert(addTicketValue);
             Local_ID = St_id;
 
@@ -156,8 +156,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             addTicketValue.put("ID", St_id);
             Local_Ticket = "KimKyungHo Concert";
             addTicketValue.put("ticket", Local_Ticket);
-
-            // TODO -> 해시화 진행함
+            // 해시화 진행함
             hash = St_id+Local_Ticket;
             sha256 sh;
             sh = new sha256();
@@ -174,7 +173,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             Local_Ticket = "MAMMAMIA!";
             addTicketValue.put("ticket", Local_Ticket);
 
-            // TODO -> 해시화 진행함
+            // 해시화 진행함
             hash = St_id+Local_Ticket;
             sha256 sh;
             sh = new sha256();
@@ -190,8 +189,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             Local_Ticket = "2020 Seo Kang Jun Fan Concert";
             addTicketValue.put("ticket", Local_Ticket);
 
-
-            // TODO -> 해시화 진행함
+            // 해시화 진행함
             hash = St_id+Local_Ticket;
             sha256 sh;
             sh = new sha256();

@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.SeatReservationActivity.Seat_Local;
 import static com.example.capstone_design.TicketAdapter.Ticket_Index;
+
 public class CreateQR extends AppCompatActivity {
     private ImageView Qrcode;
     public String text;
@@ -40,7 +41,8 @@ public class CreateQR extends AppCompatActivity {
         Cursor cursor = null;
         // table값 불러오가
         cursor = Ticket_Reservation_Activity.DBManager.
-                query(null, null, null, null, null, null);
+                query(null, null, null,
+                        null, null, null);
 
         // todo> SELECT 기능
         if (cursor != null) {
@@ -86,7 +88,8 @@ public class CreateQR extends AppCompatActivity {
 
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try {
-                    BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE, 200, 200);
+                    BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE,
+                            200, 200);
                     BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                     Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
                     Qrcode.setImageBitmap(bitmap);
@@ -103,7 +106,6 @@ public class CreateQR extends AppCompatActivity {
             }
         }
     }
-
 //    public void onActivityResult(int requestCode, int resultCode, Intent data) {
 //        super.onActivityResult(requestCode, resultCode, data);
 //        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);

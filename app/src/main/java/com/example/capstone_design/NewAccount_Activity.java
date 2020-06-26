@@ -8,6 +8,7 @@ package com.example.capstone_design;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +22,7 @@ public class NewAccount_Activity extends AppCompatActivity {
     String st_name, st_id, st_pw, st_pwck, st_phone;
     public static String ReservationWhether;
     public static int status;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,10 +52,6 @@ public class NewAccount_Activity extends AppCompatActivity {
                             "&userphone=" + st_phone);
             http.start();
             String temp = http.GetResult();
-            if(temp.equals("ID duplicated\n")){
-                Toast.makeText(getApplicationContext(), "아이디가 중복됩니다. 다시 입력해주세요.",
-                        Toast.LENGTH_LONG).show();
-            }
 
             // 알림 창
             AlertDialog.Builder builder = new AlertDialog.Builder(NewAccount_Activity.this);

@@ -53,7 +53,8 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
     // 내부적으로 자동 호출 됨
     public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
-            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.
+                    LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(resId, null);
             TicketHolder holder = new TicketHolder(convertView);
             convertView.setTag(holder);

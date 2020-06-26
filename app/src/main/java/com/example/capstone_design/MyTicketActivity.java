@@ -55,8 +55,9 @@ public class MyTicketActivity extends AppCompatActivity {
             NameText.setText("KimKyungHo Concert");
             DayText.setText("2019.10.26");
             TimeText.setText("19:30");
-            PlaceText.setText("Chunchepn Art Center");
+            PlaceText.setText("Chuncheon Art Center");
             TicketButton.setVisibility(View.VISIBLE);
+
         } else if (ReservationWhether.equals("3")) {
             TicketImage.setImageResource(R.drawable.mmmia);
             NameText.setText("MAMMAMIA!");
@@ -67,7 +68,7 @@ public class MyTicketActivity extends AppCompatActivity {
 
         } else if (ReservationWhether.equals("4")) {
             TicketImage.setImageResource(R.drawable.skj);
-            NameText.setText("Seo Kang Jun Fan Concert");
+            NameText.setText("SeoKangJun Fan Concert");
             DayText.setText("2020.1.4");
             TimeText.setText("14:00");
             PlaceText.setText("Suwon WorldCup Stadium");
