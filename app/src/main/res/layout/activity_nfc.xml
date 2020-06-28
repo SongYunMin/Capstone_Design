@@ -62,13 +62,13 @@
         android:text="스마트폰 뒷면을 태그해 주세요"
         />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/NFC_image"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_gravity="center"-->
-<!--       &lt;!&ndash; android:src="@drawable/nfcimg" &ndash;&gt;-->
-<!--    />-->
+    <ImageView
+        android:id="@+id/NFC_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/nfc_logo"
+    />
 
 
 </LinearLayout>
