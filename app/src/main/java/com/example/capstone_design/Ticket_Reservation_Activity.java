@@ -5,6 +5,8 @@ package com.example.capstone_design;
  *
  */
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -61,6 +63,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
 
     // Data 얻어오는 Method
     public void getData(String url) {
+        @SuppressLint("StaticFieldLeak")
         class GetDataJSON extends AsyncTask<String, Void, String> {
             @Override
             // AsyncTask Background Method
@@ -76,7 +79,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                             (con.getInputStream()));
                     String json;
                     while ((json = bufferedReader.readLine()) != null) {
-                        sb.append(json + "\n");
+                        sb.append(json).append("\n");
                     }
                     return sb.toString().trim();
                 } catch (Exception e) {
