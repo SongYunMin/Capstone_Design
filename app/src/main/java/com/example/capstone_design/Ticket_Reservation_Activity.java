@@ -1,7 +1,7 @@
 package com.example.capstone_design;
 /*
  *
- *   TODO    티켓 예약 기능 출력할 Activity - 티켓들 출력해줌
+ *   티켓 예약 기능 출력할 Activity - 티켓들 출력해줌
  *
  */
 import androidx.appcompat.app.AppCompatActivity;
@@ -83,6 +83,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                     return null;
                 }
             }
+
             @Override
             // Server 전송 Method
             protected void onPostExecute(String result) {

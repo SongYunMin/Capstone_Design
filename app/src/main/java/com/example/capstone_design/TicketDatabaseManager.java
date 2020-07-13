@@ -31,7 +31,6 @@ public class TicketDatabaseManager {
 
         return myDBManager;
     }
-
     private TicketDatabaseManager(Context context) {
         dbContext = context;
 
