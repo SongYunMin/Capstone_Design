@@ -127,7 +127,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                     vo.cus_time = time;
                     vo.cus_day = day;
                     vo.cus_place = place;
-
                     datas.add(vo);
                 }
             }
@@ -139,7 +138,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             }
 
         } catch (JSONException e) {
-            
             e.printStackTrace();
         }
     }

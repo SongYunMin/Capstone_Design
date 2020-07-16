@@ -6,6 +6,7 @@ package com.example.capstone_design;
  *
  */
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -35,16 +36,18 @@ public class NFCActivity extends Activity {
     public static final String WRITE_ERROR = "Error during writing, is the NFC tag close enough to your device?";
     NfcAdapter nfcAdapter;
     PendingIntent pendingIntent;
-    IntentFilter writeTagFilters[];
+    IntentFilter[] writeTagFilters;
     boolean writeMode;
     Tag myTag;
     Context context;
 
+    @SuppressLint("StaticFieldLeak")
     public static TextView tvNFCContent;     // NFC 안에 들어가 있는 값
     public static String ServerText;        // 서버로 전송될 값
     TextView message;
     EditText Edit_text;
     Button btnWrite;
+    @SuppressLint("CutPasteId")
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

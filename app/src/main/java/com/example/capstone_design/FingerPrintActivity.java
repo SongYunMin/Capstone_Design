@@ -47,7 +47,7 @@ public class FingerPrintActivity extends AppCompatActivity {
                         }
                     });
             fingerBioFactory1.authenticate();
-        } else {
+        } else {            // 티켓 콸성화용 지문인증
             FingerBioFactory fingerBioFactory1 = new FingerBioFactory
                     (this, new BiometricPrompt.AuthenticationCallback() {
                         @Override
