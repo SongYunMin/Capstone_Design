@@ -30,16 +30,20 @@ public class FingerPrintActivity extends AppCompatActivity {
             FingerBioFactory fingerBioFactory1 = new FingerBioFactory
                     (this, new BiometricPrompt.AuthenticationCallback() {
                         @Override
-                        public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                        public void onAuthenticationError(int errorCode,
+                                                          @NonNull CharSequence errString) {
                             super.onAuthenticationError(errorCode, errString);
                         }
+
                         @Override
-                        public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                        public void onAuthenticationSucceeded(@NonNull BiometricPrompt.
+                                AuthenticationResult result) {
                             super.onAuthenticationSucceeded(result);
                             handler.post(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Toast.makeText(getApplicationContext(), "회원가입이 완료되었습니다", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(getApplicationContext(),
+                                            "회원가입이 완료되었습니다", Toast.LENGTH_LONG).show();
                                 }
                             });
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
@@ -54,10 +58,13 @@ public class FingerPrintActivity extends AppCompatActivity {
                         public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
                             super.onAuthenticationError(errorCode, errString);
                         }
+
                         @Override
-                        public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                        public void onAuthenticationSucceeded(@NonNull BiometricPrompt.
+                                AuthenticationResult result) {
                             super.onAuthenticationSucceeded(result);
-                            Intent intent = new Intent(getApplicationContext(), CreateQR.class);
+                            // TODO : NFC 테스트 중
+                            Intent intent = new Intent(getApplicationContext(), NFCActivity.class);
                             startActivity(intent);
                         }
                     });
