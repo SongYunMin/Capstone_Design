@@ -64,7 +64,7 @@ public class FingerPrintActivity extends AppCompatActivity {
                                 AuthenticationResult result) {
                             super.onAuthenticationSucceeded(result);
                             // TODO : NFC 테스트 중
-                            Intent intent = new Intent(getApplicationContext(), NFCActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), CreateQR.class);
                             startActivity(intent);
                         }
                     });
