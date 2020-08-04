@@ -6,6 +6,7 @@ package com.example.capstone_design;
  *
  */
 
+// TODO : Ticket_VO Class 사용되지 않음
 public class Ticket_VO {
     public String cus_ticket;
     public String cus_name;

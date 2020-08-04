@@ -14,6 +14,7 @@ public class TicketHolder {
     public TextView placeView;
     public static Button buttonView;
 
+    // TODO : 필요성 조금더 명확하게 정의
     public TicketHolder(View root) {
         typeImageView = root.findViewById(R.id.ticket_photo);
         numView = root.findViewById(R.id.num);

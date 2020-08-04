@@ -106,6 +106,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
         g.execute(url);
     }
 
+    // TODO : 티켓 중복 출력 문제 해결
     // List 의 들어갈 값을 가져오는 Method
     protected void showList() {
         try {
