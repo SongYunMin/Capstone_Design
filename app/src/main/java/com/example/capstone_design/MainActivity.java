@@ -10,8 +10,6 @@ import android.widget.Toast;
 
 // LoginActivity 에서 가져온 id 값을 사용함
 import static com.example.capstone_design.LoginActivity.St_id;
-import static com.example.capstone_design.NewAccount_Activity.ReservationWhether;
-import static java.security.AccessController.getContext;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -25,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
         Button MyTicket_button = (Button) findViewById(R.id.myTicket);
 
         // 로그인이 완료 되었을때 MainActivity 왼쪽 상단에 로그인된 아이디가 출력되는 식별자
-        TextView LoginComplet = findViewById(R.id.LoginCompletion);
+        TextView LoginComplete = findViewById(R.id.LoginCompletion);
 
         // 로그인이 완료 되었을 떄 MainActivity 좌측 상단에 표시되는 TextView
         if (St_id != null) {
-            LoginComplet.setText(St_id + "님 환영합니다");
-            LoginComplet.setVisibility(View.VISIBLE);
+            LoginComplete.setText(St_id + "님 환영합니다");
+            LoginComplete.setVisibility(View.VISIBLE);
             // 로그인 버튼은 숨기고 로그아웃 버튼 생성 되게함
             Login_button.setVisibility(View.GONE);
             Logout_button.setVisibility(View.VISIBLE);
@@ -47,13 +45,15 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), NewAccount_Activity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(), "이미 로그인 되어있습니다.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "이미 로그인 되어있습니다.",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
         // 버튼 클릭시 로그인 창으로 이동되는 코드 Intent를 이용함 (로그인시 진입 못하게 수정)
-        Login_button.setOnClickListener(new View.OnClickListener() {
+        Login_button.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 if (St_id == null) {
@@ -72,10 +72,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (St_id != null) {
                     // 우선은 기존 TicketingActivity로 진행
-                    Intent intent = new Intent(getApplicationContext(), Ticket_Reservation_Activity.class);
+                    Intent intent = new Intent(getApplicationContext(),
+                            Ticket_Reservation_Activity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "먼저 로그인을 해주세요",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -88,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), MyTicketActivity.class);
                     startActivity(intent);
                 } else {
-                    Toast.makeText(getApplicationContext(), "먼저 로그인을 해주세요", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "먼저 로그인을 해주세요",
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });
