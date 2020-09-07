@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:background="#1C1C1C"
+    >
+    <!-- 티켓예매 Text -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/seoulnamsanb"
+        android:text="예약 번호 확인"
+        android:textColor="#ffffff"
+        android:textSize="50dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/seoulnamsanb"
+        android:text="Confirm Booking Number"
+        android:textColor="#ffffff"
+        android:textSize="25dp" />
+
+    <!-- 예약자 전화 번호 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/numtext1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="전화번호 : "
+            android:textColor="#FFFFFF"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/numedit1"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/numtext1"
+            android:layout_alignLeft="@id/numtext1"
+            android:layout_marginLeft="167dp"
+            android:layout_marginTop="-36dp"
+            android:hint="전화번호를 입력하세요"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            />
+    </RelativeLayout>
+
+    <!-- 예약자 전화 번호 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/numtext2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="전화번호 : "
+            android:textColor="#FFFFFF"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/numedit2"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/numtext2"
+            android:layout_alignLeft="@id/numtext2"
+            android:layout_marginLeft="167dp"
+            android:layout_marginTop="-36dp"
+            android:hint="전화번호를 입력하세요"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            />
+    </RelativeLayout>
+
+    <!-- 예약자 전화 번호 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/numtext3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="전화번호 : "
+            android:textColor="#FFFFFF"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/numedit3"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/numtext3"
+            android:layout_alignLeft="@id/numtext3"
+            android:layout_marginLeft="167dp"
+            android:layout_marginTop="-36dp"
+            android:hint="전화번호를 입력하세요"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            />
+    </RelativeLayout>
+
+    <!-- 예약자 전화 번호 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/numtext4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/seoulnamsanb"
+            android:text="전화번호 : "
+            android:textColor="#FFFFFF"
+            android:textSize="25dp" />
+
+        <EditText
+            android:id="@+id/numedit4"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/numtext4"
+            android:layout_alignLeft="@id/numtext4"
+            android:layout_marginLeft="167dp"
+            android:layout_marginTop="-36dp"
+            android:hint="전화번호를 입력하세요"
+            android:textColorHint="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/testbt"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="번호 추가"
+        />;
+
+    />
+
+
+
+</LinearLayout>

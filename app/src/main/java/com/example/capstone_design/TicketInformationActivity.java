@@ -74,7 +74,7 @@ public class TicketInformationActivity extends AppCompatActivity {
                     // 예약자 정보 입력 Activity로 이동
                     Toast.makeText(TicketInformationActivity.this,
                             "예약자 정보를 입력해주세요", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), ReservedInformation.class);
+                    Intent intent = new Intent(getApplicationContext(), PhoneNumberActivity.class);
                     startActivity(intent);
                 }
             }

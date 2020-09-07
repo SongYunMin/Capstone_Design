@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         // 로그인이 완료 되었을 떄 MainActivity 좌측 상단에 표시되는 TextView
         if (St_id != null) {
-            LoginComplete.setText(St_id + "님 환영합니다");
+            LoginComplete.setText(String.format("%s님 환영합니다", St_id));
             LoginComplete.setVisibility(View.VISIBLE);
             // 로그인 버튼은 숨기고 로그아웃 버튼 생성 되게함
             Login_button.setVisibility(View.GONE);

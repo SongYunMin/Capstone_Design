@@ -51,6 +51,7 @@ public class SeatReservationActivity extends AppCompatActivity {
     private static final String TAG_SEAT = "seat";
     private static final String TAG_RESULT = "result";
     private static final String NFC_TAG = "TAG";
+    public Button manyButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,17 @@ public class SeatReservationActivity extends AppCompatActivity {
         Ticket_str.add("KimKyungHo Concert");
         Ticket_str.add("MMMIA!");
         Ticket_str.add("Seo Kang Jun Fan Concert");
+
+        manyButton = findViewById(R.id.reservation);
+
+        manyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PhoneNumberActivity.class);
+                startActivity(intent);
+            }
+        });
+
         // Local ID 비교
         for (int i = 0; i < Bt_id.length; i++) {
             this.SeatBT[i] = (Button) findViewById(Bt_id[i]);
@@ -122,7 +134,7 @@ public class SeatReservationActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String result) {
                 Seat_JSON = result;
-                System.out.println("나와 시발라마");
+                System.out.println("Test");
                 ChangeBackground();
             }
         }
