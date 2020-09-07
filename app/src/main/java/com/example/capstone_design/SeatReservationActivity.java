@@ -67,7 +67,7 @@ public class SeatReservationActivity extends AppCompatActivity {
             this.SeatBT[i] = (Button) findViewById(Bt_id[i]);
             Seat_str.add("a" + i);
         }
-        Seat_data("http://210.124.110.96/Seat_Value.php");
+        Seat_data("http://192.168.0.11/Seat_Value.php");
         // OnclickListener 설정
         for (int i = 0; i < Bt_id.length; i++) {
             this.SeatBT[i].setOnClickListener(BT_Listener);
@@ -88,7 +88,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                 String result = null;
                 try {
                     HttpConnectThread http = new HttpConnectThread(
-                            "http://210.124.110.96/Seat_Value.php",
+                            "http://192.168.0.11/Seat_Value.php",
                             "ticketindex=" + Ticket_Index);
                     http.start();
                     // JSONObject jsonObj = new JSONObject(myJSON);
@@ -148,20 +148,15 @@ public class SeatReservationActivity extends AppCompatActivity {
     }
 
     // 좌석 버튼들의 OnclickListener
+    // TODO : IP Setting 'BTS' 말고 바꾸지 않음
     public View.OnClickListener BT_Listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             for (int i = 0; i < Bt_id.length; i++) {
                 if (v.getId() == SeatBT[i].getId()) {
                     if (Ticket_Index == 1) {                // 1번 티켓일때
-                        // 티켓 이름
-//                        Intent intent = new Intent(getApplicationContext(),
-
-//                                TicketInformationActivity.class);
-//                        startActivity(intent);
-                        // TODO 어떻게 티켓인덱스 Ticketinformation으로 보냄?
                         HttpConnectThread http = new HttpConnectThread(
-                                 "http://210.124.110.96/Input_Reservation.php",
+                                 "http://192.168.0.11/Input_Reservation.php",
                                 "ticketindex=" + Ticket_Index + "&userid=" + St_id +
                                         "&seat=" + Seat_str.get(i) + "&ticketname=" + TICKET_BTS);
                         http.start();

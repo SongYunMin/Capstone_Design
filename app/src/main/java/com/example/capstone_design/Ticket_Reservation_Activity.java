@@ -65,7 +65,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
 
         list = (ListView) findViewById(R.id.ticket_list);
         // get data Method 접근, 아래 정의 되어 있음
-        getData("http://210.124.110.96/Ticket_Value.php");
+        getData("http://192.168.0.11/Ticket_Value.php");
     }
 
     // Data 얻어오는 Method
@@ -81,6 +81,8 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                 try {
                     URL url = new URL(uri);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    // TODO :
+                    //  알 수 없는 예외 발생
                     StringBuilder sb = new StringBuilder();
                     bufferedReader = new BufferedReader(new InputStreamReader
                             (con.getInputStream()));

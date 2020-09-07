@@ -56,6 +56,7 @@ public class CreateQR extends AppCompatActivity {
                         local_ticket = Seat_Local;
                         sha256 hash = new sha256();
                         QR_Hash = hash.Hash(local_id + local_ticket);
+                        System.out.println(QR_Hash);
                     }
                 } else if (Ticket_Index == 2) {
                     if (St_id.equals(id) && TICKET_KKH.equals(ticket)) {
