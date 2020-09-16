@@ -23,8 +23,7 @@ public class PhoneNumberActivity extends AppCompatActivity {
         plusEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                plusEdit.setText("Test");
-                setContentView(R.layout.activity_phone_number);
+
             }
         });
 
