@@ -26,9 +26,8 @@ import static com.example.capstone_design.LoginActivity.St_id;
 import static com.example.capstone_design.TicketAdapter.Ticket_Index;
 
 public class SeatReservationActivity extends AppCompatActivity {
-    String Seat_JSON;
+    String Seat_JSON, temp;
     public static String Seat_Local;
-    String temp;
     JSONArray Reser_arr;
     View v;
     LinearLayout r;
@@ -65,10 +64,60 @@ public class SeatReservationActivity extends AppCompatActivity {
         Ticket_str.add("Seo Kang Jun Fan Concert");
 
         manyButton = findViewById(R.id.reservation);
-
         manyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for (int i = 0; i < Bt_id.length; i++) {
+                    if (v.getId() == SeatBT[i].getId()) {
+                        if (Ticket_Index == 1) {                // 1번 티켓일때
+                            HttpConnectThread http = new HttpConnectThread(
+                                    "http://192.168.0.11/Input_Reservation.php",
+                                    "ticketindex=" + Ticket_Index + "&userid=" + St_id +
+                                            "&seat=" + Seat_str.get(i) + "&ticketname=" + TICKET_BTS);
+                            http.start();
+                            String temp = http.GetResult();
+                            // 추후에 사용될(QR코드 값을 넣을 때) Seat_Local
+                            Seat_Local = Seat_str.get(i).toString();
+                            Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
+                                    Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        } else if (Ticket_Index == 2) {
+                            HttpConnectThread http = new HttpConnectThread(
+                                    "http://210.124.110.96/Input_Reservation.php",
+                                    "ticketindex=" + Ticket_Index + "&userid=" + St_id +
+                                            "&seat=" + Seat_str.get(i));
+                            http.start();
+                            String temp = http.GetResult();
+                            Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
+                                    Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        } else if (Ticket_Index == 3) {
+                            HttpConnectThread http = new HttpConnectThread(
+                                    "http://210.124.110.96/Input_Reservation.php",
+                                    "ticketindex=" + Ticket_Index + "&userid=" + St_id +
+                                            "&seat=" + Seat_str.get(i));
+                            http.start();
+                            String temp = http.GetResult();
+                            Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
+                                    Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        } else if (Ticket_Index == 4) {
+                            HttpConnectThread http = new HttpConnectThread(
+                                    "http://210.124.110.96/Input_Reservation.php",
+                                    "ticketindex=" + Ticket_Index + "&userid=" + St_id +
+                                            "&seat=" + Seat_str.get(i));
+                            http.start();
+                            String temp = http.GetResult();
+                            Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
+                                    Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            startActivity(intent);
+                        }
+                    }
+                }
                 Intent intent = new Intent(getApplicationContext(), PhoneNumberActivity.class);
                 startActivity(intent);
             }
@@ -108,7 +157,6 @@ public class SeatReservationActivity extends AppCompatActivity {
                     for (int i = 0; i < 10000; i++) {
                         System.out.println("qwe");
                     }
-
                     temp = http.GetResult();
                     JSONObject jsonObj = new JSONObject(temp);
                     Reser_arr = jsonObj.getJSONArray(TAG_RESULT);
@@ -142,6 +190,7 @@ public class SeatReservationActivity extends AppCompatActivity {
         Seat.execute(url);
     }
 
+    // 예약이 완료되었을 때 Click을 못하게 하고 Button 색을 바꿈
     public void ChangeBackground() {
         // Seat_arr이 '0' 인 오류 있음
         // 디버깅 시에는 정상 작동
@@ -158,59 +207,19 @@ public class SeatReservationActivity extends AppCompatActivity {
         }
     }
 
-    // 좌석 버튼들의 OnclickListener
+    // 좌석 버튼
     // TODO : IP Setting 'BTS' 말고 바꾸지 않음
     public View.OnClickListener BT_Listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            for (int i = 0; i < Bt_id.length; i++) {
-                if (v.getId() == SeatBT[i].getId()) {
-                    if (Ticket_Index == 1) {                // 1번 티켓일때
-                        HttpConnectThread http = new HttpConnectThread(
-                                 "http://192.168.0.11/Input_Reservation.php",
-                                "ticketindex=" + Ticket_Index + "&userid=" + St_id +
-                                        "&seat=" + Seat_str.get(i) + "&ticketname=" + TICKET_BTS);
-                        http.start();
-                        String temp = http.GetResult();
-                        // 추후에 사용될(QR코드 값을 넣을 때) Seat_Local
-                        Seat_Local = Seat_str.get(i).toString();
-                        Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
-                                Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                    } else if (Ticket_Index == 2) {
-                        HttpConnectThread http = new HttpConnectThread(
-                                "http://210.124.110.96/Input_Reservation.php",
-                                "ticketindex=" + Ticket_Index + "&userid=" + St_id +
-                                        "&seat=" + Seat_str.get(i));
-                        http.start();
-                        String temp = http.GetResult();
-                        Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
-                                Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                    } else if (Ticket_Index == 3) {
-                        HttpConnectThread http = new HttpConnectThread(
-                                "http://210.124.110.96/Input_Reservation.php",
-                                "ticketindex=" + Ticket_Index + "&userid=" + St_id +
-                                        "&seat=" + Seat_str.get(i));
-                        http.start();
-                        String temp = http.GetResult();
-                        Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
-                                Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                    } else if (Ticket_Index == 4) {
-                        HttpConnectThread http = new HttpConnectThread(
-                                "http://210.124.110.96/Input_Reservation.php",
-                                "ticketindex=" + Ticket_Index + "&userid=" + St_id +
-                                        "&seat=" + Seat_str.get(i));
-                        http.start();
-                        String temp = http.GetResult();
-                        Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
-                                Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
+            for (int i = 0; i < Seat_arr_tem.size(); i++) {
+                for (int j = 0; j < Seat_str.size(); j++) {
+                    if (Seat_arr_tem.get(i).equals(Seat_str.get(j))) {
+                        SeatBT[j].setBackgroundColor(Color.rgb(255, 199, 51));
+                        SeatBT[j].setEnabled(false);
+                        SeatBT[j].setTextColor(Color.rgb(255, 255, 255));
+                        SeatBT[j].setText("선택 됨");
+                        r.postInvalidate();
                     }
                 }
             }
