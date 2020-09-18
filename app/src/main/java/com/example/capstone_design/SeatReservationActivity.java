@@ -153,7 +153,6 @@ public class SeatReservationActivity extends AppCompatActivity {
                     SeatBT[j].setTextColor(Color.rgb(255, 255, 255));
                     SeatBT[j].setText("예약불가");
                     r.postInvalidate();
-                    System.out.println("나는 살아있다!!!");
                 }
             }
         }

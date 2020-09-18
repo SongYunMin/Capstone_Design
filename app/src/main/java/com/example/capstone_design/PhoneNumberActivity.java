@@ -13,8 +13,10 @@ public class PhoneNumberActivity extends AppCompatActivity {
     public EditText test;
 
     // TODO : 여러명을 입력받고, 좌석도 그만큼 예약 되어야 함
+    // TODO : 좌석이
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState
+    ) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone_number);
 
