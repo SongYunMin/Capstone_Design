@@ -44,6 +44,7 @@ public class SeatReservationActivity extends AppCompatActivity {
     String TICKET_MMMIA = "MMMIA!";
     String TICKET_SKJ = "Seo Kang Jun Fan Concert";
 
+
     private static final String TAG_NUM = "num";
     private static final String TAG_ID = "id";
     private static final String TAG_TICKET = "ticket";
