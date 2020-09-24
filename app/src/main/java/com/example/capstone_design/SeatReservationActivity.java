@@ -180,6 +180,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                     return null;
                 }
             }
+
             @Override
             protected void onPostExecute(String result) {
                 Seat_JSON = result;
@@ -209,22 +210,16 @@ public class SeatReservationActivity extends AppCompatActivity {
     }
 
     // 좌석 버튼
-    // TODO : IP Setting 'BTS' 말고 바꾸지 않음
     public View.OnClickListener BT_Listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             for (int i = 0; i < Seat_arr_tem.size(); i++) {
-                for (int j = 0; j < Seat_str.size(); j++) {
-                    if (Seat_arr_tem.get(i).equals(Seat_str.get(j))) {
-                        SeatBT[j].setBackgroundColor(Color.rgb(255, 199, 51));
-                        SeatBT[j].setEnabled(false);
-                        SeatBT[j].setTextColor(Color.rgb(255, 255, 255));
-                        SeatBT[j].setText("선택 됨");
-                        r.postInvalidate();
-                    }
-                }
+                SeatBT[i].setBackgroundColor(Color.rgb(255, 199, 51));
+                SeatBT[i].setEnabled(false);
+                SeatBT[i].setTextColor(Color.rgb(255, 255, 255));
+                SeatBT[i].setText("선택 됨");
+                r.postInvalidate();
             }
         }
     };
-
 }
