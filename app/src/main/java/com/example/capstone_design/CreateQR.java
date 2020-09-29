@@ -6,7 +6,9 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.google.zxing.BarcodeFormat;
@@ -25,6 +27,7 @@ public class CreateQR extends AppCompatActivity {
     public String local_ticket;
     public static ArrayList Result_data;
     public TextView time;
+    public Button nfcMode;
     String TICKET_BTS = "BTS WORLD TOUR";
     String TICKET_KKH = "KimKyungHo Concert";
     String TICKET_MMMIA = "MMMIA!";
@@ -37,6 +40,7 @@ public class CreateQR extends AppCompatActivity {
         setContentView(R.layout.activity_create_q_r);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
         time = (TextView)findViewById(R.id.time);
+        nfcMode = findViewById(R.id.nfcmode);
         // 데이터 베이스 Instance 호출
         Cursor cursor = null;
         // table값 불러오가
@@ -44,7 +48,15 @@ public class CreateQR extends AppCompatActivity {
                 query(null, null, null,
                         null, null, null);
 
-        // todo> SELECT 기능
+        // TODO : NFC 인증기능 추가 중
+        nfcMode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CreateNFC.class);
+                startActivity(intent);
+            }
+        });
+
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 String id = cursor.getString(cursor.getColumnIndex("ID"));
@@ -83,10 +95,6 @@ public class CreateQR extends AppCompatActivity {
 
                 Qrcode = (ImageView) findViewById(R.id.qrcode);
                 text = QR_Hash;
-
-                time.setText("30초안에 입장해 주세요.");
-
-
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try {
                     BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE,
