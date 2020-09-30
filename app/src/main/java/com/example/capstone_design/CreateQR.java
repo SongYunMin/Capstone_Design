@@ -22,7 +22,7 @@ import static com.example.capstone_design.TicketAdapter.Ticket_Index;
 
 public class CreateQR extends AppCompatActivity {
     private ImageView Qrcode;
-    public String text;
+    public static String certResult;
     public String local_id;
     public String local_ticket;
     public static ArrayList Result_data;
@@ -68,7 +68,6 @@ public class CreateQR extends AppCompatActivity {
                         local_ticket = Seat_Local;
                         sha256 hash = new sha256();
                         QR_Hash = hash.Hash(local_id + local_ticket);
-                        System.out.println(QR_Hash);
                     }
                 } else if (Ticket_Index == 2) {
                     if (St_id.equals(id) && TICKET_KKH.equals(ticket)) {
@@ -94,10 +93,10 @@ public class CreateQR extends AppCompatActivity {
                 }
 
                 Qrcode = (ImageView) findViewById(R.id.qrcode);
-                text = QR_Hash;
+                certResult = QR_Hash;
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try {
-                    BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE,
+                    BitMatrix bitMatrix = multiFormatWriter.encode(certResult, BarcodeFormat.QR_CODE,
                             200, 200);
                     BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                     Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);

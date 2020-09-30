@@ -14,12 +14,16 @@ import android.os.Parcelable;
 import android.widget.TextView;
 import android.widget.Toast;
 
+// CreateQR 에서 생성 된 인증 값
+import static com.example.capstone_design.CreateQR.certResult;
+
 // TODO : Client App 에서 데이터를 만들어서 Server App 으로 전송해야 함
 
 public class CreateNFC extends AppCompatActivity
         implements NfcAdapter.CreateNdefMessageCallback {
     NfcAdapter nfcAdapter;
     TextView textView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,7 @@ public class CreateNFC extends AppCompatActivity
             Toast.makeText(this,"NFC is not available", Toast.LENGTH_LONG).show();
             finish();
             return;
+
         }
         // Register Callback
         nfcAdapter.setNdefPushMessageCallback(this,this);
@@ -45,9 +50,10 @@ public class CreateNFC extends AppCompatActivity
         String text = ("Beam me up, Android!\n\n" +
                 "Beam Time: " + System.currentTimeMillis());
         NdefMessage msg = new NdefMessage(
-                // TODO : 이 부분에 QR Code 데이터와 같은 부분을 넘겨 주는 것인지 확인
+                // TODO : 이 부분에 QR Code 데이터와 같은 부분을 넘겨 주는 것인지 확인(certResult)
                 new NdefRecord[] { NdefRecord.createMime(
-                        "application/vnd.com.example.android.beam", text.getBytes())
+                        certResult, text.getBytes())
+//                        "application/vnd.com.example.android.beam", text.getBytes())
                         /**
                          * The Android Application Record (AAR) is commented out. When a device
                          * receives a push with an AAR in it, the application specified in the AAR
@@ -56,6 +62,7 @@ public class CreateNFC extends AppCompatActivity
                          * activity starts when receiving a beamed message. For now, this code
                          * uses the tag dispatch system.
                         */
+
                         //,NdefRecord.createApplicationRecord("com.example.android.beam")
                 });
         return msg;
