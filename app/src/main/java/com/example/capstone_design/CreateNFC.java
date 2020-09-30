@@ -45,6 +45,7 @@ public class CreateNFC extends AppCompatActivity
         String text = ("Beam me up, Android!\n\n" +
                 "Beam Time: " + System.currentTimeMillis());
         NdefMessage msg = new NdefMessage(
+                // TODO : 이 부분에 QR Code 데이터와 같은 부분을 넘겨 주는 것인지 확인
                 new NdefRecord[] { NdefRecord.createMime(
                         "application/vnd.com.example.android.beam", text.getBytes())
                         /**
