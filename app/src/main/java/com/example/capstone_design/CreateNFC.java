@@ -14,6 +14,7 @@ import android.os.Parcelable;
 import android.widget.TextView;
 import android.widget.Toast;
 
+// TODO : Client App 에서 데이터를 만들어서 Server App 으로 전송해야 함
 
 public class CreateNFC extends AppCompatActivity
         implements NfcAdapter.CreateNdefMessageCallback {
