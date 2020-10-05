@@ -206,7 +206,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
             }
         }
     }
-
     public void onClick(View v) {
         View list = (View) v.getParent();
     }

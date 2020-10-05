@@ -40,7 +40,6 @@ public class HttpConnectThread extends Thread {
             if (conn == null) {
                 return "";
             }
-
             conn.setConnectTimeout(5000);
             conn.setRequestMethod("POST"); // URL 요청에 대한 메소드 설정 : POST.
             conn.setRequestProperty("Accept-Charset", "UTF-8"); // Accept-Charset 설정.

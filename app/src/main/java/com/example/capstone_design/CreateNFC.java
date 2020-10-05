@@ -47,8 +47,7 @@ public class CreateNFC extends AppCompatActivity
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public NdefMessage createNdefMessage(NfcEvent event) {
-        String text = ("Beam me up, Android!\n\n" +
-                "Beam Time: " + System.currentTimeMillis());
+        String text = (QR_Hash);
         NdefMessage msg = new NdefMessage(
                 new NdefRecord[] { NdefRecord.createMime(QR_Hash, text.getBytes())
                 });
