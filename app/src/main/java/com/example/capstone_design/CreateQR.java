@@ -22,17 +22,15 @@ import static com.example.capstone_design.TicketAdapter.Ticket_Index;
 
 public class CreateQR extends AppCompatActivity {
     private ImageView Qrcode;
-    public String text;
     public String local_id;
     public String local_ticket;
-    public static ArrayList Result_data;
+    public static String QR_Hash;                       // 최종 해시값
     public TextView time;
     public Button nfcMode;
     String TICKET_BTS = "BTS WORLD TOUR";
     String TICKET_KKH = "KimKyungHo Concert";
     String TICKET_MMMIA = "MMMIA!";
     String TICKET_SKJ = "Seo Kang Jun Fan Concert";
-    String QR_Hash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,10 +92,9 @@ public class CreateQR extends AppCompatActivity {
                 }
 
                 Qrcode = (ImageView) findViewById(R.id.qrcode);
-                text = QR_Hash;
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try {
-                    BitMatrix bitMatrix = multiFormatWriter.encode(text, BarcodeFormat.QR_CODE,
+                    BitMatrix bitMatrix = multiFormatWriter.encode(QR_Hash, BarcodeFormat.QR_CODE,
                             200, 200);
                     BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                     Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
@@ -115,13 +112,4 @@ public class CreateQR extends AppCompatActivity {
             }
         }
     }
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-//        if(result != null){
-//            Toast.makeText(getApplicationContext(), "인증 되었습니다. 입장 해주세요", Toast.LENGTH_SHORT).show();
-//            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-//            startActivity(intent);
-//        }
-//    }
 }

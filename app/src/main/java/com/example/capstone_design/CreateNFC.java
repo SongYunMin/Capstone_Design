@@ -11,8 +11,10 @@ import android.nfc.NfcEvent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import static com.example.capstone_design.CreateQR.QR_Hash;
 
 
 public class CreateNFC extends AppCompatActivity
@@ -33,8 +35,12 @@ public class CreateNFC extends AppCompatActivity
             finish();
             return;
         }
+
+        textView.setText(QR_Hash);
+
         // Register Callback
         nfcAdapter.setNdefPushMessageCallback(this,this);
+
     }
 
     // 구현 클래스
@@ -44,17 +50,7 @@ public class CreateNFC extends AppCompatActivity
         String text = ("Beam me up, Android!\n\n" +
                 "Beam Time: " + System.currentTimeMillis());
         NdefMessage msg = new NdefMessage(
-                new NdefRecord[] { NdefRecord.createMime(
-                        "application/vnd.com.example.android.beam", text.getBytes())
-                        /**
-                         * The Android Application Record (AAR) is commented out. When a device
-                         * receives a push with an AAR in it, the application specified in the AAR
-                         * is guaranteed to run. The AAR overrides the tag dispatch system.
-                         * You can add it back in to guarantee that this
-                         * activity starts when receiving a beamed message. For now, this code
-                         * uses the tag dispatch system.
-                        */
-                        //,NdefRecord.createApplicationRecord("com.example.android.beam")
+                new NdefRecord[] { NdefRecord.createMime(QR_Hash, text.getBytes())
                 });
         return msg;
     }
