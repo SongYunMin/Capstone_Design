@@ -234,7 +234,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                         Seat_Local = Seat_str.get(i).toString();
                         Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
                                 Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), PhoneNumberActivity.class);
                         startActivity(intent);
                     } else if (Ticket_Index == 2) {
                         HttpConnectThread http = new HttpConnectThread(
@@ -245,7 +245,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                         String temp = http.GetResult();
                         Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
                                 Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), PhoneNumberActivity.class);
                         startActivity(intent);
                     } else if (Ticket_Index == 3) {
                         HttpConnectThread http = new HttpConnectThread(
@@ -256,7 +256,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                         String temp = http.GetResult();
                         Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
                                 Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), PhoneNumberActivity.class);
                         startActivity(intent);
                     } else if (Ticket_Index == 4) {
                         HttpConnectThread http = new HttpConnectThread(
@@ -267,7 +267,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                         String temp = http.GetResult();
                         Toast.makeText(getApplicationContext(), "예약이 완료 되었습니다",
                                 Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), PhoneNumberActivity.class);
                         startActivity(intent);
                     }
                 }

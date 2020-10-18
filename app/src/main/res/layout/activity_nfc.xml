@@ -30,15 +30,15 @@
             android:visibility="gone"
             android:hint="message" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_marginLeft="20dp"
-            android:fontFamily="@font/seoulnamsanb"
-            android:background="#91CFED"
-            android:text="관리자 모드" />
+<!--        <Button-->
+<!--            android:id="@+id/button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="left"-->
+<!--            android:layout_marginLeft="20dp"-->
+<!--            android:fontFamily="@font/seoulnamsanb"-->
+<!--            android:background="#91CFED"-->
+<!--            android:text="관리자 모드" />-->
 </LinearLayout>
 
     <TextView

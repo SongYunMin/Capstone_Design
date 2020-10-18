@@ -56,33 +56,33 @@ public class NFCActivity extends Activity {
 
         tvNFCContent = (TextView) findViewById(R.id.nfc_contents);
         message = (TextView) findViewById(R.id.edit_message);
-        btnWrite = (Button) findViewById(R.id.button);
+        //btnWrite = (Button) findViewById(R.id.button);
         Edit_text = (EditText) findViewById(R.id.edit_message);
 
-        // Write 버튼 이벤트+
-        btnWrite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Edit_text.setVisibility(View.VISIBLE);
-                try {
-                    // NFC 태그가 되어있지 않은 상태
-                    if (myTag == null) {
-                        Toast.makeText(context, ERROR_DETECTED, Toast.LENGTH_LONG).show();
-                    }
-                    // NFC 태그가 되었다면 SUCCESS Message 출력
-                    else {
-                        write(message.getText().toString(), myTag);
-                        Toast.makeText(context, WRITE_SUCCESS, Toast.LENGTH_LONG).show();
-                    }
-                } catch (IOException e) {
-                    Toast.makeText(context, WRITE_ERROR, Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
-                } catch (FormatException e) {
-                    Toast.makeText(context, WRITE_ERROR, Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
-                }
-            }
-        });
+//        // Write 버튼 이벤트+
+//        btnWrite.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Edit_text.setVisibility(View.VISIBLE);
+//                try {
+//                    // NFC 태그가 되어있지 않은 상태
+//                    if (myTag == null) {
+//                        Toast.makeText(context, ERROR_DETECTED, Toast.LENGTH_LONG).show();
+//                    }
+//                    // NFC 태그가 되었다면 SUCCESS Message 출력
+//                    else {
+//                        write(message.getText().toString(), myTag);
+//                        Toast.makeText(context, WRITE_SUCCESS, Toast.LENGTH_LONG).show();
+//                    }
+//                } catch (IOException e) {
+//                    Toast.makeText(context, WRITE_ERROR, Toast.LENGTH_LONG).show();
+//                    e.printStackTrace();
+//                } catch (FormatException e) {
+//                    Toast.makeText(context, WRITE_ERROR, Toast.LENGTH_LONG).show();
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
 
         nfcAdapter = NfcAdapter.getDefaultAdapter(this);
         // NFC를 지원하지 않는 단말기일시 Message 출력
