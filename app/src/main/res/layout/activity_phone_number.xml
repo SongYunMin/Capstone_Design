@@ -52,6 +52,7 @@
             android:layout_alignLeft="@id/ticketnum"
             android:layout_marginLeft="167dp"
             android:layout_marginTop="-36dp"
+            android:textColor="#FFFFFF"
             android:backgroundTint="#FFFFFF"
             android:hint="티켓 매수를 입력하세요"
             android:textColorHint="#FFFFFF" />
