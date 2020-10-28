@@ -75,13 +75,6 @@ public class NewAccount_Activity extends AppCompatActivity {
             builder.setCancelable(false);
             AlertDialog dialog = builder.create();
             dialog.show();
-            // "회원가입" 버튼을 눌렀을때 이벤트 처리
-//            Join.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    // Toast 메세지
-//                }
-//            });
         } else {
             Toast.makeText(getApplicationContext(), "비밀번호가 일치하지 않습니다",
                     Toast.LENGTH_LONG).show();

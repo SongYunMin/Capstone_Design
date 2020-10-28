@@ -213,14 +213,6 @@ public class SeatReservationActivity extends AppCompatActivity {
     public View.OnClickListener BT_Listener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-//            for (int i = 0; i < Seat_arr_tem.size(); i++) {
-//                SeatBT[i].setBackgroundColor(Color.rgb(255, 199, 51));
-//                SeatBT[i].setEnabled(false);
-//                SeatBT[i].setTextColor(Color.rgb(255, 255, 255));
-//                SeatBT[i].setText("선택 됨");
-//                r.postInvalidate();
-//            }
-
             for (int i = 0; i < Bt_id.length; i++) {
                 if (v.getId() == SeatBT[i].getId()) {
                     if (Ticket_Index == 1) {                // 1번 티켓일때
