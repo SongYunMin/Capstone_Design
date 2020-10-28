@@ -128,7 +128,7 @@ public class SeatReservationActivity extends AppCompatActivity {
             this.SeatBT[i] = (Button) findViewById(Bt_id[i]);
             Seat_str.add("a" + i);
         }
-        Seat_data("http://192.168.0.11/Seat_Value.php");
+        Seat_data("http://192.168.0.108/Seat_Value.php");
         // OnclickListener 설정
         for (int i = 0; i < Bt_id.length; i++) {
             this.SeatBT[i].setOnClickListener(BT_Listener);
@@ -149,7 +149,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                 String result = null;
                 try {
                     HttpConnectThread http = new HttpConnectThread(
-                            "http://192.168.0.11/Seat_Value.php",
+                            "http://192.168.0.108/Seat_Value.php",
                             "ticketindex=" + Ticket_Index);
                     http.start();
                     // JSONObject jsonObj = new JSONObject(myJSON);
@@ -225,7 +225,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                 if (v.getId() == SeatBT[i].getId()) {
                     if (Ticket_Index == 1) {                // 1번 티켓일때
                         HttpConnectThread http = new HttpConnectThread(
-                                "http://192.168.0.11/Input_Reservation.php",
+                                "http://192.168.0.104/Input_Reservation.php",
                                 "ticketindex=" + Ticket_Index + "&userid=" + St_id +
                                         "&seat=" + Seat_str.get(i) + "&ticketname=" + TICKET_BTS);
                         http.start();
@@ -238,7 +238,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                         startActivity(intent);
                     } else if (Ticket_Index == 2) {
                         HttpConnectThread http = new HttpConnectThread(
-                                "http://192.168.0.11/Input_Reservation.php",
+                                "http://192.168.0.104/Input_Reservation.php",
                                 "ticketindex=" + Ticket_Index + "&userid=" + St_id +
                                         "&seat=" + Seat_str.get(i));
                         http.start();
@@ -249,7 +249,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                         startActivity(intent);
                     } else if (Ticket_Index == 3) {
                         HttpConnectThread http = new HttpConnectThread(
-                                "http://192.168.0.11/Input_Reservation.php",
+                                "http://192.168.0.104/Input_Reservation.php",
                                 "ticketindex=" + Ticket_Index + "&userid=" + St_id +
                                         "&seat=" + Seat_str.get(i));
                         http.start();
@@ -260,7 +260,7 @@ public class SeatReservationActivity extends AppCompatActivity {
                         startActivity(intent);
                     } else if (Ticket_Index == 4) {
                         HttpConnectThread http = new HttpConnectThread(
-                                "http://192.168.0.11/Input_Reservation.php",
+                                "http://192.168.0.104/Input_Reservation.php",
                                 "ticketindex=" + Ticket_Index + "&userid=" + St_id +
                                         "&seat=" + Seat_str.get(i));
                         http.start();

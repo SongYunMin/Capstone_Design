@@ -47,7 +47,7 @@ public class NewAccount_Activity extends AppCompatActivity {
         if (st_pw.equals(st_pwck)) {
             //String 형으로 입력받은 코드들을 서버로 전송
             HttpConnectThread http = new HttpConnectThread(
-                    "http://210.124.110.96/new_member.php",
+                    "http://192.168.0.108/new_member.php",
                     "userid=" + st_id + "&username=" + st_name + "&userpassword=" + st_pw +
                             "&userphone=" + st_phone);
             http.start();
