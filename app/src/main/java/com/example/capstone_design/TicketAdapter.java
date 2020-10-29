@@ -91,30 +91,30 @@ public class TicketAdapter extends ArrayAdapter<Ticket_VO> {
             typeImageView.setImageDrawable(ResourcesCompat.getDrawable
                     (context.getResources(), R.drawable.skj, null));
         }
-        // TODO -> vo.cus_ticket 값이 모두 돌지 않아서 리스트를 끝까지 출력해내지 않으면 에러 발생
+        // 예약시 휴대폰 번호 입력창으로 이동
         buttonView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (vo.cus_ticket.equals("1")) {
-                    Intent intent = new Intent(context, SeatReservationActivity.class);
+                    Intent intent = new Intent(context, PhoneNumberActivity.class);
                     context.startActivity(intent);
                     Ticket_Index = 1;
                     ReservationWhether = "1";       // 예약여부
                     Ticket_Reservation_Activity.clickHandler(v);
                 } else if (vo.cus_ticket.equals("2")) {
-                    Intent intent = new Intent(context, SeatReservationActivity.class);
+                    Intent intent = new Intent(context, PhoneNumberActivity.class);
                     context.startActivity(intent);
                     Ticket_Index = 2;
                     ReservationWhether = "2";       // 예약여부
                     Ticket_Reservation_Activity.clickHandler(v);
                 } else if (vo.cus_ticket.equals("3")) {
-                    Intent intent = new Intent(context, SeatReservationActivity.class);
+                    Intent intent = new Intent(context, PhoneNumberActivity.class);
                     context.startActivity(intent);
                     Ticket_Index = 3;
                     ReservationWhether = "3";       // 예약여부
                     Ticket_Reservation_Activity.clickHandler(v);
                 } else if (vo.cus_ticket.equals("4")) {
-                    Intent intent = new Intent(context, SeatReservationActivity.class);
+                    Intent intent = new Intent(context, PhoneNumberActivity.class);
                     context.startActivity(intent);
                     Ticket_Index = 4;
                     ReservationWhether = "4";       // 예약여부

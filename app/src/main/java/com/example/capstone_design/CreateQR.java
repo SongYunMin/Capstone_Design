@@ -98,7 +98,9 @@ public class CreateQR extends AppCompatActivity {
                             200, 200);
                     BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                     Bitmap bitmap = barcodeEncoder.createBitmap(bitMatrix);
-                    Qrcode.setImageBitmap(bitmap);
+                    Intent intent = new Intent(CreateQR.this, CreateNFC.class);
+                    startActivity(intent);
+                    //Qrcode.setImageBitmap(bitmap);
                 } catch (Exception e) {
                 }
                 Handler handler = new Handler();

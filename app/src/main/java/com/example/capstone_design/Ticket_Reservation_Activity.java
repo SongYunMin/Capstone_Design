@@ -81,8 +81,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                 try {
                     URL url = new URL(uri);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                    // TODO :
-                    //  알 수 없는 예외 발생
                     StringBuilder sb = new StringBuilder();
                     bufferedReader = new BufferedReader(new InputStreamReader
                             (con.getInputStream()));
@@ -108,8 +106,6 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
         g.execute(url);
     }
 
-    // TODO : 티켓 중복 출력 문제 해결
-    // List 의 들어갈 값을 가져오는 Method
     protected void showList() {
         try {
             JSONObject jsonObj = new JSONObject(myJSON);

@@ -36,7 +36,7 @@ public class CreateNFC extends AppCompatActivity
             return;
         }
 
-        textView.setText("Test Value : "+QR_Hash);
+//        textView.setText("Test Value : "+QR_Hash);
 
         // Register Callback
         nfcAdapter.setNdefPushMessageCallback(this,this);

@@ -54,8 +54,8 @@ public class PhoneNumberActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(PhoneNumberActivity.this,
-                        "예약이 완료되었습니다.", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        "좌석을 선택해주세요.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getApplicationContext(), SeatReservationActivity.class);
                 startActivity(intent);
             }
 
