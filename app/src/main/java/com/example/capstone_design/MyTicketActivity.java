@@ -36,6 +36,12 @@ public class MyTicketActivity extends AppCompatActivity {
         final TextView NoTicketText = (TextView) findViewById(R.id.noticket);
 
         // MyTIcket Activity (XML)
+        //Todo: 이건 너무하잖아.. 데이터를 받아와야지
+        if(ReservationWhether == null){
+            NoTicketText.setText("예약된 티켓의 데이터를 불러올 수 없습니다.");
+            NoTicketText.setVisibility(View.VISIBLE);
+            return;
+        }
         if (ReservationWhether.equals("1")) {
             TicketImage.setImageResource(R.drawable.bts);
             NameText.setText("BTS WORLD TOUR");

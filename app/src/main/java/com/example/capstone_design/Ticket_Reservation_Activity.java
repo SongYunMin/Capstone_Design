@@ -107,6 +107,9 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
     }
 
     protected void showList() {
+        if(myJSON == null){
+            return;
+        }
         try {
             JSONObject jsonObj = new JSONObject(myJSON);
             ticket = jsonObj.getJSONArray(TAG_RESULT);
@@ -120,7 +123,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                     String day = c.getString(TAG_DAY);
                     String place = c.getString(TAG_PLACE);
 
-                    Ticket_VO vo = new Ticket_VO();
+                    Ticket_VO vo = new Ticket_VO(){};
                     vo.cus_ticket = num;
                     vo.cus_name = name;
                     vo.cus_time = time;
@@ -128,8 +131,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                     vo.cus_place = place;
                     datas.add(vo);
                 }
-            }
-            if(status == 0) {
+
                 // list_item
                 TicketAdapter adapter = new TicketAdapter(this, R.layout.list_item, datas);
                 list.setAdapter(adapter);

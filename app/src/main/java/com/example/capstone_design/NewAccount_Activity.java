@@ -68,8 +68,7 @@ public class NewAccount_Activity extends AppCompatActivity {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
                             status = 1;     // 회원가입을 통한 지문인증인지 구분해야 함(NFC 때문)
-                            Intent intent = new Intent(getApplicationContext(), FingerPrintActivity.class);
-                            startActivity(intent);
+                            finish();
                         }
                     });
             builder.setCancelable(false);
