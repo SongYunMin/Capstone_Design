@@ -123,7 +123,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
                     String day = c.getString(TAG_DAY);
                     String place = c.getString(TAG_PLACE);
 
-                    Ticket_VO vo = new Ticket_VO(){};
+                    Ticket_VO vo = new Ticket_VO();
                     vo.cus_ticket = num;
                     vo.cus_name = name;
                     vo.cus_time = time;
