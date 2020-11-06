@@ -65,7 +65,7 @@ public class Ticket_Reservation_Activity extends AppCompatActivity
 
         list = (ListView) findViewById(R.id.ticket_list);
         // get data Method 접근, 아래 정의 되어 있음
-        getData("http://192.168.0.108/Ticket_Value.php");
+        getData("http://211.247.111.75/Ticket_Value.php:9950");
     }
 
     // Data 얻어오는 Method

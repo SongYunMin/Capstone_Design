@@ -44,7 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         St_id = ed_id.getText().toString();
 
         // 통신 스레드 실행 (PHP 문자열 오류있음)
-        HttpConnectThread http = new HttpConnectThread("http://192.168.0.108/Android_Check.php",
+        HttpConnectThread http = new HttpConnectThread(
+                "http://211.247.111.75/Android_Check.php:9950",
                 "memberID=" + St_id + "&memberPw=" + St_pw);
 
         // PHP 문자열 오류 있음
