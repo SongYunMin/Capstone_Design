@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
 
         // 통신 스레드 실행 (PHP 문자열 오류있음)
         HttpConnectThread http = new HttpConnectThread(
-                "http://211.247.111.75/Android_Check.php:9950",
+                "http://211.247.111.75:9950/Android_Check.php",
                 "memberID=" + St_id + "&memberPw=" + St_pw);
 
         // PHP 문자열 오류 있음
